@@ -5,10 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BitzDrawingFileCreator_WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" MinWidth="800" MinHeight="450" SizeToContent="Width">
     <Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="512,175,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource bitzButton}" Click="Button_Click"/>
-        <DockPanel HorizontalAlignment="Left" Height="419" LastChildFill="False" VerticalAlignment="Top" Width="130" Style="{DynamicResource bitzMenu}"/>
-
+        <StackPanel HorizontalAlignment="Left" Margin="326,132,0,0" VerticalAlignment="Top"/>
+        <DockPanel>
+            <StackPanel Width="224" Style="{DynamicResource bitzStackPanel}">
+                <StackPanel Height="72" Style="{DynamicResource bitzMenuLogo}"/>
+                <Button Content="Button" Style="{DynamicResource bitzMenuOption}" FontSize="20" Height="32" Margin="0" FontStretch="Expanded"/>
+            </StackPanel>
+            <StackPanel Background="#FF830B0B" DockPanel.Dock="Top"/>
+        </DockPanel>
     </Grid>
 </Window>

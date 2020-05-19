@@ -14,3 +14,5 @@ F:\Mega Sync Drive\SYNCHRONOUS\Projects\GitHub Repositories\BitzDrawingFileCreat
 F:\Mega Sync Drive\SYNCHRONOUS\Projects\GitHub Repositories\BitzDrawingFileCreator_WPF\BitzDrawingFileCreator_WPF\obj\Debug\BitzDrawingFileCreator_WPF.csproj.CoreCompileInputs.cache
 F:\Mega Sync Drive\SYNCHRONOUS\Projects\GitHub Repositories\BitzDrawingFileCreator_WPF\BitzDrawingFileCreator_WPF\obj\Debug\BitzDrawingFileCreator_WPF.exe
 F:\Mega Sync Drive\SYNCHRONOUS\Projects\GitHub Repositories\BitzDrawingFileCreator_WPF\BitzDrawingFileCreator_WPF\obj\Debug\BitzDrawingFileCreator_WPF.pdb
+F:\Mega Sync Drive\SYNCHRONOUS\Projects\GitHub Repositories\BitzDrawingFileCreator_WPF\BitzDrawingFileCreator_WPF\obj\Debug\Page1.g.cs
+F:\Mega Sync Drive\SYNCHRONOUS\Projects\GitHub Repositories\BitzDrawingFileCreator_WPF\BitzDrawingFileCreator_WPF\obj\Debug\Page1.baml

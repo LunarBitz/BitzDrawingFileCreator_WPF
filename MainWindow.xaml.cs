@@ -29,6 +29,10 @@ namespace BitzDrawingFileCreator_WPF
             Resources["themeclr_Text_Secondary"]            = (Brush)(new BrushConverter().ConvertFrom("#FF" + "5f2568"));
             Resources["themeclr_Text_Tertiary"]             = (Brush)(new BrushConverter().ConvertFrom("#FF" + "341d38"));
 
+            
+            Resources["themeclr_MenuLogo_Background_Primary"] = (Color)ColorConverter.ConvertFromString("#FF" + "3f164d");
+            Resources["themeclr_MenuLogo_Background_Secondary"]  = (Color)ColorConverter.ConvertFromString("#00" + "000000");
+
             Resources["themeclr_Button_Text"]               = Resources["themeclr_Text_Primary"];
             Resources["themeclr_Button_Background"]         = (Brush)(new BrushConverter().ConvertFrom("#FF" + "0f0f0f"));
             Resources["themeclr_Button_Border"]             = (Brush)(new BrushConverter().ConvertFrom("#00" + "000000"));

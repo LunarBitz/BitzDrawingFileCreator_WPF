@@ -14,6 +14,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        
         <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
         <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
         <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
@@ -23,11 +24,13 @@
         <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
         <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
         <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+
+        <!-- Button Style -->
         <Style x:Key="bitzButton" TargetType="{x:Type Button}">
             <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
-            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
-            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
-            <Setter Property="Foreground" Value="{DynamicResource thmclrMainText}"/>
+            <Setter Property="Background" Value="{DynamicResource themeclr_Button_Background}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource themeclr_Button_Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource themeclr_Button_Text}"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -40,19 +43,19 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsDefaulted" Value="true">
-                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource themeclr_Button_Selected}"/>
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                                <Setter Property="Background" TargetName="border" Value="{DynamicResource themeclr_Button_Hover}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource DynamicResource themeclr_Button_Border}"/>
                             </Trigger>
                             <Trigger Property="IsPressed" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                                <Setter Property="Background" TargetName="border" Value="{DynamicResource themeclr_Button_Clicked}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource DynamicResource themeclr_Button_Border}"/>
                             </Trigger>
                             <Trigger Property="IsEnabled" Value="false">
-                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="Background" TargetName="border" Value="{DynamicResource themeclr_Button_Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource DynamicResource themeclr_Button_Border}"/>
                                 <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
@@ -60,6 +63,12 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+        <!-- Menu Style -->
+        <Style x:Key="bitzMenu" TargetType="{x:Type DockPanel}">
+            <Setter Property="Background" Value="{DynamicResource themeclr_Menu_Background}"/>
+        </Style>
+        
 
     </Application.Resources>
 </Application>

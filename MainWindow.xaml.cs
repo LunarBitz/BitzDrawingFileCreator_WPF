@@ -26,12 +26,11 @@ namespace BitzDrawingFileCreator_WPF
         #region Variables
 
         private Window activeWindow = null;
-        public Storyboard menuStory = null;
 
         int panelSlideSpeed = 20;
 
         Dictionary<string, StackPanel> dataSubPanels;
-        Dictionary<string, double> dataSubPanelsInfo;
+        Dictionary<string, string> dataSubPanelsInfo;
 
         #endregion
 
@@ -39,18 +38,25 @@ namespace BitzDrawingFileCreator_WPF
         {
             InitializeComponent();
 
+            
+
             dataSubPanels = new Dictionary<string, StackPanel>();
-            dataSubPanelsInfo = new Dictionary<string, double>();
+            dataSubPanelsInfo = new Dictionary<string, string>();
 
             dataSubPanels["Pages"] = submenupanel_Pages;
-            dataSubPanelsInfo["Pages_Height"] = dataSubPanels["Pages"].Height;
-            this.RegisterName(dataSubPanels["Pages"].Name, dataSubPanels["Pages"]);
-
-            menuStory = new Storyboard();
+            dataSubPanelsInfo["Pages_Height"] = dataSubPanels["Pages"].Height.ToString();
+            System.Diagnostics.Debug.WriteLine(" Height: " + dataSubPanels["Pages"].Height);
+            dataSubPanelsInfo["Pages_Hidden"] = "False";
+            dataSubPanelsInfo["Pages_Slide"] = "Up";
 
             initThemeColors();
 
             hideSubMenus();
+
+            System.Windows.Threading.DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
+            dispatcherTimer.Tick += dispatcherTimer_Tick;
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 1, 300);
+            dispatcherTimer.Start();
 
         }
 
@@ -107,45 +113,90 @@ namespace BitzDrawingFileCreator_WPF
 
         private void hideSubMenus()
         {
-            foreach (KeyValuePair<string, StackPanel> subMenu in dataSubPanels)
+            foreach (KeyValuePair<string, StackPanel> subMenus in dataSubPanels)
             {
-
-                DoubleAnimation menuDown = new DoubleAnimation();
-                menuDown.From = 160;
-                menuDown.To = 0;
-                menuDown.Duration = new Duration(TimeSpan.FromMilliseconds(100.0));
-                Storyboard.SetTargetName(menuDown, subMenu.Value.Name);
-                Storyboard.SetTargetProperty(menuDown,
-                    new PropertyPath(StackPanel.HeightProperty));
-
-                menuStory.Children.Add(menuDown);
-
-                menuStory.Begin(this);
+                dataSubPanelsInfo[subMenus.Key + "_Slide"] = "Up";
             }
-            
         }
         
         private void showSubMenu(StackPanel subMenu)
         {
-            if (subMenu.Height > 0.0)
+            string baseName = subMenu.Name.Replace("submenupanel_", "");
+
+            if (dataSubPanelsInfo[baseName + "_Hidden"] == "True")
             {
                 hideSubMenus();
+
+                dataSubPanelsInfo[baseName + "_Slide"] = "Down";
             }
             else
             {
-                string baseName = subMenu.Name.Replace("submenupanel_", "");
+                dataSubPanelsInfo[baseName + "_Slide"] = "Up";
+            }
+        }
 
-                DoubleAnimation menuUp = new DoubleAnimation();
-                menuUp.From = subMenu.Height;
-                menuUp.To = dataSubPanelsInfo[baseName + "_Height"];
-                menuUp.Duration = new Duration(TimeSpan.FromMilliseconds(300));
-                Storyboard.SetTargetName(menuUp, subMenu.Name);
-                Storyboard.SetTargetProperty(menuUp,
-                    new PropertyPath(StackPanel.HeightProperty));
-                
-                menuStory.Children.Add(menuUp);
+        private double ConvertToDouble(string s)
+        {
+            char systemSeparator = System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.CurrencyDecimalSeparator[0];
+            double result = 0;
+            try
+            {
+                if (s != null)
+                    if (!s.Contains(","))
+                        result = double.Parse(s, System.Globalization.CultureInfo.InvariantCulture);
+                    else
+                        result = Convert.ToDouble(s.Replace(".", systemSeparator.ToString()).Replace(",", systemSeparator.ToString()));
+            }
+            catch (Exception e)
+            {
+                try
+                {
+                    result = Convert.ToDouble(s);
+                }
+                catch
+                {
+                    try
+                    {
+                        result = Convert.ToDouble(s.Replace(",", ";").Replace(".", ",").Replace(";", "."));
+                    }
+                    catch
+                    {
+                        throw new Exception("Wrong string-to-double format");
+                    }
+                }
+            }
+            return result;
+        }
 
-                menuStory.Begin(this);
+        private void dispatcherTimer_Tick(object sender, EventArgs e)
+        {
+            foreach (KeyValuePair<string, StackPanel> subMenus in dataSubPanels)
+            {
+                if (dataSubPanelsInfo[subMenus.Key + "_Slide"] == "Down" && dataSubPanelsInfo[subMenus.Key + "_Hidden"] == "True")
+                {
+                    subMenus.Value.Height += panelSlideSpeed;
+                    System.Diagnostics.Debug.WriteLine(subMenus.Value.Name + "Going Down Height: " + subMenus.Value.Height);
+
+                    if (subMenus.Value.Height >= ConvertToDouble(dataSubPanelsInfo[subMenus.Key + "_Height"]))
+                    {
+                        dataSubPanelsInfo[subMenus.Key + "_Hidden"] = "False";
+                        subMenus.Value.Height = ConvertToDouble(dataSubPanelsInfo[subMenus.Key + "_Height"]);
+                        //this.Refresh();
+                    }
+                }
+
+                if (dataSubPanelsInfo[subMenus.Key + "_Slide"] == "Up" && dataSubPanelsInfo[subMenus.Key + "_Hidden"] == "False")
+                {
+                    subMenus.Value.Height -= panelSlideSpeed;
+                    System.Diagnostics.Debug.WriteLine(subMenus.Value.Name + "Going Up Height: " + subMenus.Value.Height);
+
+                    if (subMenus.Value.Height <= 0)
+                    {
+                        dataSubPanelsInfo[subMenus.Key + "_Hidden"] = "True";
+                        subMenus.Value.Height = 0;
+                        //this.Refresh();
+                    }
+                }
             }
         }
 

@@ -9,11 +9,19 @@
     <Grid>
         <StackPanel HorizontalAlignment="Left" Margin="326,132,0,0" VerticalAlignment="Top"/>
         <DockPanel>
-            <StackPanel Width="224" Style="{DynamicResource bitzStackPanel}">
+            <StackPanel Width="224" Style="{DynamicResource bitzMenu}">
                 <StackPanel Height="72" Style="{DynamicResource bitzMenuLogo}"/>
-                <Button Content="Button" Style="{DynamicResource bitzMenuOption}" FontSize="20" Height="32" Margin="0" FontStretch="Expanded"/>
+                <Button Content="Pages" Style="{DynamicResource bitzMenuOption}" FontSize="20" Height="32" Margin="0" FontStretch="Expanded"/>
+                <StackPanel x:Name="submenupanel_Pages" Background="#FF232027" Style="{DynamicResource bitzSubMenu}" Margin="0">
+                    <Button Content="Button" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Background="{x:Null}" Foreground="#FF5F2568" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                    <Button Content="Button" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Background="{x:Null}" Foreground="#FF5F2568" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                    <Button Content="Button" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Background="{x:Null}" Foreground="#FF5F2568" Margin="0" Style="{DynamicResource bitzSubMenuOption}" Tag="submenu"/>
+                    <Button Content="Button" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Background="{x:Null}" Foreground="#FF5F2568" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                    <Button Content="Button" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Background="{x:Null}" Foreground="#FF5F2568" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                </StackPanel>
             </StackPanel>
-            <StackPanel Background="#FF830B0B" DockPanel.Dock="Top"/>
+            <Frame Content="Frame" Background="#FF00F7E1"/>
+            <Button Content="Button" Height="419" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
         </DockPanel>
     </Grid>
 </Window>

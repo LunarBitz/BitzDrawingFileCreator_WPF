@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BitzDrawingFileCreator_WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" MinWidth="800" MinHeight="450" SizeToContent="Width" Background="Black">
+        Title="MainWindow" Height="510" Width="872" MinWidth="872" MinHeight="510" SizeToContent="Width" Background="Black" ResizeMode="CanMinimize">
     <Grid>
         <StackPanel HorizontalAlignment="Left" Margin="326,132,0,0" VerticalAlignment="Top"/>
         <DockPanel>
@@ -28,7 +28,7 @@
                     <Button x:Name="btnClearAll" Content="Clear All" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Background="{x:Null}" Foreground="#FF5F2568" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
                 </StackPanel>
             </StackPanel>
-            <Frame x:Name="frameMainView" Content="Frame">
+            <Frame x:Name="frameMainView" Content="Frame" Margin="0" DockPanel.Dock="Top">
                 <Frame.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0.5">
                         <GradientStop Color="#000000"/>

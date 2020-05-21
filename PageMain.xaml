@@ -6,9 +6,19 @@
       xmlns:local="clr-namespace:BitzDrawingFileCreator_WPF"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="PageMain">
+      Title="PageMain" Width="640" Height="480">
+    <Page.Resources>
+        <SolidColorBrush x:Key="TextBox.Static.Border" Color="#FFABAdB3"/>
+        <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#FF7EB4EA"/>
+        <SolidColorBrush x:Key="TextBox.Focus.Border" Color="#FF569DE5"/>
+    </Page.Resources>
 
-    <Grid>
-        
+    <Grid Background="#00422121">
+        <GroupBox Header="" HorizontalAlignment="Left" BorderBrush="#FF009FFF" Height="79" Margin="10,10,0,0" VerticalAlignment="Top" Width="164" BorderThickness="0,1" Grid.IsSharedSizeScope="True" Style="{DynamicResource bitzGroupBox}">
+            <Grid>
+                <Label Content="Recipient's Username" Margin="0" Background="#00000000" Foreground="#FFC000C0" FontFamily="Segoe UI Semibold" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"/>
+                <TextBox x:Name="txtUserName" Margin="0,25,0,10" TextWrapping="Wrap" Text="TextBox" Height="20" Background="#FF0F0F0F" Foreground="#FF5F2568" SelectionBrush="#FF404040" Style="{DynamicResource bitzTextBox}" BorderBrush="#3FABADB3"/>
+            </Grid>
+        </GroupBox>
     </Grid>
 </Page>

@@ -24,6 +24,8 @@ namespace BitzDrawingFileCreator_WPF
     {
 
         #region Variables
+        private Window activeWindow = null;
+
         /// <summary>
         /// Storyboard handler for all animations
         /// </summary>
@@ -70,7 +72,7 @@ namespace BitzDrawingFileCreator_WPF
             hideSubMenus();
 
             // Load inital page to sub view
-            frameMainView.Navigate(new Page1());
+            frameMainView.Navigate(new PageMain());
         }
 
         private void initThemeColors()
@@ -106,9 +108,13 @@ namespace BitzDrawingFileCreator_WPF
             Resources["themeclr_SubMenuOption_Clicked"]         = (Brush)(new BrushConverter().ConvertFrom("#FF" + "79517d"));
             Resources["themeclr_SubMenuOption_Selected"]        = (Brush)(new BrushConverter().ConvertFrom("#FF" + "c0c0c0"));
 
-            Resources["themeclr_EntryText_Text"]                = Resources["themeclr_Text_Primary"];
-            Resources["themeclr_EntryText_Background"]          = (Brush)(new BrushConverter().ConvertFrom("#FF" + "c000c0"));
-            Resources["themeclr_EntryTex_Border"]               = (Brush)(new BrushConverter().ConvertFrom("#FF" + "c000c0"));
+            Resources["themeclr_Group_Background"]              = (Brush)(new BrushConverter().ConvertFrom("#00" + "000000"));
+            Resources["themeclr_Group_Border"]                  = (Brush)(new BrushConverter().ConvertFrom("#FF" + "FFFFFF"));
+            Resources["themeclr_TextBox_Text"]                  = Resources["themeclr_Text_Secondary"];
+            Resources["themeclr_TextBox_Background"]            = (Brush)(new BrushConverter().ConvertFrom("#80" + "0f0f0f"));
+            Resources["themeclr_TextBox_Border"]                = (Brush)(new BrushConverter().ConvertFrom("#80" + "FF0000"));
+            Resources["themeclr_TextBox_Hover"]                 = (Brush)(new BrushConverter().ConvertFrom("#80" + "c0c0c0"));
+            Resources["themeclr_TextBox_Focus"]                 = (Brush)(new BrushConverter().ConvertFrom("#80" + "79517d"));
 
             Resources["themeclr_ListBox_Text"]                  = Resources["themeclr_Text_Primary"];
             Resources["themeclr_ListBox_Background"]            = (Brush)(new BrushConverter().ConvertFrom("#FF" + "c000c0"));
@@ -233,6 +239,11 @@ namespace BitzDrawingFileCreator_WPF
         private void menuSlideComplete(object sender, EventArgs e, StackPanel subMenu, int setHidden)
         {
             dataSubPanelsInfo[subMenu.Name.Replace("submenupanel_", "") + "_Hidden"] = setHidden;
+        }
+
+        private void openChildForm(Window childWindow)
+        {
+//
         }
 
         #endregion

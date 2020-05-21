@@ -6,9 +6,6 @@
       xmlns:local="clr-namespace:BitzDrawingFileCreator_WPF"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Page1">
-    <Grid>
-        <Rectangle Fill="#FF5F0038" HorizontalAlignment="Left" Margin="0" Stroke="Black" Width="100"/>
-        <Rectangle Fill="#FF2E2C2D" Stroke="Black" HorizontalAlignment="Right" Width="700"/>
-    </Grid>
+      Title="Page1" Width="568" Height="419">
+    <StackPanel/>
 </Page>

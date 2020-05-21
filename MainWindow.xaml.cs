@@ -27,8 +27,12 @@ namespace BitzDrawingFileCreator_WPF
 
         private Window activeWindow = null;
         public Storyboard menuStory = null;
+        public DoubleAnimation menuSlide = null;
 
-        int panelSlideSpeed = 20;
+        /// <summary>
+        /// Time in milliseconds
+        /// </summary>
+        double panelOpenTime = 50.0;
 
         Dictionary<string, StackPanel> dataSubPanels;
         Dictionary<string, int> dataSubPanelsInfo;
@@ -52,6 +56,8 @@ namespace BitzDrawingFileCreator_WPF
 
             hideSubMenus();
 
+            frameMainView.Navigate(new Page1());
+
         }
 
         private void initThemeColors()
@@ -70,7 +76,8 @@ namespace BitzDrawingFileCreator_WPF
             Resources["themeclr_Button_Clicked"] = (Brush)(new BrushConverter().ConvertFrom("#FF" + "79517d"));
             Resources["themeclr_Button_Selected"] = (Brush)(new BrushConverter().ConvertFrom("#FF" + "c0c0c0"));
 
-            Resources["themeclr_Menu_Background"] = (Brush)(new BrushConverter().ConvertFrom("#FF" + "0f0f0f"));
+            Resources["themeclr_Menu_Background_Primary"] = (Color)ColorConverter.ConvertFromString("#FF" + "0f0f0f");
+            Resources["themeclr_Menu_Background_Secondary"] = (Color)ColorConverter.ConvertFromString("#00" + "1f1f1f");
             Resources["themeclr_MenuOption_Text"] = Resources["themeclr_Text_Primary"];
             Resources["themeclr_MenuOption_Background"] = (Brush)(new BrushConverter().ConvertFrom("#00" + "000000"));
             Resources["themeclr_MenuOption_Border"] = (Brush)(new BrushConverter().ConvertFrom("#00" + "000000"));
@@ -110,85 +117,108 @@ namespace BitzDrawingFileCreator_WPF
             IConvertible convert = o as IConvertible;
 
             if (convert != null)
-            {
                 return convert.ToDouble(null);
-            }
             else
-            {
                 return 0d;
-            }
         }
 
-        private void hideSubMenus()
+        #region UI Methods
+
+        private void hideSubMenu(StackPanel subMenu)
+        {
+            string baseName = subMenu.Name.Replace("submenupanel_", "");
+
+            ScaleTransform scale = new ScaleTransform(
+                1.0,
+                objToDouble(dataSubPanels[baseName].LayoutTransform.GetValue(ScaleTransform.ScaleYProperty))
+            );
+            //ScaleTransform scale = new ScaleTransform(1.0, 1.0);
+            dataSubPanels[baseName].LayoutTransform = scale;
+
+            menuSlide = new DoubleAnimation(0.0, new Duration(TimeSpan.FromMilliseconds(panelOpenTime)));
+            menuSlide.Completed += new EventHandler((sender, e) => menuSlidedAnimationComplete(sender, e, dataSubPanels[baseName]));
+
+            menuStory.Children.Add(menuSlide);
+            Storyboard.SetTarget(menuSlide, dataSubPanels[baseName]);
+            Storyboard.SetTargetProperty(menuSlide, new PropertyPath("LayoutTransform.ScaleY"));
+
+            menuStory.Begin(this);
+        }
+
+        private void hideSubMenus(StackPanel exclusion = null)
         {
             foreach (KeyValuePair<string, StackPanel> subMenu in dataSubPanels)
             {
-                /*
-                ScaleTransform scale = new ScaleTransform(
-                    objToDouble(subMenu.Value.LayoutTransform.ReadLocalValue(ScaleTransform.ScaleXProperty)),
-                    objToDouble(subMenu.Value.LayoutTransform.ReadLocalValue(ScaleTransform.ScaleYProperty))
-                );*/
-                ScaleTransform scale = new ScaleTransform(1.0, 0.0);
-                subMenu.Value.LayoutTransform = scale;
+                if (subMenu.Value != exclusion)
+                {
+                    
+                    ScaleTransform scale = new ScaleTransform(
+                        1.0,
+                        objToDouble(subMenu.Value.LayoutTransform.GetValue(ScaleTransform.ScaleYProperty))
+                    );
+                    //ScaleTransform scale = new ScaleTransform(1.0, 1.0);
+                    subMenu.Value.LayoutTransform = scale;
 
-                DoubleAnimation menuDown = new DoubleAnimation();
-                menuDown.From = 1.0;
-                menuDown.To = 0.0;
-                menuDown.Duration = new Duration(TimeSpan.FromMilliseconds(50.0));
-                menuDown.Completed += new EventHandler((sender, e) => menuClosedAnimationComplete(sender, e, subMenu.Value));
+                    menuSlide = new DoubleAnimation(0.0, new Duration(TimeSpan.FromMilliseconds(panelOpenTime)));
+                    menuSlide.Completed += new EventHandler((sender, e) => menuSlidedAnimationComplete(sender, e, subMenu.Value));
 
-                menuStory.Children.Add(menuDown);
-                Storyboard.SetTarget(menuDown, subMenu.Value);
-                Storyboard.SetTargetProperty(menuDown, new PropertyPath("LayoutTransform.ScaleY"));
+                    menuStory.Children.Add(menuSlide);
+                    Storyboard.SetTarget(menuSlide, subMenu.Value);
+                    Storyboard.SetTargetProperty(menuSlide, new PropertyPath("LayoutTransform.ScaleY"));
 
-                menuStory.Begin(this);
+                    menuStory.Begin(this);
+                }
             }
-
         }
 
         private void showSubMenu(StackPanel subMenu)
         {
             string baseName = subMenu.Name.Replace("submenupanel_", "");
 
-            hideSubMenus();
-
-            if (dataSubPanelsInfo[baseName + "_Hidden"] == 1)
+            if (dataSubPanelsInfo[baseName + "_Hidden"] == 0)
             {
-                /*
+                hideSubMenu(subMenu);
+                return;
+            }
+            else if (dataSubPanelsInfo[baseName + "_Hidden"] == 1)
+            {
+                hideSubMenus(subMenu);
+
+                
                 ScaleTransform scale = new ScaleTransform(
-                    objToDouble(dataSubPanels[baseName].LayoutTransform.ReadLocalValue(ScaleTransform.ScaleXProperty)),
-                    objToDouble(dataSubPanels[baseName].LayoutTransform.ReadLocalValue(ScaleTransform.ScaleYProperty))
-                );*/
-                ScaleTransform scale = new ScaleTransform(1.0, 1.0);
+                    1.0,
+                    objToDouble(dataSubPanels[baseName].LayoutTransform.GetValue(ScaleTransform.ScaleYProperty))
+                );
+                //ScaleTransform scale = new ScaleTransform(1.0, 0.0);
                 dataSubPanels[baseName].LayoutTransform = scale;
 
-                DoubleAnimation menuDown = new DoubleAnimation();
-                menuDown.From = 0.0;
-                menuDown.To = 1.0;
-                menuDown.Duration = new Duration(TimeSpan.FromMilliseconds(50.0));
-                menuDown.Completed += new EventHandler((sender, e) => menuOpenedAnimationComplete(sender, e, subMenu));
+                menuSlide = new DoubleAnimation(1.0, new Duration(TimeSpan.FromMilliseconds(panelOpenTime)));
+                menuSlide.Completed += new EventHandler((sender, e) => menuSlideedAnimationComplete(sender, e, subMenu));
 
-                menuStory.Children.Add(menuDown);
-                Storyboard.SetTarget(menuDown, dataSubPanels[baseName]);
-                Storyboard.SetTargetProperty(menuDown, new PropertyPath("LayoutTransform.ScaleY"));
+                menuStory.Children.Add(menuSlide);
+                Storyboard.SetTarget(menuSlide, dataSubPanels[baseName]);
+                Storyboard.SetTargetProperty(menuSlide, new PropertyPath("LayoutTransform.ScaleY"));
 
                 menuStory.Begin(this);
+                return;
             }
         }
 
-        private void menuOpenedAnimationComplete(object sender, EventArgs e, StackPanel subMenu)
+        private void menuSlideedAnimationComplete(object sender, EventArgs e, StackPanel subMenu)
         {
             string baseName = subMenu.Name.Replace("submenupanel_", "");
-
+            System.Diagnostics.Debug.WriteLine("SCALE: " + dataSubPanels[baseName].LayoutTransform.GetValue(ScaleTransform.ScaleYProperty));
             dataSubPanelsInfo[baseName + "_Hidden"] = 0;
         }
 
-        private void menuClosedAnimationComplete(object sender, EventArgs e, StackPanel subMenu)
+        private void menuSlidedAnimationComplete(object sender, EventArgs e, StackPanel subMenu)
         {
             string baseName = subMenu.Name.Replace("submenupanel_", "");
-
+            System.Diagnostics.Debug.WriteLine("SCALE: " + dataSubPanels[baseName].LayoutTransform.GetValue(ScaleTransform.ScaleYProperty));
             dataSubPanelsInfo[baseName + "_Hidden"] = 1;
         }
+
+        #endregion
 
         private void btnPages_Click(object sender, RoutedEventArgs e)
         {

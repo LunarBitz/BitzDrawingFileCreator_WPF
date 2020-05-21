@@ -78,7 +78,14 @@
 
         <!-- Menu Style -->
         <Style x:Key="bitzMenu" TargetType="{x:Type StackPanel}">
-            <Setter Property="Background" Value="{DynamicResource themeclr_Menu_Background}"/>
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                        <GradientStop Color="{DynamicResource themeclr_Menu_Background_Primary}" Offset="0"/>
+                        <GradientStop Color="{DynamicResource themeclr_Menu_Background_Secondary}" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
         </Style>
 
         <!-- Menu Option Style -->

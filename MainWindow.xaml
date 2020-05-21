@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BitzDrawingFileCreator_WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" MinWidth="800" MinHeight="450" SizeToContent="Width">
+        Title="MainWindow" Height="450" Width="800" MinWidth="800" MinHeight="450" SizeToContent="Width" Background="Black">
     <Grid>
         <StackPanel HorizontalAlignment="Left" Margin="326,132,0,0" VerticalAlignment="Top"/>
         <DockPanel>
-            <StackPanel Width="224" Style="{DynamicResource bitzMenu}">
+            <StackPanel Background="#FF070707" Width="224" Style="{DynamicResource bitzMenu}">
                 <StackPanel Height="72" Style="{DynamicResource bitzMenuLogo}"/>
-                <Button x:Name="btnPages" Content="Pages" Style="{DynamicResource bitzMenuOption}" FontSize="20" Height="32" Margin="0" FontStretch="Expanded" Click="btnPages_Click"/>
+                <Button x:Name="btnPages" Background="#FF0F0F0F" Foreground="DarkMagenta" Content="Pages" FontSize="20" Height="32" Margin="0" FontStretch="Expanded" Click="btnPages_Click" Style="{DynamicResource bitzMenuOption}"/>
                 <StackPanel x:Name="submenupanel_Pages" Background="#FF232027" Style="{DynamicResource bitzSubMenu}" Margin="0" RenderTransformOrigin="0.5,0.5">
                     <StackPanel.LayoutTransform>
                         <TransformGroup>
@@ -28,7 +28,14 @@
                     <Button Content="Button" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Background="{x:Null}" Foreground="#FF5F2568" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
                 </StackPanel>
             </StackPanel>
-            <Frame Content="Frame" Background="#FF00F7E1"/>
+            <Frame x:Name="frameMainView" Content="Frame">
+                <Frame.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0.5">
+                        <GradientStop Color="#000000"/>
+                        <GradientStop Offset="1" Color="#FF110614"/>
+                    </LinearGradientBrush>
+                </Frame.Background>
+            </Frame>
         </DockPanel>
     </Grid>
 </Window>

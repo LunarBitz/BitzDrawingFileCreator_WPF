@@ -21,11 +21,11 @@
                             <TranslateTransform/>
                         </TransformGroup>
                     </StackPanel.LayoutTransform>
-                    <Button Content="Button" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Background="{x:Null}" Foreground="#FF5F2568" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                    <Button Content="Button" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Background="{x:Null}" Foreground="#FF5F2568" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                    <Button Content="Button" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Background="{x:Null}" Foreground="#FF5F2568" Margin="0" Style="{DynamicResource bitzSubMenuOption}" Tag="submenu"/>
-                    <Button Content="Button" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Background="{x:Null}" Foreground="#FF5F2568" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                    <Button Content="Button" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Background="{x:Null}" Foreground="#FF5F2568" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                    <Button x:Name="btnMain" Content="Main" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Background="{x:Null}" Foreground="#FF5F2568" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                    <Button x:Name="btnFileDescription" Content="File Description" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Background="{x:Null}" Foreground="#FF5F2568" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                    <Button x:Name="btnCharacter" Content="Character" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Background="{x:Null}" Foreground="#FF5F2568" Margin="0" Style="{DynamicResource bitzSubMenuOption}" Tag="submenu"/>
+                    <Button x:Name="btnMisc" Content="Misc" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Background="{x:Null}" Foreground="#FF5F2568" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                    <Button x:Name="btnClearAll" Content="Clear All" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Background="{x:Null}" Foreground="#FF5F2568" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
                 </StackPanel>
             </StackPanel>
             <Frame x:Name="frameMainView" Content="Frame">

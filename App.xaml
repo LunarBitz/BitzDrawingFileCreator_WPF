@@ -16,23 +16,13 @@
             </Setter>
         </Style>
         
-        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
-        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
-        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
-        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
-        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
-        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
-        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
-        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
-        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
-
         <!-- Logo Style -->
         <Style x:Key="bitzMenuLogo" TargetType="{x:Type StackPanel}">
             <Setter Property="Background">
                 <Setter.Value>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="{DynamicResource themeclr_MenuLogo_Background_Primary}"/>
-                        <GradientStop Offset="1" Color="{DynamicResource themeclr_MenuLogo_Background_Secondary}"/>
+                        <GradientStop Color="{Binding theme_MenuLogo_Background_Primary}"/>
+                        <GradientStop Offset="1" Color="{Binding theme_MenuLogo_Background_Secondary}"/>
                     </LinearGradientBrush>
                 </Setter.Value>
             </Setter>
@@ -41,9 +31,9 @@
         <!-- Button Style -->
         <Style x:Key="bitzButton" TargetType="{x:Type Button}">
             <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
-            <Setter Property="Background" Value="{DynamicResource themeclr_Button_Background}"/>
-            <Setter Property="BorderBrush" Value="{DynamicResource themeclr_Button_Border}"/>
-            <Setter Property="Foreground" Value="{DynamicResource themeclr_Button_Text}"/>
+            <Setter Property="Background" Value="{Binding theme_Button_Background}"/>
+            <Setter Property="BorderBrush" Value="{Binding theme_Button_Border}"/>
+            <Setter Property="Foreground" Value="{Binding theme_Button_Text}"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -56,20 +46,20 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsDefaulted" Value="true">
-                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource themeclr_Button_Selected}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{Binding theme_Button_Selected}"/>
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="{DynamicResource themeclr_Button_Hover}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource themeclr_Button_Border}"/>
+                                <Setter Property="Background" TargetName="border" Value="{Binding theme_Button_Hover}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{Binding theme_Button_Border}"/>
                             </Trigger>
                             <Trigger Property="IsPressed" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="{DynamicResource themeclr_Button_Clicked}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource themeclr_Button_Border}"/>
+                                <Setter Property="Background" TargetName="border" Value="{Binding theme_Button_Clicked}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{Binding theme_Button_Border}"/>
                             </Trigger>
                             <Trigger Property="IsEnabled" Value="false">
-                                <Setter Property="Background" TargetName="border" Value="{DynamicResource themeclr_Button_Background}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource themeclr_Button_Border}"/>
-                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                                <Setter Property="Background" TargetName="border" Value="{Binding theme_Button_Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{Binding theme_Button_Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="Transparent"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -82,8 +72,8 @@
             <Setter Property="Background">
                 <Setter.Value>
                     <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                        <GradientStop Color="{DynamicResource themeclr_Menu_Background_Primary}" Offset="0"/>
-                        <GradientStop Color="{DynamicResource themeclr_Menu_Background_Secondary}" Offset="1"/>
+                        <GradientStop Color="{Binding theme_Menu_Background_Primary}" Offset="0"/>
+                        <GradientStop Color="{Binding theme_Menu_Background_Secondary}" Offset="1"/>
                     </LinearGradientBrush>
                 </Setter.Value>
             </Setter>
@@ -91,16 +81,14 @@
 
         <!-- Menu Option Style -->
         <Style x:Key="bitzMenuOption" TargetType="{x:Type Button}">
-            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
-
-            <Setter Property="Foreground" Value="{DynamicResource themeclr_MenuOption_Text}"/>
+            <Setter Property="Foreground" Value="{Binding theme_MenuOption_Text}"/>
             <Setter Property="FontSize" Value="20" />
             <Setter Property="FontFamily" Value="Segoe UI" />
             <Setter Property="FontStyle" Value="Normal" />
             <Setter Property="Padding" Value="32, 0, 0, 0"/>
             
-            <Setter Property="Background" Value="{DynamicResource themeclr_MenuOption_Background}"/>
-            <Setter Property="BorderBrush" Value="{DynamicResource themeclr_MenuOption_Border}"/>
+            <Setter Property="Background" Value="{Binding theme_MenuOption_Background}"/>
+            <Setter Property="BorderBrush" Value="{Binding theme_MenuOption_Border}"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="HorizontalContentAlignment" Value="Left"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -113,20 +101,20 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsDefaulted" Value="true">
-                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource themeclr_MenuOption_Selected}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{Binding theme_MenuOption_Selected}"/>
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="{DynamicResource themeclr_MenuOption_Hover}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource themeclr_MenuOption_Border}"/>
+                                <Setter Property="Background" TargetName="border" Value="{Binding theme_MenuOption_Hover}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{Binding theme_MenuOption_Border}"/>
                             </Trigger>
                             <Trigger Property="IsPressed" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="{DynamicResource themeclr_MenuOption_Clicked}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource themeclr_MenuOption_Border}"/>
+                                <Setter Property="Background" TargetName="border" Value="{Binding theme_MenuOption_Clicked}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{Binding theme_MenuOption_Border}"/>
                             </Trigger>
                             <Trigger Property="IsEnabled" Value="false">
-                                <Setter Property="Background" TargetName="border" Value="{DynamicResource themeclr_MenuOption_Background}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource themeclr_MenuOption_Border}"/>
-                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                                <Setter Property="Background" TargetName="border" Value="{Binding themeMenuOption_Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{Binding theme_MenuOption_Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="Transparent"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -136,22 +124,20 @@
 
         <!-- Sub-Menu Style -->
         <Style x:Key="bitzSubMenu" TargetType="{x:Type StackPanel}">
-            <Setter Property="Background" Value="{DynamicResource themeclr_SubMenu_Background}"/>
+            <Setter Property="Background" Value="{Binding theme_SubMenu_Background}"/>
             <Setter Property="Margin" Value="4, 4, 4, 4"/>
         </Style>
 
         <!-- Sub-Menu Option Style -->
         <Style x:Key="bitzSubMenuOption" TargetType="{x:Type Button}">
-            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
-
-            <Setter Property="Foreground" Value="{DynamicResource themeclr_SubMenuOption_Text}"/>
+            <Setter Property="Foreground" Value="{Binding theme_SubMenuOption_Text}"/>
             <Setter Property="FontSize" Value="14" />
             <Setter Property="FontFamily" Value="Segoe UI" />
             <Setter Property="FontStyle" Value="Italic" />
             <Setter Property="Padding" Value="64, 0, 0, 0"/>
 
-            <Setter Property="Background" Value="{DynamicResource themeclr_SubMenuOption_Background}"/>
-            <Setter Property="BorderBrush" Value="{DynamicResource themeclr_SubMenuOption_Border}"/>
+            <Setter Property="Background" Value="{Binding theme_SubMenuOption_Background}"/>
+            <Setter Property="BorderBrush" Value="{Binding theme_SubMenuOption_Border}"/>
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="HorizontalContentAlignment" Value="Left"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -164,20 +150,20 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsDefaulted" Value="true">
-                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource themeclr_SubMenuOption_Selected}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{Binding theme_SubMenuOption_Selected}"/>
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="{DynamicResource themeclr_SubMenuOption_Hover}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource themeclr_SubMenuOption_Border}"/>
+                                <Setter Property="Background" TargetName="border" Value="{Binding theme_SubMenuOption_Hover}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{Binding theme_SubMenuOption_Border}"/>
                             </Trigger>
                             <Trigger Property="IsPressed" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="{DynamicResource themeclr_SubMenuOption_Clicked}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource themeclr_SubMenuOption_Border}"/>
+                                <Setter Property="Background" TargetName="border" Value="{Binding theme_SubMenuOption_Clicked}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{Binding theme_SubMenuOption_Border}"/>
                             </Trigger>
                             <Trigger Property="IsEnabled" Value="false">
-                                <Setter Property="Background" TargetName="border" Value="{DynamicResource themeclr_SubMenuOption_Background}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource themeclr_SubMenuOption_Border}"/>
-                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                                <Setter Property="Background" TargetName="border" Value="{Binding theme_SubMenuOption_Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{Binding theme_SubMenuOption_Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="Transparent"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -188,8 +174,8 @@
         
         <!-- Group Box Style -->
         <Style x:Key="bitzGroupBox" TargetType="{x:Type GroupBox}">
-            <Setter Property="Background" Value="{DynamicResource themeclr_Group_Background}"/>
-            <Setter Property="BorderBrush" Value="{DynamicResource themeclr_Group_Border}"/>
+            <Setter Property="Background" Value="{Binding theme_Group_Background}"/>
+            <Setter Property="BorderBrush" Value="{Binding theme_Group_Border}"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="Template">
                 <Setter.Value>
@@ -216,7 +202,7 @@
                                         <Binding Path="ActualHeight" RelativeSource="{RelativeSource Self}"/>
                                     </MultiBinding>
                                 </Border.OpacityMask>
-                                <Border BorderBrush="{DynamicResource themeclr_Group_Border}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="3">
+                                <Border BorderBrush="{Binding theme_Group_Border}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="3">
                                     <Border BorderBrush="#00000000" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="2" UseLayoutRounding="False"/>
                                 </Border>
                             </Border>
@@ -232,9 +218,9 @@
 
         <!-- TextBox Style -->
         <Style x:Key="bitzTextBox" TargetType="{x:Type TextBox}">
-            <Setter Property="Background" Value="{DynamicResource themeclr_TextBox_Background}"/>
-            <Setter Property="BorderBrush" Value="{DynamicResource themeclr_TextBox_Border}"/>
-            <Setter Property="Foreground" Value="{DynamicResource themeclr_TextBox_Text}"/>
+            <Setter Property="Background" Value="{Binding theme_TextBox_Background}"/>
+            <Setter Property="BorderBrush" Value="{Binding theme_TextBox_Border}"/>
+            <Setter Property="Foreground" Value="{Binding theme_TextBox_Text}"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
             <Setter Property="HorizontalContentAlignment" Value="Left"/>
@@ -256,10 +242,10 @@
                                 <Setter Property="Opacity" TargetName="border" Value="1.0"/>
                             </Trigger>
                             <Trigger Property="IsKeyboardFocused" Value="false">
-                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource themeclr_TextBox_Border}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{Binding theme_TextBox_Border}"/>
                             </Trigger>
                             <Trigger Property="IsKeyboardFocused" Value="true">
-                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource themeclr_TextBox_Focus}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{Binding theme_TextBox_Focus}"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -271,7 +257,7 @@
                         <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true"/>
                         <Condition Property="IsSelectionActive" Value="false"/>
                     </MultiTrigger.Conditions>
-                    <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+                    <Setter Property="SelectionBrush" Value="{Binding theme_TextBox_Inactive}"/>
                 </MultiTrigger>
             </Style.Triggers>
         </Style>
@@ -287,15 +273,15 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type ScrollBar}">
-                        <Grid x:Name="Bg" SnapsToDevicePixels="true" Background="{DynamicResource themeclr_Scroll_Background}">
+                        <Grid x:Name="Bg" SnapsToDevicePixels="true" Background="Transparent">
                             <Border Padding="4">
                                 <Border.Background>
                                     <LinearGradientBrush EndPoint="0, 0.5" StartPoint="1, 0.5">
-                                        <GradientStop Color="{DynamicResource themeclr_Scroll_Background_Primary}" Offset="1"/>
-                                        <GradientStop Color="{DynamicResource themeclr_Scroll_Background_Secondary}" Offset="0"/>
+                                        <GradientStop Color="{Binding theme_Scroll_Background_Primary}" Offset="1"/>
+                                        <GradientStop Color="{Binding theme_Scroll_Background_Secondary}" Offset="0"/>
                                     </LinearGradientBrush>
                                 </Border.Background>
-                                <!---->
+
                                 <Track x:Name="PART_Track" IsDirectionReversed="true" IsEnabled="{TemplateBinding IsMouseOver}">
                                     <Track.DecreaseRepeatButton>
                                         <RepeatButton Opacity="0" Command="{x:Static ScrollBar.PageUpCommand}"/>
@@ -323,7 +309,14 @@
                         <Setter.Value>
                             <ControlTemplate TargetType="{x:Type ScrollBar}">
                                 <Grid x:Name="Bg" SnapsToDevicePixels="true">
-                                    <Border Padding="4" Background="{DynamicResource themeclr_Scroll_Border}">
+                                    <Border Padding="4">
+                                        <Border.Background>
+                                            <LinearGradientBrush EndPoint="0.5, 0" StartPoint="0.5, 1">
+                                                <GradientStop Color="{Binding theme_Scroll_Background_Primary}" Offset="1"/>
+                                                <GradientStop Color="{Binding theme_Scroll_Background_Secondary}" Offset="0"/>
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                        
                                         <Track x:Name="PART_Track" IsEnabled="{TemplateBinding IsMouseOver}">
                                             <Track.DecreaseRepeatButton>
                                                 <RepeatButton Command="{x:Static ScrollBar.PageLeftCommand}"/>
@@ -344,8 +337,6 @@
             </Style.Triggers>
         </Style>
 
-
-
         <Style x:Key="ScrollBarThumb" TargetType="{x:Type Thumb}">
             <Setter Property="OverridesDefaultStyle" Value="true"/>
             <Setter Property="IsTabStop" Value="false"/>
@@ -354,7 +345,7 @@
                     <ControlTemplate TargetType="{x:Type Thumb}">
                         <Border x:Name="rectangle"
                             SnapsToDevicePixels="True"
-                            Background="{DynamicResource themeclr_Scroll_Thumb}"
+                            Background="{Binding theme_Scroll_Thumb}"
                             CornerRadius="4"
                             Opacity="0.3"
                             Height="{TemplateBinding Height}"

@@ -32,7 +32,7 @@ namespace BitzDrawingFileCreator_WPF
         /// <summary>
         /// Storyboard handler for all animations
         /// </summary>
-        public Storyboard menuStory = null;
+        public Dictionary<string, Storyboard> menuStories = null;
 
         /// <summary>
         /// Double animation for menu opening and closing
@@ -61,16 +61,22 @@ namespace BitzDrawingFileCreator_WPF
         {
             InitializeComponent();
 
+            Height = 510;
+            Width = 872;
+
             publicDataContext = new AppData();
+            DataContext = publicDataContext;
 
             // Initialize the necessary components
             menuSlide = new DoubleAnimation();
-            menuStory = new Storyboard();
+            menuStories = new Dictionary<string, Storyboard>();
             dataSubPanels = new Dictionary<string, StackPanel>();
             dataSubPanelsInfo = new Dictionary<string, int>();
 
             // Add the panels to the submenu dictionaries and app registry
             addSubMenu(submenupanel_Pages);
+            addSubMenu(submenupanel_Create);
+            addSubMenu(submenupanel_Settings);
 
             // Default the theme and menu
             initThemeColors();
@@ -82,62 +88,62 @@ namespace BitzDrawingFileCreator_WPF
 
         private void initThemeColors()
         {
-            Resources["themeclr_Text_Primary"]                  = (Brush)(new BrushConverter().ConvertFrom("#FF" + "c000c0"));
-            Resources["themeclr_Text_Secondary"]                = (Brush)(new BrushConverter().ConvertFrom("#FF" + "5f2568"));
-            Resources["themeclr_Text_Tertiary"]                 = (Brush)(new BrushConverter().ConvertFrom("#FF" + "341d38"));
+            publicDataContext.theme_Text_Primary = "#FF" + "c000c0";
+            publicDataContext.theme_Text_Secondary = "#FF" + "5f2568";
+            publicDataContext.theme_Text_Tertiary = "#FF" + "341d38";
 
-            Resources["themeclr_MenuLogo_Background_Primary"]   = (Color)ColorConverter.ConvertFromString("#FF" + "3f164d");
-            Resources["themeclr_MenuLogo_Background_Secondary"] = (Color)ColorConverter.ConvertFromString("#00" + "000000");
+            publicDataContext.theme_MenuLogo_Background_Primary = "#FF" + "3f164d";
+            publicDataContext.theme_MenuLogo_Background_Secondary = "#00" + "000000";
 
-            Resources["themeclr_Button_Text"]                   = Resources["themeclr_Text_Primary"];
-            Resources["themeclr_Button_Background"]             = (Brush)(new BrushConverter().ConvertFrom("#FF" + "0f0f0f"));
-            Resources["themeclr_Button_Border"]                 = (Brush)(new BrushConverter().ConvertFrom("#00" + "000000"));
-            Resources["themeclr_Button_Hover"]                  = (Brush)(new BrushConverter().ConvertFrom("#FF" + "404040"));
-            Resources["themeclr_Button_Clicked"]                = (Brush)(new BrushConverter().ConvertFrom("#FF" + "79517d"));
-            Resources["themeclr_Button_Selected"]               = (Brush)(new BrushConverter().ConvertFrom("#FF" + "c0c0c0"));
+            publicDataContext.theme_Button_Text = publicDataContext.theme_Text_Primary;
+            publicDataContext.theme_Button_Background = "#FF" + "0f0f0f";
+            publicDataContext.theme_Button_Border = "#00" + "000000";
+            publicDataContext.theme_Button_Hover = "#FF" + "404040";
+            publicDataContext.theme_Button_Clicked = "#FF" + "79517d";
+            publicDataContext.theme_Button_Selected = "#FF" + "c0c0c0";
 
-            Resources["themeclr_Menu_Background_Primary"]       = (Color)ColorConverter.ConvertFromString("#FF" + "0f0f0f");
-            Resources["themeclr_Menu_Background_Secondary"]     = (Color)ColorConverter.ConvertFromString("#00" + "1f1f1f");
-            Resources["themeclr_MenuOption_Text"]               = Resources["themeclr_Text_Primary"];
-            Resources["themeclr_MenuOption_Background"]         = (Brush)(new BrushConverter().ConvertFrom("#00" + "000000"));
-            Resources["themeclr_MenuOption_Border"]             = (Brush)(new BrushConverter().ConvertFrom("#00" + "000000"));
-            Resources["themeclr_MenuOption_Hover"]              = (Brush)(new BrushConverter().ConvertFrom("#FF" + "404040"));
-            Resources["themeclr_MenuOption_Clicked"]            = (Brush)(new BrushConverter().ConvertFrom("#FF" + "79517d"));
-            Resources["themeclr_MenuOption_Selected"]           = (Brush)(new BrushConverter().ConvertFrom("#FF" + "c0c0c0"));
+            publicDataContext.theme_Menu_Background_Primary = "#FF" + "0f0f0f";
+            publicDataContext.theme_Menu_Background_Secondary = "#00" + "1f1f1f";
 
-            Resources["themeclr_SubMenu_Background"]            = (Brush)(new BrushConverter().ConvertFrom("#FF" + "232027"));
-            Resources["themeclr_SubMenuOption_Text"]            = Resources["themeclr_Text_Secondary"];
-            Resources["themeclr_SubMenuOption_Background"]      = (Brush)(new BrushConverter().ConvertFrom("#00" + "000000"));
-            Resources["themeclr_SubMenuOption_Border"]          = (Brush)(new BrushConverter().ConvertFrom("#00" + "000000"));
-            Resources["themeclr_SubMenuOption_Hover"]           = (Brush)(new BrushConverter().ConvertFrom("#FF" + "404040"));
-            Resources["themeclr_SubMenuOption_Clicked"]         = (Brush)(new BrushConverter().ConvertFrom("#FF" + "79517d"));
-            Resources["themeclr_SubMenuOption_Selected"]        = (Brush)(new BrushConverter().ConvertFrom("#FF" + "c0c0c0"));
+            publicDataContext.theme_MenuOption_Text = publicDataContext.theme_Text_Primary;
+            publicDataContext.theme_MenuOption_Background = "#00" + "000000";
+            publicDataContext.theme_MenuOption_Border = "#00" + "000000";
+            publicDataContext.theme_MenuOption_Hover = "#FF" + "404040";
+            publicDataContext.theme_MenuOption_Clicked = "#FF" + "79517d";
+            publicDataContext.theme_MenuOption_Selected = "#FF" + "c0c0c0";
 
-            Resources["themeclr_Group_Background"]              = (Brush)(new BrushConverter().ConvertFrom("#00" + "000000"));
-            Resources["themeclr_Group_Border"]                  = (Brush)(new BrushConverter().ConvertFrom("#FF" + "FFFFFF"));
-            Resources["themeclr_TextBox_Text"]                  = Resources["themeclr_Text_Secondary"];
-            Resources["themeclr_TextBox_Background"]            = (Brush)(new BrushConverter().ConvertFrom("#80" + "0f0f0f"));
-            Resources["themeclr_TextBox_Border"]                = (Brush)(new BrushConverter().ConvertFrom("#80" + "FF0000"));
-            Resources["themeclr_TextBox_Hover"]                 = (Brush)(new BrushConverter().ConvertFrom("#80" + "c0c0c0"));
-            Resources["themeclr_TextBox_Focus"]                 = (Brush)(new BrushConverter().ConvertFrom("#80" + "79517d"));
+            publicDataContext.theme_SubMenu_Background = "#FF" + "232027";
 
-            Resources["themeclr_ListBox_Text"]                  = Resources["themeclr_Text_Primary"];
-            Resources["themeclr_ListBox_Background"]            = (Brush)(new BrushConverter().ConvertFrom("#FF" + "c000c0"));
-            Resources["themeclr_ListBox_Border"]                = (Brush)(new BrushConverter().ConvertFrom("#FF" + "c000c0"));
+            publicDataContext.theme_SubMenuOption_Text = publicDataContext.theme_Text_Secondary;
+            publicDataContext.theme_SubMenuOption_Background = "#00" + "000000";
+            publicDataContext.theme_SubMenuOption_Border = "#00" + "000000";
+            publicDataContext.theme_SubMenuOption_Hover = "#FF" + "404040";
+            publicDataContext.theme_SubMenuOption_Clicked = "#FF" + "79517d";
+            publicDataContext.theme_SubMenuOption_Selected = "#FF" + "c0c0c0";
 
-            Resources["themeclr_ComboBox_Text"]                 = Resources["themeclr_Text_Primary"];
-            Resources["themeclr_ComboBox_Arrow"]                = (Brush)(new BrushConverter().ConvertFrom("#FF" + "c000c0"));
-            Resources["themeclr_ComboBox_Background"]           = (Brush)(new BrushConverter().ConvertFrom("#FF" + "c000c0"));
-            Resources["themeclr_ComboBox_Border"]               = (Brush)(new BrushConverter().ConvertFrom("#FF" + "c000c0"));
+            publicDataContext.theme_Group_Background = "#00" + "000000";
+            publicDataContext.theme_Group_Border = "#80" + "9e9e9e";
 
-            Resources["themeclr_Scroll_Thumb"]                  = Resources["themeclr_Text_Secondary"];
-            Resources["themeclr_Scroll_Thumb_Hover"]            = (Brush)(new BrushConverter().ConvertFrom("#FF" + "1f1f1f"));
-            Resources["themeclr_Scroll_Thumb_Clicked"]          = (Brush)(new BrushConverter().ConvertFrom("#FF" + "79517d"));
-            Resources["themeclr_Scroll_Foreground"]             = Resources["themeclr_Text_Primary"];
-            Resources["themeclr_Scroll_Disabled"]               = (Brush)(new BrushConverter().ConvertFrom("#FF" + "0f0f0f"));
-            Resources["themeclr_Scroll_Background_Primary"]     = (Color)ColorConverter.ConvertFromString("#00" + "0f0f0f");
-            Resources["themeclr_Scroll_Background_Secondary"]   = (Color)ColorConverter.ConvertFromString("#FF" + "000000");
-            Resources["themeclr_Scroll_Border"]                 = (Brush)(new BrushConverter().ConvertFrom("#00" + "1f1f1f"));
+            publicDataContext.theme_TextBox_Text = publicDataContext.theme_Text_Secondary;
+            publicDataContext.theme_TextBox_Background = "#80" + "0f0f0f";
+            publicDataContext.theme_TextBox_Border = "#80" + "79517d";
+            publicDataContext.theme_TextBox_Hover = "#80" + "c0c0c0";
+            publicDataContext.theme_TextBox_Focus = "#80" + "9e9e9e";
+            publicDataContext.theme_TextBox_Inactive = "#80" + "1f1f1f";
+
+            publicDataContext.theme_ListBox_Text = publicDataContext.theme_Text_Primary;
+            publicDataContext.theme_ListBox_Background = "#FF" + "c000c0";
+            publicDataContext.theme_ListBox_Border = "#FF" + "c000c0";
+
+            publicDataContext.theme_ComboBox_Text = publicDataContext.theme_Text_Primary;
+            publicDataContext.theme_ComboBox_Arrow = "#FF" + "c000c0"; 
+            publicDataContext.theme_ComboBox_Background = "#FF" + "c000c0";
+            publicDataContext.theme_ComboBox_Border = "#FF" + "c000c0";
+
+            publicDataContext.theme_Scroll_Thumb = publicDataContext.theme_Text_Secondary;
+            publicDataContext.theme_Scroll_Background_Primary = "#00" + "0f0f0f";
+            publicDataContext.theme_Scroll_Background_Secondary = "#FF" + "000000";
+
         }
 
         private double objToDouble(object o)
@@ -156,6 +162,7 @@ namespace BitzDrawingFileCreator_WPF
         {
             string baseName = subMenu.Name.Replace("submenupanel_", "");
 
+            menuStories[baseName] = new Storyboard();
             dataSubPanels[baseName] = subMenu;
             dataSubPanelsInfo[baseName + "_Hidden"] = 0;
             this.RegisterName(dataSubPanels[baseName].Name, dataSubPanels[baseName]);
@@ -165,22 +172,25 @@ namespace BitzDrawingFileCreator_WPF
         {
             string baseName = subMenu.Name.Replace("submenupanel_", "");
 
-            // Set element scale to a scale variable for animation
-            ScaleTransform scale = new ScaleTransform(
-                objToDouble(dataSubPanels[baseName].LayoutTransform.GetValue(ScaleTransform.ScaleXProperty)),
-                objToDouble(dataSubPanels[baseName].LayoutTransform.GetValue(ScaleTransform.ScaleYProperty))
-            );
-            dataSubPanels[baseName].LayoutTransform = scale;
+            if (dataSubPanelsInfo[baseName + "_Hidden"] == 0)
+            {
+                // Set element scale to a scale variable for animation
+                ScaleTransform scale = new ScaleTransform(
+                    objToDouble(dataSubPanels[baseName].LayoutTransform.GetValue(ScaleTransform.ScaleXProperty)),
+                    objToDouble(dataSubPanels[baseName].LayoutTransform.GetValue(ScaleTransform.ScaleYProperty))
+                );
+                dataSubPanels[baseName].LayoutTransform = scale;
 
-            // Set up animation and add completion handler
-            menuSlide = new DoubleAnimation(0.0, new Duration(TimeSpan.FromMilliseconds(panelOpenTime)));
-            menuSlide.Completed += new EventHandler((sender, e) => menuSlideComplete(sender, e, dataSubPanels[baseName], 1));
+                // Set up animation and add completion handler
+                menuSlide = new DoubleAnimation(0.0, new Duration(TimeSpan.FromMilliseconds(panelOpenTime)));
+                menuSlide.Completed += new EventHandler((sender, e) => menuSlideComplete(sender, e, dataSubPanels[baseName], 1));
 
-            // Add animation to storyboard and play it
-            menuStory.Children.Add(menuSlide);
-            Storyboard.SetTarget(menuSlide, dataSubPanels[baseName]);
-            Storyboard.SetTargetProperty(menuSlide, new PropertyPath("LayoutTransform.ScaleY"));
-            menuStory.Begin(this);
+                // Add animation to storyboard and play it
+                menuStories[baseName].Children.Add(menuSlide);
+                Storyboard.SetTarget(menuSlide, dataSubPanels[baseName]);
+                Storyboard.SetTargetProperty(menuSlide, new PropertyPath("LayoutTransform.ScaleY"));
+                menuStories[baseName].Begin(this);
+            }
         }
 
         private void hideSubMenus(StackPanel exclusion = null)
@@ -189,22 +199,25 @@ namespace BitzDrawingFileCreator_WPF
             {
                 if (subMenu.Value != exclusion)
                 {
-                    // Set element scale to a scale variable for animation
-                    ScaleTransform scale = new ScaleTransform(
-                        objToDouble(subMenu.Value.LayoutTransform.GetValue(ScaleTransform.ScaleXProperty)),
-                        objToDouble(subMenu.Value.LayoutTransform.GetValue(ScaleTransform.ScaleYProperty))
-                    );
-                    subMenu.Value.LayoutTransform = scale;
+                    if (dataSubPanelsInfo[subMenu.Key + "_Hidden"] == 0)
+                    {
+                        // Set element scale to a scale variable for animation
+                        ScaleTransform scale = new ScaleTransform(
+                            objToDouble(subMenu.Value.LayoutTransform.GetValue(ScaleTransform.ScaleXProperty)),
+                            objToDouble(subMenu.Value.LayoutTransform.GetValue(ScaleTransform.ScaleYProperty))
+                        );
+                        subMenu.Value.LayoutTransform = scale;
 
-                    // Set up animation and add completion handler
-                    menuSlide = new DoubleAnimation(0.0, new Duration(TimeSpan.FromMilliseconds(panelOpenTime)));
-                    menuSlide.Completed += new EventHandler((sender, e) => menuSlideComplete(sender, e, subMenu.Value, 1));
+                        // Set up animation and add completion handler
+                        menuSlide = new DoubleAnimation(0.0, new Duration(TimeSpan.FromMilliseconds(panelOpenTime)));
+                        menuSlide.Completed += new EventHandler((sender, e) => menuSlideComplete(sender, e, subMenu.Value, 1));
 
-                    // Add animation to storyboard and play it
-                    menuStory.Children.Add(menuSlide);
-                    Storyboard.SetTarget(menuSlide, subMenu.Value);
-                    Storyboard.SetTargetProperty(menuSlide, new PropertyPath("LayoutTransform.ScaleY"));
-                    menuStory.Begin(this);
+                        // Add animation to storyboard and play it
+                        menuStories[subMenu.Key].Children.Add(menuSlide);
+                        Storyboard.SetTarget(menuSlide, subMenu.Value);
+                        Storyboard.SetTargetProperty(menuSlide, new PropertyPath("LayoutTransform.ScaleY"));
+                        menuStories[subMenu.Key].Begin(this);
+                    }
                 }
             }
         }
@@ -219,7 +232,7 @@ namespace BitzDrawingFileCreator_WPF
                 hideSubMenu(subMenu);
                 return;
             }
-            else if (dataSubPanelsInfo[baseName + "_Hidden"] == 1)
+            if (dataSubPanelsInfo[baseName + "_Hidden"] == 1)
             {
                 // Close every other sub menu before opening the target menu
                 hideSubMenus(subMenu);
@@ -236,10 +249,10 @@ namespace BitzDrawingFileCreator_WPF
                 menuSlide.Completed += new EventHandler((sender, e) => menuSlideComplete(sender, e, subMenu, 0));
 
                 // Add animation to storyboard and play it
-                menuStory.Children.Add(menuSlide);
+                menuStories[baseName].Children.Add(menuSlide);
                 Storyboard.SetTarget(menuSlide, dataSubPanels[baseName]);
                 Storyboard.SetTargetProperty(menuSlide, new PropertyPath("LayoutTransform.ScaleY"));
-                menuStory.Begin(this);
+                menuStories[baseName].Begin(this);
 
                 return;
             }
@@ -247,7 +260,10 @@ namespace BitzDrawingFileCreator_WPF
 
         private void menuSlideComplete(object sender, EventArgs e, StackPanel subMenu, int setHidden)
         {
-            dataSubPanelsInfo[subMenu.Name.Replace("submenupanel_", "") + "_Hidden"] = setHidden;
+            string baseName = subMenu.Name.Replace("submenupanel_", "");
+
+            menuStories[baseName] = new Storyboard();
+            dataSubPanelsInfo[baseName + "_Hidden"] = setHidden;
         }
 
         private void openChildForm(Window childWindow)
@@ -260,6 +276,16 @@ namespace BitzDrawingFileCreator_WPF
         private void btnPages_Click(object sender, RoutedEventArgs e)
         {
             showSubMenu(submenupanel_Pages);
+        }
+
+        private void btnCreate_Click(object sender, RoutedEventArgs e)
+        {
+            showSubMenu(submenupanel_Create);
+        }
+
+        private void btnSettings_Click(object sender, RoutedEventArgs e)
+        {
+            showSubMenu(submenupanel_Settings);
         }
     }
 }

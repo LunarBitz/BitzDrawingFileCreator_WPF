@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:BitzDrawingFileCreator_WPF"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="640" d:DesignWidth="480"
       Title="PageMain" Width="640" Height="480">
     <Page.Resources>
         <SolidColorBrush x:Key="TextBox.Static.Border" Color="#FFABAdB3"/>
@@ -17,18 +17,9 @@
         <GroupBox Header="" HorizontalAlignment="Left" BorderBrush="#FF009FFF" Height="79" Margin="10,10,0,0" VerticalAlignment="Top" Width="164" BorderThickness="0,1" Grid.IsSharedSizeScope="True" Style="{DynamicResource bitzGroupBox}">
             <Grid>
                 <Label Content="Recipient's Username" Margin="0" Background="#00000000" Foreground="#FFC000C0" FontFamily="Segoe UI Semibold" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"/>
-                <TextBox x:Name="txtUserName" Margin="0,25,0,10" TextWrapping="Wrap" Text="{Binding userName}" Height="20" Background="#7F0F0F0F" Foreground="#FF5F2568" SelectionBrush="#FF404040" Style="{DynamicResource bitzTextBox}" BorderBrush="#3FABADB3"/>
+                <TextBox x:Name="txtUserName" Margin="0,25,0,10" TextWrapping="Wrap" Text="{Binding userName}" Height="20" Background="#7F0F0F0F" Foreground="#FF5F2568" SelectionBrush="#FF404040" BorderBrush="#3FABADB3" Style="{DynamicResource bitzTextBox}"/>
             </Grid>
         </GroupBox>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="294,97,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <ScrollBar HorizontalAlignment="Left" Margin="198,156,0,0" VerticalAlignment="Top" Height="212" Background="#FF0F0F0F" BorderBrush="#FF322332" Width="16" Style="{DynamicResource ScrollBarStyle1}"/>
-        <Rectangle HorizontalAlignment="Left" Height="100" Margin="416,346,0,0" Stroke="Black" VerticalAlignment="Top" Width="100">
-            <Rectangle.Fill>
-                <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                    <GradientStop Color="Black" Offset="0"/>
-                    <GradientStop Color="White" Offset="1"/>
-                </LinearGradientBrush>
-            </Rectangle.Fill>
-        </Rectangle>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="294,97,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" Style="{DynamicResource bitzButton}"/>
     </Grid>
 </Page>

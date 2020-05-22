@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BitzDrawingFileCreator_WPF.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,13 @@ namespace BitzDrawingFileCreator_WPF
         public PageMain()
         {
             InitializeComponent();
+
+            txtUserName.DataContext = MainWindow.publicDataContext;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.publicDataContext.userName = "CCCCC";
         }
     }
 }

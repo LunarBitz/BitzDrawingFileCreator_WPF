@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BitzDrawingFileCreator_WPF.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -24,6 +25,8 @@ namespace BitzDrawingFileCreator_WPF
     {
 
         #region Variables
+        public static AppData publicDataContext;
+
         private Window activeWindow = null;
 
         /// <summary>
@@ -57,6 +60,8 @@ namespace BitzDrawingFileCreator_WPF
         public MainWindow()
         {
             InitializeComponent();
+
+            publicDataContext = new AppData();
 
             // Initialize the necessary components
             menuSlide = new DoubleAnimation();
@@ -126,7 +131,12 @@ namespace BitzDrawingFileCreator_WPF
             Resources["themeclr_ComboBox_Border"]               = (Brush)(new BrushConverter().ConvertFrom("#FF" + "c000c0"));
 
             Resources["themeclr_Scroll_Thumb"]                  = Resources["themeclr_Text_Primary"];
+            Resources["themeclr_Scroll_Foreground"]             = Resources["themeclr_Text_Primary"];
+            Resources["themeclr_Scroll_Disabled"]               = (Brush)(new BrushConverter().ConvertFrom("#FF" + "c000c0"));
             Resources["themeclr_Scroll_Arrows"]                 = (Brush)(new BrushConverter().ConvertFrom("#FF" + "c000c0"));
+            Resources["themeclr_Scroll_Arrows_Pressed"]         = (Brush)(new BrushConverter().ConvertFrom("#FF" + "c000c0"));
+            Resources["themeclr_Scroll_Arrows_Hover"]           = (Brush)(new BrushConverter().ConvertFrom("#FF" + "c000c0"));
+            Resources["themeclr_Scroll_Arrows_Disabled"]        = (Brush)(new BrushConverter().ConvertFrom("#FF" + "c000c0"));
             Resources["themeclr_Scroll_Background"]             = (Brush)(new BrushConverter().ConvertFrom("#FF" + "c000c0"));
             Resources["themeclr_Scroll_Border"]                 = (Brush)(new BrushConverter().ConvertFrom("#FF" + "c000c0"));
         }

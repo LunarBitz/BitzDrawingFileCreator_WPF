@@ -9,70 +9,62 @@
     <Grid>
         <StackPanel HorizontalAlignment="Left" Margin="326,132,0,0" VerticalAlignment="Top"/>
         <DockPanel>
-            <Border x:Name="MenuBorderContainer" BorderThickness="0,0,8,0" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True">
-                <Border.BorderBrush>
-                    <LinearGradientBrush EndPoint="1,0.5" StartPoint="0.97,0.5" SpreadMethod="Repeat">
-                        <GradientStop Color="#FF070707" Offset="0"/>
-                        <GradientStop Color="#FF1F1F1F" Offset="1"/>
-                    </LinearGradientBrush>
-                </Border.BorderBrush>
-                <ScrollViewer HorizontalAlignment="Left" Background="Green" Height="Auto" Margin="0,0,0,0" VerticalAlignment="Stretch" Width="Auto" VerticalScrollBarVisibility="Visible" Style="{DynamicResource bitzScrollViewer}">
-                    <StackPanel x:Name="MenuPanel" Background="#FF070707" Width="224" Style="{DynamicResource bitzMenu}" CanVerticallyScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True">
-                        <StackPanel Height="72" Style="{DynamicResource bitzMenuLogo}"/>
-                        <StackPanel x:Name="menuPages" Orientation="Vertical">
-                            <Button x:Name="btnPages" Background="#FF0F0F0F" Foreground="DarkMagenta" Content="Pages" FontSize="20" Height="32" Margin="0" FontStretch="Expanded" Click="btnPages_Click" Style="{DynamicResource bitzMenuOption}"/>
-                            <StackPanel x:Name="submenupanel_Pages" Background="#FF232027" Style="{DynamicResource bitzSubMenu}" Margin="0" RenderTransformOrigin="0.5,0.5">
-                                <StackPanel.LayoutTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform ScaleX="1.0" ScaleY="1.0"/>
-                                        <SkewTransform/>
-                                        <RotateTransform/>
-                                        <TranslateTransform/>
-                                    </TransformGroup>
-                                </StackPanel.LayoutTransform>
-                                <Button x:Name="btnMain" Content="Main" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Background="{x:Null}" Foreground="#FF5F2568" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                                <Button x:Name="btnFileDescription" Content="File Description" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Background="{x:Null}" Foreground="#FF5F2568" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                                <Button x:Name="btnCharacter" Content="Character" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Background="{x:Null}" Foreground="#FF5F2568" Margin="0" Style="{DynamicResource bitzSubMenuOption}" Tag="submenu"/>
-                                <Button x:Name="btnMisc" Content="Misc" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Background="{x:Null}" Foreground="#FF5F2568" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                                <Button x:Name="btnClearAll" Content="Clear All" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Background="{x:Null}" Foreground="#FF5F2568" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                            </StackPanel>
-                        </StackPanel>
-                        <StackPanel x:Name="menuPages_Copy" Orientation="Vertical">
-                            <Button x:Name="btnCreate" Background="#FF0F0F0F" Foreground="DarkMagenta" Content="Create" FontSize="20" Height="32" Margin="0" FontStretch="Expanded" Click="btnPages_Click" Style="{DynamicResource bitzMenuOption}"/>
-                            <StackPanel x:Name="submenupanel_Create" Background="#FF232027" Style="{DynamicResource bitzSubMenu}" Margin="0" RenderTransformOrigin="0.5,0.5">
-                                <StackPanel.LayoutTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform ScaleX="1.0" ScaleY="1.0"/>
-                                        <SkewTransform/>
-                                        <RotateTransform/>
-                                        <TranslateTransform/>
-                                    </TransformGroup>
-                                </StackPanel.LayoutTransform>
-                                <Button x:Name="btnCreateFiles" Content="Create Files" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Background="{x:Null}" Foreground="#FF5F2568" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                                <Button x:Name="btnCreateTrelloCard" Content="Create Trello Card" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Background="{x:Null}" Foreground="#FF5F2568" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                            </StackPanel>
-                        </StackPanel>
-                        <StackPanel x:Name="menuPages_Copy1" Orientation="Vertical">
-                            <Button x:Name="btnSettings" Background="#FF0F0F0F" Foreground="DarkMagenta" Content="Settings" FontSize="20" Height="32" Margin="0" FontStretch="Expanded" Click="btnPages_Click" Style="{DynamicResource bitzMenuOption}"/>
-                            <StackPanel x:Name="submenupanel_Settings" Background="#FF232027" Style="{DynamicResource bitzSubMenu}" Margin="0" RenderTransformOrigin="0.5,0.5">
-                                <StackPanel.LayoutTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform ScaleX="1.0" ScaleY="1.0"/>
-                                        <SkewTransform/>
-                                        <RotateTransform/>
-                                        <TranslateTransform/>
-                                    </TransformGroup>
-                                </StackPanel.LayoutTransform>
-                                <Button x:Name="btnFolderFormat" Content="Folder Format" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Background="{x:Null}" Foreground="#FF5F2568" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                                <Button x:Name="btnTrelloAccount" Content="Trello Account" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Background="{x:Null}" Foreground="#FF5F2568" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                                <Button x:Name="btnCharacter1" Content="Character" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Background="{x:Null}" Foreground="#FF5F2568" Margin="0" Style="{DynamicResource bitzSubMenuOption}" Tag="submenu"/>
-                                <Button x:Name="btnMisc1" Content="Misc" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Background="{x:Null}" Foreground="#FF5F2568" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                                <Button x:Name="btnClearAll1" Content="Clear All" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Background="{x:Null}" Foreground="#FF5F2568" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                            </StackPanel>
+            <ScrollViewer VerticalScrollBarVisibility="Visible">
+                <StackPanel x:Name="MenuPanel" Background="#FF070707" Width="224" Style="{DynamicResource bitzMenu}" CanVerticallyScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True">
+                    <StackPanel Height="72" Style="{DynamicResource bitzMenuLogo}"/>
+                    <StackPanel x:Name="menuPages" Orientation="Vertical">
+                        <Button x:Name="btnPages" Background="#FF0F0F0F" Foreground="DarkMagenta" Content="Pages" FontSize="20" Height="32" Margin="0" FontStretch="Expanded" Click="btnPages_Click" Style="{DynamicResource bitzMenuOption}"/>
+                        <StackPanel x:Name="submenupanel_Pages" Background="#FF232027" Style="{DynamicResource bitzSubMenu}" Margin="0" RenderTransformOrigin="0.5,0.5">
+                            <StackPanel.LayoutTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleX="1.0" ScaleY="1.0"/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </StackPanel.LayoutTransform>
+                            <Button x:Name="btnMain" Content="Main" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Background="{x:Null}" Foreground="#FF5F2568" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                            <Button x:Name="btnFileDescription" Content="File Description" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Background="{x:Null}" Foreground="#FF5F2568" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                            <Button x:Name="btnCharacter" Content="Character" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Background="{x:Null}" Foreground="#FF5F2568" Margin="0" Style="{DynamicResource bitzSubMenuOption}" Tag="submenu"/>
+                            <Button x:Name="btnMisc" Content="Misc" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Background="{x:Null}" Foreground="#FF5F2568" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                            <Button x:Name="btnClearAll" Content="Clear All" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Background="{x:Null}" Foreground="#FF5F2568" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
                         </StackPanel>
                     </StackPanel>
-                </ScrollViewer>
-            </Border>
+                    <StackPanel x:Name="menuPages_Copy" Orientation="Vertical">
+                        <Button x:Name="btnCreate" Background="#FF0F0F0F" Foreground="DarkMagenta" Content="Create" FontSize="20" Height="32" Margin="0" FontStretch="Expanded" Click="btnPages_Click" Style="{DynamicResource bitzMenuOption}"/>
+                        <StackPanel x:Name="submenupanel_Create" Background="#FF232027" Style="{DynamicResource bitzSubMenu}" Margin="0" RenderTransformOrigin="0.5,0.5">
+                            <StackPanel.LayoutTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleX="1.0" ScaleY="1.0"/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </StackPanel.LayoutTransform>
+                            <Button x:Name="btnCreateFiles" Content="Create Files" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Background="{x:Null}" Foreground="#FF5F2568" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                            <Button x:Name="btnCreateTrelloCard" Content="Create Trello Card" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Background="{x:Null}" Foreground="#FF5F2568" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel x:Name="menuPages_Copy1" Orientation="Vertical">
+                        <Button x:Name="btnSettings" Background="#FF0F0F0F" Foreground="DarkMagenta" Content="Settings" FontSize="20" Height="32" Margin="0" FontStretch="Expanded" Click="btnPages_Click" Style="{DynamicResource bitzMenuOption}"/>
+                        <StackPanel x:Name="submenupanel_Settings" Background="#FF232027" Style="{DynamicResource bitzSubMenu}" Margin="0" RenderTransformOrigin="0.5,0.5">
+                            <StackPanel.LayoutTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleX="1.0" ScaleY="1.0"/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </StackPanel.LayoutTransform>
+                            <Button x:Name="btnFolderFormat" Content="Folder Format" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Background="{x:Null}" Foreground="#FF5F2568" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                            <Button x:Name="btnTrelloAccount" Content="Trello Account" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Background="{x:Null}" Foreground="#FF5F2568" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                            <Button x:Name="btnCharacter1" Content="Character" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Background="{x:Null}" Foreground="#FF5F2568" Margin="0" Style="{DynamicResource bitzSubMenuOption}" Tag="submenu"/>
+                            <Button x:Name="btnMisc1" Content="Misc" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Background="{x:Null}" Foreground="#FF5F2568" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                            <Button x:Name="btnClearAll1" Content="Clear All" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Background="{x:Null}" Foreground="#FF5F2568" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </ScrollViewer>
             <Frame x:Name="frameMainView" Content="Frame" Margin="0" DockPanel.Dock="Top">
                 <Frame.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0.5">

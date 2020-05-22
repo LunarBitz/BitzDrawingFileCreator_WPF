@@ -130,15 +130,14 @@ namespace BitzDrawingFileCreator_WPF
             Resources["themeclr_ComboBox_Background"]           = (Brush)(new BrushConverter().ConvertFrom("#FF" + "c000c0"));
             Resources["themeclr_ComboBox_Border"]               = (Brush)(new BrushConverter().ConvertFrom("#FF" + "c000c0"));
 
-            Resources["themeclr_Scroll_Thumb"]                  = Resources["themeclr_Text_Primary"];
+            Resources["themeclr_Scroll_Thumb"]                  = Resources["themeclr_Text_Secondary"];
+            Resources["themeclr_Scroll_Thumb_Hover"]            = (Brush)(new BrushConverter().ConvertFrom("#FF" + "1f1f1f"));
+            Resources["themeclr_Scroll_Thumb_Clicked"]          = (Brush)(new BrushConverter().ConvertFrom("#FF" + "79517d"));
             Resources["themeclr_Scroll_Foreground"]             = Resources["themeclr_Text_Primary"];
-            Resources["themeclr_Scroll_Disabled"]               = (Brush)(new BrushConverter().ConvertFrom("#FF" + "c000c0"));
-            Resources["themeclr_Scroll_Arrows"]                 = (Brush)(new BrushConverter().ConvertFrom("#FF" + "c000c0"));
-            Resources["themeclr_Scroll_Arrows_Pressed"]         = (Brush)(new BrushConverter().ConvertFrom("#FF" + "c000c0"));
-            Resources["themeclr_Scroll_Arrows_Hover"]           = (Brush)(new BrushConverter().ConvertFrom("#FF" + "c000c0"));
-            Resources["themeclr_Scroll_Arrows_Disabled"]        = (Brush)(new BrushConverter().ConvertFrom("#FF" + "c000c0"));
-            Resources["themeclr_Scroll_Background"]             = (Brush)(new BrushConverter().ConvertFrom("#FF" + "c000c0"));
-            Resources["themeclr_Scroll_Border"]                 = (Brush)(new BrushConverter().ConvertFrom("#FF" + "c000c0"));
+            Resources["themeclr_Scroll_Disabled"]               = (Brush)(new BrushConverter().ConvertFrom("#FF" + "0f0f0f"));
+            Resources["themeclr_Scroll_Background_Primary"]     = (Color)ColorConverter.ConvertFromString("#00" + "0f0f0f");
+            Resources["themeclr_Scroll_Background_Secondary"]   = (Color)ColorConverter.ConvertFromString("#FF" + "000000");
+            Resources["themeclr_Scroll_Border"]                 = (Brush)(new BrushConverter().ConvertFrom("#00" + "1f1f1f"));
         }
 
         private double objToDouble(object o)

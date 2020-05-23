@@ -96,7 +96,7 @@ namespace BitzDrawingFileCreator_WPF
             publicDataContext.theme_MenuLogo_Background_Secondary = "#00" + "000000";
 
             publicDataContext.theme_Button_Text = publicDataContext.theme_Text_Primary;
-            publicDataContext.theme_Button_Background = "#FF" + "0f0f0f";
+            publicDataContext.theme_Button_Background = "#80" + "0f0f0f";
             publicDataContext.theme_Button_Border = "#00" + "000000";
             publicDataContext.theme_Button_Hover = "#FF" + "404040";
             publicDataContext.theme_Button_Clicked = "#FF" + "79517d";

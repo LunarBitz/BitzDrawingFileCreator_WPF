@@ -35,7 +35,7 @@ namespace BitzDrawingFileCreator_WPF
 
         private string rndColor()
         {
-            return String.Format("#{0:X6}", new Random().Next(0x1000000)).Replace("#", ""); // = "#A197B9"
+            return String.Format("#{0:X6}", new Random((int)DateTime.Now.Ticks).Next(0x1000000)).Replace("#", ""); // = "#A197B9"
         }
 
         private void randomizeTheme()
@@ -50,7 +50,7 @@ namespace BitzDrawingFileCreator_WPF
             con.theme_MenuLogo_Background_Secondary = "#00" + rndColor();
 
             con.theme_Button_Text = con.theme_Text_Primary;
-            con.theme_Button_Background = "#FF" + rndColor();
+            con.theme_Button_Background = "#80" + rndColor();
             con.theme_Button_Border = "#00" + rndColor();
             con.theme_Button_Hover = "#FF" + rndColor();
             con.theme_Button_Clicked = "#FF" + rndColor();

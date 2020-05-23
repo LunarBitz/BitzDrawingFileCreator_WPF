@@ -16,8 +16,8 @@
     <Grid Background="#00422121">
         <GroupBox Header="" HorizontalAlignment="Left" BorderBrush="#FF009FFF" Height="79" Margin="10,10,0,0" VerticalAlignment="Top" Width="164" BorderThickness="0,1" Grid.IsSharedSizeScope="True" Style="{DynamicResource bitzGroupBox}">
             <Grid>
-                <Label Content="Recipient's Username" Margin="0" Background="#00000000" Foreground="#FFC000C0" FontFamily="Segoe UI Semibold" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"/>
-                <TextBox x:Name="txtUserName" Margin="0,25,0,10" TextWrapping="Wrap" Text="{Binding userName}" Height="20" Background="#7F0F0F0F" Foreground="#FF5F2568" SelectionBrush="#FF404040" BorderBrush="#3FABADB3" Style="{DynamicResource bitzTextBox}"/>
+                <Label Content="Recipient's Username" Margin="0" FontFamily="Segoe UI Semibold" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Foreground="{Binding theme_Text_Primary}"/>
+                <TextBox x:Name="txtUserName" Margin="0,25,0,10" TextWrapping="Wrap" Text="{Binding userName}" Height="20" SelectionBrush="#FF404040" Style="{DynamicResource bitzTextBox}"/>
             </Grid>
         </GroupBox>
         <Button Content="Button" HorizontalAlignment="Left" Margin="294,97,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" Style="{DynamicResource bitzButton}"/>

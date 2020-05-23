@@ -15,7 +15,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        
+
         <!-- Logo Style -->
         <Style x:Key="bitzMenuLogo" TargetType="{x:Type StackPanel}">
             <Setter Property="Background">
@@ -30,7 +30,8 @@
 
         <!-- Button Style -->
         <Style x:Key="bitzButton" TargetType="{x:Type Button}">
-            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
             <Setter Property="Background" Value="{Binding theme_Button_Background}"/>
             <Setter Property="BorderBrush" Value="{Binding theme_Button_Border}"/>
             <Setter Property="Foreground" Value="{Binding theme_Button_Text}"/>
@@ -45,21 +46,17 @@
                             <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                         </Border>
                         <ControlTemplate.Triggers>
-                            <Trigger Property="IsDefaulted" Value="true">
-                                <Setter Property="BorderBrush" TargetName="border" Value="{Binding theme_Button_Selected}"/>
-                            </Trigger>
                             <Trigger Property="IsMouseOver" Value="true">
                                 <Setter Property="Background" TargetName="border" Value="{Binding theme_Button_Hover}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{Binding theme_Button_Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="False">
+                                <Setter Property="Background" TargetName="border" Value="{Binding theme_Button_Background}"/>
                                 <Setter Property="BorderBrush" TargetName="border" Value="{Binding theme_Button_Border}"/>
                             </Trigger>
                             <Trigger Property="IsPressed" Value="true">
                                 <Setter Property="Background" TargetName="border" Value="{Binding theme_Button_Clicked}"/>
                                 <Setter Property="BorderBrush" TargetName="border" Value="{Binding theme_Button_Border}"/>
-                            </Trigger>
-                            <Trigger Property="IsEnabled" Value="false">
-                                <Setter Property="Background" TargetName="border" Value="{Binding theme_Button_Background}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{Binding theme_Button_Border}"/>
-                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="Transparent"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -81,18 +78,19 @@
 
         <!-- Menu Option Style -->
         <Style x:Key="bitzMenuOption" TargetType="{x:Type Button}">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="BorderBrush" Value="{Binding theme_MenuOption_Border}" />
+            <Setter Property="Background" Value="{Binding theme_MenuOption_Background}" />
             <Setter Property="Foreground" Value="{Binding theme_MenuOption_Text}"/>
-            <Setter Property="FontSize" Value="20" />
-            <Setter Property="FontFamily" Value="Segoe UI" />
-            <Setter Property="FontStyle" Value="Normal" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="FontSize" Value="20"/>
+
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="FontStyle" Value="Normal"/>
             <Setter Property="Padding" Value="32, 0, 0, 0"/>
-            
-            <Setter Property="Background" Value="{Binding theme_MenuOption_Background}"/>
-            <Setter Property="BorderBrush" Value="{Binding theme_MenuOption_Border}"/>
-            <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="HorizontalContentAlignment" Value="Left"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
-            
+
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
@@ -100,9 +98,6 @@
                             <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                         </Border>
                         <ControlTemplate.Triggers>
-                            <Trigger Property="IsDefaulted" Value="true">
-                                <Setter Property="BorderBrush" TargetName="border" Value="{Binding theme_MenuOption_Selected}"/>
-                            </Trigger>
                             <Trigger Property="IsMouseOver" Value="true">
                                 <Setter Property="Background" TargetName="border" Value="{Binding theme_MenuOption_Hover}"/>
                                 <Setter Property="BorderBrush" TargetName="border" Value="{Binding theme_MenuOption_Border}"/>
@@ -110,11 +105,6 @@
                             <Trigger Property="IsPressed" Value="true">
                                 <Setter Property="Background" TargetName="border" Value="{Binding theme_MenuOption_Clicked}"/>
                                 <Setter Property="BorderBrush" TargetName="border" Value="{Binding theme_MenuOption_Border}"/>
-                            </Trigger>
-                            <Trigger Property="IsEnabled" Value="false">
-                                <Setter Property="Background" TargetName="border" Value="{Binding themeMenuOption_Background}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{Binding theme_MenuOption_Border}"/>
-                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="Transparent"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -171,7 +161,7 @@
             </Setter>
         </Style>
         <BorderGapMaskConverter x:Key="BorderGapMaskConverter"/>
-        
+
         <!-- Group Box Style -->
         <Style x:Key="bitzGroupBox" TargetType="{x:Type GroupBox}">
             <Setter Property="Background" Value="{Binding theme_Group_Background}"/>
@@ -316,7 +306,7 @@
                                                 <GradientStop Color="{Binding theme_Scroll_Background_Secondary}" Offset="0"/>
                                             </LinearGradientBrush>
                                         </Border.Background>
-                                        
+
                                         <Track x:Name="PART_Track" IsEnabled="{TemplateBinding IsMouseOver}">
                                             <Track.DecreaseRepeatButton>
                                                 <RepeatButton Command="{x:Static ScrollBar.PageLeftCommand}"/>
@@ -370,9 +360,6 @@
                 </Setter.Value>
             </Setter>
         </Style>
-
-      
-
 
 
     </Application.Resources>

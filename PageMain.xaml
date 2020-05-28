@@ -13,19 +13,13 @@
         <SolidColorBrush x:Key="TextBox.Focus.Border" Color="#FF569DE5"/>
     </Page.Resources>
 
-    <Grid Background="#FF313176">
-        <GroupBox Header="" HorizontalAlignment="Left" BorderBrush="{Binding theme_Group_Border}" Height="79" Margin="10,10,0,0" VerticalAlignment="Top" Width="164" BorderThickness="0,1" Grid.IsSharedSizeScope="True" Style="{DynamicResource bitzGroupBox}" d:DesignStyle="{DynamicResource desGroupBox}">
+    <Grid Background="#00422121">
+        <GroupBox Header="" HorizontalAlignment="Left" BorderBrush="#FF009FFF" Height="79" Margin="10,10,0,0" VerticalAlignment="Top" Width="164" BorderThickness="0,1" Grid.IsSharedSizeScope="True" Style="{DynamicResource bitzGroupBox}">
             <Grid>
                 <Label Content="Recipient's Username" Margin="0" FontFamily="Segoe UI Semibold" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Foreground="{Binding theme_Text_Primary}"/>
                 <TextBox x:Name="txtUserName" Margin="0,25,0,10" TextWrapping="Wrap" Text="{Binding userName}" Height="20" SelectionBrush="#FF404040" Style="{DynamicResource bitzTextBox}"/>
             </Grid>
         </GroupBox>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="56,-54,0,0" VerticalAlignment="Top" Width="74" Click="Button_Click" Style="{DynamicResource bitzButton}"/>
-        <GroupBox Header="" HorizontalAlignment="Left" BorderBrush="{Binding theme_Group_Border}" Height="79" Margin="10,102,0,0" VerticalAlignment="Top" Width="164" BorderThickness="0,1" Grid.IsSharedSizeScope="True" Style="{DynamicResource bitzGroupBox}">
-            <Grid>
-                <Label Content="Recipient's Username" Margin="0" FontFamily="Segoe UI Semibold" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Foreground="{Binding theme_Text_Primary}"/>
-                <TextBox x:Name="txtUserName1" Margin="0,25,0,10" TextWrapping="Wrap" Text="{Binding userName}" Height="20" SelectionBrush="#FF404040" Style="{DynamicResource bitzTextBox}"/>
-            </Grid>
-        </GroupBox>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="294,97,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" Style="{DynamicResource bitzButton}"/>
     </Grid>
 </Page>

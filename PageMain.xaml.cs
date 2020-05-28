@@ -42,61 +42,61 @@ namespace BitzDrawingFileCreator_WPF
         {
             var con = MainWindow.publicDataContext;
 
-            con.theme_Text_Primary = AppData.hexToBrush("#FF" + rndColor());
-            con.theme_Text_Secondary = AppData.hexToBrush("#FF" + rndColor());
-            con.theme_Text_Tertiary = AppData.hexToBrush("#FF" + rndColor());
+            con.theme_Text_Primary = "#FF" + rndColor();
+            con.theme_Text_Secondary = "#FF" + rndColor();
+            con.theme_Text_Tertiary = "#FF" + rndColor();
 
-            con.theme_MenuLogo_Background_Primary = AppData.hexToBrush("#FF" + rndColor());
-            con.theme_MenuLogo_Background_Secondary = AppData.hexToBrush("#00" + rndColor());
+            con.theme_MenuLogo_Background_Primary = "#FF" + rndColor();
+            con.theme_MenuLogo_Background_Secondary = "#00" + rndColor();
 
             con.theme_Button_Text = con.theme_Text_Primary;
-            con.theme_Button_Background = AppData.hexToBrush("#80" + rndColor());
-            con.theme_Button_Border = AppData.hexToBrush("#00" + rndColor());
-            con.theme_Button_Hover = AppData.hexToBrush("#FF" + rndColor());
-            con.theme_Button_Clicked = AppData.hexToBrush("#FF" + rndColor());
-            con.theme_Button_Selected = AppData.hexToBrush("#FF" + rndColor());
+            con.theme_Button_Background = "#80" + rndColor();
+            con.theme_Button_Border = "#00" + rndColor();
+            con.theme_Button_Hover = "#FF" + rndColor();
+            con.theme_Button_Clicked = "#FF" + rndColor();
+            con.theme_Button_Selected = "#FF" + rndColor();
 
-            con.theme_Menu_Background_Primary = AppData.hexToBrush("#FF" + rndColor());
-            con.theme_Menu_Background_Secondary = AppData.hexToBrush("#00" + rndColor());
+            con.theme_Menu_Background_Primary = "#FF" + rndColor();
+            con.theme_Menu_Background_Secondary = "#00" + rndColor();
 
             con.theme_MenuOption_Text = con.theme_Text_Primary;
-            con.theme_MenuOption_Background = AppData.hexToBrush("#00" + rndColor());
-            con.theme_MenuOption_Border = AppData.hexToBrush("#00" + rndColor());
-            con.theme_MenuOption_Hover = AppData.hexToBrush("#FF" + rndColor());
-            con.theme_MenuOption_Clicked = AppData.hexToBrush("#FF" + rndColor());
-            con.theme_MenuOption_Selected = AppData.hexToBrush("#FF" + rndColor());
+            con.theme_MenuOption_Background = "#00" + rndColor();
+            con.theme_MenuOption_Border = "#00" + rndColor();
+            con.theme_MenuOption_Hover = "#FF" + rndColor();
+            con.theme_MenuOption_Clicked = "#FF" + rndColor();
+            con.theme_MenuOption_Selected = "#FF" + rndColor();
 
-            con.theme_SubMenu_Background = AppData.hexToBrush("#FF" + rndColor());
+            con.theme_SubMenu_Background = "#FF" + rndColor();
 
             con.theme_SubMenuOption_Text = con.theme_Text_Secondary;
-            con.theme_SubMenuOption_Background = AppData.hexToBrush("#00" + rndColor());
-            con.theme_SubMenuOption_Border = AppData.hexToBrush("#00" + rndColor());
-            con.theme_SubMenuOption_Hover = AppData.hexToBrush("#FF" + rndColor());
-            con.theme_SubMenuOption_Clicked = AppData.hexToBrush("#FF" + rndColor());
-            con.theme_SubMenuOption_Selected = AppData.hexToBrush("#FF" + rndColor());
+            con.theme_SubMenuOption_Background = "#00" + rndColor();
+            con.theme_SubMenuOption_Border = "#00" + rndColor();
+            con.theme_SubMenuOption_Hover = "#FF" + rndColor();
+            con.theme_SubMenuOption_Clicked = "#FF" + rndColor();
+            con.theme_SubMenuOption_Selected = "#FF" + rndColor();
 
-            con.theme_Group_Background = AppData.hexToBrush("#00" + rndColor());
-            con.theme_Group_Border = AppData.hexToBrush("#80" + rndColor());
+            con.theme_Group_Background = "#00" + rndColor();
+            con.theme_Group_Border = "#80" + rndColor();
 
             con.theme_TextBox_Text = con.theme_Text_Secondary;
-            con.theme_TextBox_Background = AppData.hexToBrush("#80" + rndColor());
-            con.theme_TextBox_Border = AppData.hexToBrush("#80" + rndColor());
-            con.theme_TextBox_Hover = AppData.hexToBrush("#80" + rndColor());
-            con.theme_TextBox_Focus = AppData.hexToBrush("#80" + rndColor());
-            con.theme_TextBox_Inactive = AppData.hexToBrush("#80" + rndColor());
+            con.theme_TextBox_Background = "#80" + rndColor();
+            con.theme_TextBox_Border = "#80" + rndColor();
+            con.theme_TextBox_Hover = "#80" + rndColor();
+            con.theme_TextBox_Focus = "#80" + rndColor();
+            con.theme_TextBox_Inactive = "#80" + rndColor();
 
             con.theme_ListBox_Text = con.theme_Text_Primary;
-            con.theme_ListBox_Background = AppData.hexToBrush("#FF" + rndColor());
-            con.theme_ListBox_Border = AppData.hexToBrush("#FF" + rndColor());
+            con.theme_ListBox_Background = "#FF" + rndColor();
+            con.theme_ListBox_Border = "#FF" + rndColor();
 
             con.theme_ComboBox_Text = con.theme_Text_Primary;
-            con.theme_ComboBox_Arrow = AppData.hexToBrush("#FF" + rndColor());
-            con.theme_ComboBox_Background = AppData.hexToBrush("#FF" + rndColor());
-            con.theme_ComboBox_Border = AppData.hexToBrush("#FF" + rndColor());
+            con.theme_ComboBox_Arrow = "#FF" + rndColor();
+            con.theme_ComboBox_Background = "#FF" + rndColor();
+            con.theme_ComboBox_Border = "#FF" + rndColor();
 
             con.theme_Scroll_Thumb = con.theme_Text_Secondary;
-            con.theme_Scroll_Background_Primary = AppData.hexToBrush("#00" + rndColor());
-            con.theme_Scroll_Background_Secondary = AppData.hexToBrush("#FF" + rndColor());
+            con.theme_Scroll_Background_Primary = "#00" + rndColor();
+            con.theme_Scroll_Background_Secondary = "#FF" + rndColor();
         }
     }
 }

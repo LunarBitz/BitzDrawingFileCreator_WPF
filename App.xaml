@@ -6,8 +6,6 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
 
-        <appdata:AppData:ColorToSolidColorBrushValueConverter  x:Key="ColorToSolidColorBrush_ValueConverter"/>
-
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
                 <Setter.Value>
@@ -206,9 +204,6 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-        </Style>
-        <Style x:Key="desGroupBox" TargetType="{x:Type GroupBox}">
-            <Setter Property="Background" Value="AliceBlue"/>
         </Style>
 
         <!-- TextBox Style -->

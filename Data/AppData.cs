@@ -3,13 +3,53 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Data;
+using System.Windows.Media;
 
 namespace BitzDrawingFileCreator_WPF.Data
 {
     public class AppData : ObservableObject
     {
 
-        private Dictionary<string, string> privateVars = new Dictionary<string, string>();
+        private Dictionary<string, string> privateVarsInputs = new Dictionary<string, string>();
+        private Dictionary<string, Color> privateVarsColors = new Dictionary<string, Color>();
+
+        public static Color hexToBrush(string hexValue)
+        {
+            return (Color)ColorConverter.ConvertFromString(hexValue);
+        }
+
+        public class ColorToSolidColorBrushValueConverter : IValueConverter
+        {
+
+            public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+            {
+                if (null == value)
+                {
+                    return null;
+                }
+                // For a more sophisticated converter, check also the targetType and react accordingly..
+                if (value is Color)
+                {
+                    Color color = (Color)value;
+                    return new SolidColorBrush(color);
+                }
+                // You can support here more source types if you wish
+                // For the example I throw an exception
+
+                Type type = value.GetType();
+                throw new InvalidOperationException("Unsupported type [" + type.Name + "]");
+            }
+
+            public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+            {
+                // If necessary, here you can convert back. Check if which brush it is (if its one),
+                // get its Color-value and return it.
+
+                throw new NotImplementedException();
+            }
+        }
 
         #region Entry Data
         public string userName 
@@ -18,16 +58,15 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
-                if (string.IsNullOrEmpty(privateVars[baseName]))
+                if (string.IsNullOrEmpty(privateVarsInputs[baseName]))
                     return " ";
-                return privateVars[baseName];
+                return privateVarsInputs[baseName];
             }
             set
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
-                privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                privateVarsInputs[baseName] = value;
                 OnPropertyChanged(baseName);
             }
         }
@@ -36,62 +75,56 @@ namespace BitzDrawingFileCreator_WPF.Data
         #region Theme Colors
 
         #region Text
-        public string theme_Text_Primary
+        public Color theme_Text_Primary
         {
             get
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
-                if (string.IsNullOrEmpty(privateVars[baseName]))
-                    return "#00000000";
-                return privateVars[baseName];
+                if (privateVarsColors.ContainsKey(baseName))
+                    return hexToBrush("#FFFF0000");
+                return privateVarsColors[baseName];
             }
             set
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
-
-                privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                privateVarsColors[baseName] = value;
                 OnPropertyChanged(baseName);
             }
         }
 
-        public string theme_Text_Secondary
+        public Color theme_Text_Secondary
         {
             get
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
-                if (string.IsNullOrEmpty(privateVars[baseName]))
-                    return "#00000000";
-                return privateVars[baseName];
+                if (privateVarsColors.ContainsKey(baseName))
+                    return hexToBrush("#FFFF0000");
+                return privateVarsColors[baseName];
             }
             set
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
-
-                privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                privateVarsColors[baseName] = value;
                 OnPropertyChanged(baseName);
             }
         }
 
-        public string theme_Text_Tertiary
+        public Color theme_Text_Tertiary
         {
             get
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
-                if (string.IsNullOrEmpty(privateVars[baseName]))
-                    return "#00000000";
-                return privateVars[baseName];
+                if (privateVarsColors.ContainsKey(baseName))
+                    return hexToBrush("#FFFF0000");
+                return privateVarsColors[baseName];
             }
             set
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
-
-                privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                privateVarsColors[baseName] = value;
                 OnPropertyChanged(baseName);
             }
         }
@@ -99,42 +132,38 @@ namespace BitzDrawingFileCreator_WPF.Data
         #endregion
 
         #region Menu Logo
-        public string theme_MenuLogo_Background_Primary
+        public Color theme_MenuLogo_Background_Primary
         {
             get
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
-                if (string.IsNullOrEmpty(privateVars[baseName]))
-                    return "#00000000";
-                return privateVars[baseName];
+                if (privateVarsColors.ContainsKey(baseName))
+                    return hexToBrush("#FFFF0000");
+                return privateVarsColors[baseName];
             }
             set
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
-
-                privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                privateVarsColors[baseName] = value;
                 OnPropertyChanged(baseName);
             }
         }
 
-        public string theme_MenuLogo_Background_Secondary
+        public Color theme_MenuLogo_Background_Secondary
         {
             get
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
-                if (string.IsNullOrEmpty(privateVars[baseName]))
-                    return "#00000000";
-                return privateVars[baseName];
+                if (privateVarsColors.ContainsKey(baseName))
+                    return hexToBrush("#FFFF0000");
+                return privateVarsColors[baseName];
             }
             set
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
-
-                privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                privateVarsColors[baseName] = value;
                 OnPropertyChanged(baseName);
             }
         }
@@ -142,122 +171,110 @@ namespace BitzDrawingFileCreator_WPF.Data
         #endregion
 
         #region Button
-        public string theme_Button_Text
+        public Color theme_Button_Text
         {
             get
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
-                if (string.IsNullOrEmpty(privateVars[baseName]))
-                    return "#00000000";
-                return privateVars[baseName];
+                if (privateVarsColors.ContainsKey(baseName))
+                    return hexToBrush("#FFFF0000");
+                return privateVarsColors[baseName];
             }
             set
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
-
-                privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                privateVarsColors[baseName] = value;
                 OnPropertyChanged(baseName);
             }
         }
 
-        public string theme_Button_Background
+        public Color theme_Button_Background
         {
             get
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
-                if (string.IsNullOrEmpty(privateVars[baseName]))
-                    return "#00000000";
-                return privateVars[baseName];
+                if (privateVarsColors.ContainsKey(baseName))
+                    return hexToBrush("#FFFF0000");
+                return privateVarsColors[baseName];
             }
             set
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
-
-                privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                privateVarsColors[baseName] = value;
                 OnPropertyChanged(baseName);
             }
         }
 
-        public string theme_Button_Border
+        public Color theme_Button_Border
         {
             get
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
-                if (string.IsNullOrEmpty(privateVars[baseName]))
-                    return "#00000000";
-                return privateVars[baseName];
+                if (privateVarsColors.ContainsKey(baseName))
+                    return hexToBrush("#FFFF0000");
+                return privateVarsColors[baseName];
             }
             set
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
-
-                privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                privateVarsColors[baseName] = value;
                 OnPropertyChanged(baseName);
             }
         }
 
-        public string theme_Button_Hover
+        public Color theme_Button_Hover
         {
             get
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
-                if (string.IsNullOrEmpty(privateVars[baseName]))
-                    return "#00000000";
-                return privateVars[baseName];
+                if (privateVarsColors.ContainsKey(baseName))
+                    return hexToBrush("#FFFF0000");
+                return privateVarsColors[baseName];
             }
             set
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
-
-                privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                privateVarsColors[baseName] = value;
                 OnPropertyChanged(baseName);
             }
         }
 
-        public string theme_Button_Clicked
+        public Color theme_Button_Clicked
         {
             get
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
-                if (string.IsNullOrEmpty(privateVars[baseName]))
-                    return "#00000000";
-                return privateVars[baseName];
+                if (privateVarsColors.ContainsKey(baseName))
+                    return hexToBrush("#FFFF0000");
+                return privateVarsColors[baseName];
             }
             set
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
-
-                privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                privateVarsColors[baseName] = value;
                 OnPropertyChanged(baseName);
             }
         }
 
-        public string theme_Button_Selected
+        public Color theme_Button_Selected
         {
             get
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
-                if (string.IsNullOrEmpty(privateVars[baseName]))
-                    return "#00000000";
-                return privateVars[baseName];
+                if (privateVarsColors.ContainsKey(baseName))
+                    return hexToBrush("#FFFF0000");
+                return privateVarsColors[baseName];
             }
             set
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
-
-                privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                privateVarsColors[baseName] = value;
                 OnPropertyChanged(baseName);
             }
         }
@@ -265,42 +282,38 @@ namespace BitzDrawingFileCreator_WPF.Data
         #endregion
 
         #region Menu
-        public string theme_Menu_Background_Primary
+        public Color theme_Menu_Background_Primary
         {
             get
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
-                if (string.IsNullOrEmpty(privateVars[baseName]))
-                    return "#00000000";
-                return privateVars[baseName];
+                if (privateVarsColors.ContainsKey(baseName))
+                    return hexToBrush("#FFFF0000");
+                return privateVarsColors[baseName];
             }
             set
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
-
-                privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                privateVarsColors[baseName] = value;
                 OnPropertyChanged(baseName);
             }
         }
 
-        public string theme_Menu_Background_Secondary
+        public Color theme_Menu_Background_Secondary
         {
             get
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
-                if (string.IsNullOrEmpty(privateVars[baseName]))
-                    return "#00000000";
-                return privateVars[baseName];
+                if (privateVarsColors.ContainsKey(baseName))
+                    return hexToBrush("#FFFF0000");
+                return privateVarsColors[baseName];
             }
             set
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
-
-                privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                privateVarsColors[baseName] = value;
                 OnPropertyChanged(baseName);
             }
         }
@@ -308,117 +321,105 @@ namespace BitzDrawingFileCreator_WPF.Data
         #endregion
         
         #region Menu Options
-        public string theme_MenuOption_Text
+        public Color theme_MenuOption_Text
         {
             get
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
-                if (string.IsNullOrEmpty(privateVars[baseName]))
-                    return "#00000000";
-                return privateVars[baseName];
+                if (privateVarsColors.ContainsKey(baseName))
+                    return hexToBrush("#FFFF0000");
+                return privateVarsColors[baseName];
             }
             set
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
-
-                privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                privateVarsColors[baseName] = value;
                 OnPropertyChanged(baseName);
             }
         }
-        public string theme_MenuOption_Background
+        public Color theme_MenuOption_Background
         {
             get
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
-                if (string.IsNullOrEmpty(privateVars[baseName]))
-                    return "#00000000";
-                return privateVars[baseName];
+                if (privateVarsColors.ContainsKey(baseName))
+                    return hexToBrush("#FFFF0000");
+                return privateVarsColors[baseName];
             }
             set
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
-
-                privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                privateVarsColors[baseName] = value;
                 OnPropertyChanged(baseName);
             }
         }
-        public string theme_MenuOption_Border
+        public Color theme_MenuOption_Border
         {
             get
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
-                if (string.IsNullOrEmpty(privateVars[baseName]))
-                    return "#00000000";
-                return privateVars[baseName];
+                if (privateVarsColors.ContainsKey(baseName))
+                    return hexToBrush("#FFFF0000");
+                return privateVarsColors[baseName];
             }
             set
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
-
-                privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                privateVarsColors[baseName] = value;
                 OnPropertyChanged(baseName);
             }
         }
-        public string theme_MenuOption_Hover
+        public Color theme_MenuOption_Hover
         {
             get
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
-                if (string.IsNullOrEmpty(privateVars[baseName]))
-                    return "#00000000";
-                return privateVars[baseName];
+                if (privateVarsColors.ContainsKey(baseName))
+                    return hexToBrush("#FFFF0000");
+                return privateVarsColors[baseName];
             }
             set
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
-
-                privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                privateVarsColors[baseName] = value;
                 OnPropertyChanged(baseName);
             }
         }
-        public string theme_MenuOption_Clicked
+        public Color theme_MenuOption_Clicked
         {
             get
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
-                if (string.IsNullOrEmpty(privateVars[baseName]))
-                    return "#00000000";
-                return privateVars[baseName];
+                if (privateVarsColors.ContainsKey(baseName))
+                    return hexToBrush("#FFFF0000");
+                return privateVarsColors[baseName];
             }
             set
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
-
-                privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                privateVarsColors[baseName] = value;
                 OnPropertyChanged(baseName);
             }
         }
-        public string theme_MenuOption_Selected
+        public Color theme_MenuOption_Selected
         {
             get
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
-                if (string.IsNullOrEmpty(privateVars[baseName]))
-                    return "#00000000";
-                return privateVars[baseName];
+                if (privateVarsColors.ContainsKey(baseName))
+                    return hexToBrush("#FFFF0000");
+                return privateVarsColors[baseName];
             }
             set
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
-
-                privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                privateVarsColors[baseName] = value;
                 OnPropertyChanged(baseName);
             }
         }
@@ -426,22 +427,20 @@ namespace BitzDrawingFileCreator_WPF.Data
         #endregion
 
         #region SubMenu
-        public string theme_SubMenu_Background
+        public Color theme_SubMenu_Background
         {
             get
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
-                if (string.IsNullOrEmpty(privateVars[baseName]))
-                    return "#00000000";
-                return privateVars[baseName];
+                if (privateVarsColors.ContainsKey(baseName))
+                    return hexToBrush("#FFFF0000");
+                return privateVarsColors[baseName];
             }
             set
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
-
-                privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                privateVarsColors[baseName] = value;
                 OnPropertyChanged(baseName);
             }
         }
@@ -449,117 +448,105 @@ namespace BitzDrawingFileCreator_WPF.Data
         #endregion
 
         #region SubMenu Option
-        public string theme_SubMenuOption_Text
+        public Color theme_SubMenuOption_Text
         {
             get
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
-                if (string.IsNullOrEmpty(privateVars[baseName]))
-                    return "#00000000";
-                return privateVars[baseName];
+                if (privateVarsColors.ContainsKey(baseName))
+                    return hexToBrush("#FFFF0000");
+                return privateVarsColors[baseName];
             }
             set
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
-
-                privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                privateVarsColors[baseName] = value;
                 OnPropertyChanged(baseName);
             }
         }
-        public string theme_SubMenuOption_Background
+        public Color theme_SubMenuOption_Background
         {
             get
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
-                if (string.IsNullOrEmpty(privateVars[baseName]))
-                    return "#00000000";
-                return privateVars[baseName];
+                if (privateVarsColors.ContainsKey(baseName))
+                    return hexToBrush("#FFFF0000");
+                return privateVarsColors[baseName];
             }
             set
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
-
-                privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                privateVarsColors[baseName] = value;
                 OnPropertyChanged(baseName);
             }
         }
-        public string theme_SubMenuOption_Border
+        public Color theme_SubMenuOption_Border
         {
             get
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
-                if (string.IsNullOrEmpty(privateVars[baseName]))
-                    return "#00000000";
-                return privateVars[baseName];
+                if (privateVarsColors.ContainsKey(baseName))
+                    return hexToBrush("#FFFF0000");
+                return privateVarsColors[baseName];
             }
             set
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
-
-                privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                privateVarsColors[baseName] = value;
                 OnPropertyChanged(baseName);
             }
         }
-        public string theme_SubMenuOption_Hover
+        public Color theme_SubMenuOption_Hover
         {
             get
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
-                if (string.IsNullOrEmpty(privateVars[baseName]))
-                    return "#00000000";
-                return privateVars[baseName];
+                if (privateVarsColors.ContainsKey(baseName))
+                    return hexToBrush("#FFFF0000");
+                return privateVarsColors[baseName];
             }
             set
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
-
-                privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                privateVarsColors[baseName] = value;
                 OnPropertyChanged(baseName);
             }
         }
-        public string theme_SubMenuOption_Clicked
+        public Color theme_SubMenuOption_Clicked
         {
             get
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
-                if (string.IsNullOrEmpty(privateVars[baseName]))
-                    return "#00000000";
-                return privateVars[baseName];
+                if (privateVarsColors.ContainsKey(baseName))
+                    return hexToBrush("#FFFF0000");
+                return privateVarsColors[baseName];
             }
             set
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
-
-                privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                privateVarsColors[baseName] = value;
                 OnPropertyChanged(baseName);
             }
         }
-        public string theme_SubMenuOption_Selected
+        public Color theme_SubMenuOption_Selected
         {
             get
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
-                if (string.IsNullOrEmpty(privateVars[baseName]))
-                    return "#00000000";
-                return privateVars[baseName];
+                if (privateVarsColors.ContainsKey(baseName))
+                    return hexToBrush("#FFFF0000");
+                return privateVarsColors[baseName];
             }
             set
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
-
-                privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                privateVarsColors[baseName] = value;
                 OnPropertyChanged(baseName);
             }
         }
@@ -567,41 +554,37 @@ namespace BitzDrawingFileCreator_WPF.Data
         #endregion
 
         #region Group
-        public string theme_Group_Background
+        public Color theme_Group_Background
         {
             get
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
-                if (string.IsNullOrEmpty(privateVars[baseName]))
-                    return "#00000000";
-                return privateVars[baseName];
+                if (privateVarsColors.ContainsKey(baseName))
+                    return hexToBrush("#FFFF0000");
+                return privateVarsColors[baseName];
             }
             set
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
-
-                privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                privateVarsColors[baseName] = value;
                 OnPropertyChanged(baseName);
             }
         }
-        public string theme_Group_Border
+        public Color theme_Group_Border
         {
             get
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
-                if (string.IsNullOrEmpty(privateVars[baseName]))
-                    return "#00000000";
-                return privateVars[baseName];
+                if (privateVarsColors.ContainsKey(baseName))
+                    return hexToBrush("#FFFF0000");
+                return privateVarsColors[baseName];
             }
             set
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
-
-                privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                privateVarsColors[baseName] = value;
                 OnPropertyChanged(baseName);
             }
         }
@@ -609,117 +592,105 @@ namespace BitzDrawingFileCreator_WPF.Data
         #endregion
 
         #region TextBox
-        public string theme_TextBox_Text
+        public Color theme_TextBox_Text
         {
             get
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
-                if (string.IsNullOrEmpty(privateVars[baseName]))
-                    return "#00000000";
-                return privateVars[baseName];
+                if (privateVarsColors.ContainsKey(baseName))
+                    return hexToBrush("#FFFF0000");
+                return privateVarsColors[baseName];
             }
             set
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
-
-                privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                privateVarsColors[baseName] = value;
                 OnPropertyChanged(baseName);
             }
         }
-        public string theme_TextBox_Background
+        public Color theme_TextBox_Background
         {
             get
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
-                if (string.IsNullOrEmpty(privateVars[baseName]))
-                    return "#00000000";
-                return privateVars[baseName];
+                if (privateVarsColors.ContainsKey(baseName))
+                    return hexToBrush("#FFFF0000");
+                return privateVarsColors[baseName];
             }
             set
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
-
-                privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                privateVarsColors[baseName] = value;
                 OnPropertyChanged(baseName);
             }
         }
-        public string theme_TextBox_Border
+        public Color theme_TextBox_Border
         {
             get
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
-                if (string.IsNullOrEmpty(privateVars[baseName]))
-                    return "#00000000";
-                return privateVars[baseName];
+                if (privateVarsColors.ContainsKey(baseName))
+                    return hexToBrush("#FFFF0000");
+                return privateVarsColors[baseName];
             }
             set
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
-
-                privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                privateVarsColors[baseName] = value;
                 OnPropertyChanged(baseName);
             }
         }
-        public string theme_TextBox_Hover
+        public Color theme_TextBox_Hover
         {
             get
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
-                if (string.IsNullOrEmpty(privateVars[baseName]))
-                    return "#00000000";
-                return privateVars[baseName];
+                if (privateVarsColors.ContainsKey(baseName))
+                    return hexToBrush("#FFFF0000");
+                return privateVarsColors[baseName];
             }
             set
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
-
-                privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                privateVarsColors[baseName] = value;
                 OnPropertyChanged(baseName);
             }
         }
-        public string theme_TextBox_Focus
+        public Color theme_TextBox_Focus
         {
             get
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
-                if (string.IsNullOrEmpty(privateVars[baseName]))
-                    return "#00000000";
-                return privateVars[baseName];
+                if (privateVarsColors.ContainsKey(baseName))
+                    return hexToBrush("#FFFF0000");
+                return privateVarsColors[baseName];
             }
             set
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
-
-                privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                privateVarsColors[baseName] = value;
                 OnPropertyChanged(baseName);
             }
         }
-        public string theme_TextBox_Inactive
+        public Color theme_TextBox_Inactive
         {
             get
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
-                if (string.IsNullOrEmpty(privateVars[baseName]))
-                    return "#00000000";
-                return privateVars[baseName];
+                if (privateVarsColors.ContainsKey(baseName))
+                    return hexToBrush("#FFFF0000");
+                return privateVarsColors[baseName];
             }
             set
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
-
-                privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                privateVarsColors[baseName] = value;
                 OnPropertyChanged(baseName);
             }
         }
@@ -727,60 +698,54 @@ namespace BitzDrawingFileCreator_WPF.Data
         #endregion
 
         #region ListBox
-        public string theme_ListBox_Text
+        public Color theme_ListBox_Text
         {
             get
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
-                if (string.IsNullOrEmpty(privateVars[baseName]))
-                    return "#00000000";
-                return privateVars[baseName];
+                if (privateVarsColors.ContainsKey(baseName))
+                    return hexToBrush("#FFFF0000");
+                return privateVarsColors[baseName];
             }
             set
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
-
-                privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                privateVarsColors[baseName] = value;
                 OnPropertyChanged(baseName);
             }
         }
-        public string theme_ListBox_Background
+        public Color theme_ListBox_Background
         {
             get
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
-                if (string.IsNullOrEmpty(privateVars[baseName]))
-                    return "#00000000";
-                return privateVars[baseName];
+                if (privateVarsColors.ContainsKey(baseName))
+                    return hexToBrush("#FFFF0000");
+                return privateVarsColors[baseName];
             }
             set
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
-
-                privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                privateVarsColors[baseName] = value;
                 OnPropertyChanged(baseName);
             }
         }
-        public string theme_ListBox_Border
+        public Color theme_ListBox_Border
         {
             get
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
-                if (string.IsNullOrEmpty(privateVars[baseName]))
-                    return "#00000000";
-                return privateVars[baseName];
+                if (privateVarsColors.ContainsKey(baseName))
+                    return hexToBrush("#FFFF0000");
+                return privateVarsColors[baseName];
             }
             set
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
-
-                privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                privateVarsColors[baseName] = value;
                 OnPropertyChanged(baseName);
             }
         }
@@ -788,79 +753,71 @@ namespace BitzDrawingFileCreator_WPF.Data
         #endregion
 
         #region ComboBox
-        public string theme_ComboBox_Text
+        public Color theme_ComboBox_Text
         {
             get
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
-                if (string.IsNullOrEmpty(privateVars[baseName]))
-                    return "#00000000";
-                return privateVars[baseName];
+                if (privateVarsColors.ContainsKey(baseName))
+                    return hexToBrush("#FFFF0000");
+                return privateVarsColors[baseName];
             }
             set
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
-
-                privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                privateVarsColors[baseName] = value;
                 OnPropertyChanged(baseName);
             }
         }
-        public string theme_ComboBox_Arrow
+        public Color theme_ComboBox_Arrow
         {
             get
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
-                if (string.IsNullOrEmpty(privateVars[baseName]))
-                    return "#00000000";
-                return privateVars[baseName];
+                if (privateVarsColors.ContainsKey(baseName))
+                    return hexToBrush("#FFFF0000");
+                return privateVarsColors[baseName];
             }
             set
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
-
-                privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                privateVarsColors[baseName] = value;
                 OnPropertyChanged(baseName);
             }
         }
-        public string theme_ComboBox_Background
+        public Color theme_ComboBox_Background
         {
             get
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
-                if (string.IsNullOrEmpty(privateVars[baseName]))
-                    return "#00000000";
-                return privateVars[baseName];
+                if (privateVarsColors.ContainsKey(baseName))
+                    return hexToBrush("#FFFF0000");
+                return privateVarsColors[baseName];
             }
             set
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
-
-                privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                privateVarsColors[baseName] = value;
                 OnPropertyChanged(baseName);
             }
         }
-        public string theme_ComboBox_Border
+        public Color theme_ComboBox_Border
         {
             get
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
-                if (string.IsNullOrEmpty(privateVars[baseName]))
-                    return "#00000000";
-                return privateVars[baseName];
+                if (privateVarsColors.ContainsKey(baseName))
+                    return hexToBrush("#FFFF0000");
+                return privateVarsColors[baseName];
             }
             set
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
-
-                privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                privateVarsColors[baseName] = value;
                 OnPropertyChanged(baseName);
             }
         }
@@ -868,60 +825,54 @@ namespace BitzDrawingFileCreator_WPF.Data
         #endregion
 
         #region ScrollBar
-        public string theme_Scroll_Thumb
+        public Color theme_Scroll_Thumb
         {
             get
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
-                if (string.IsNullOrEmpty(privateVars[baseName]))
-                    return "#00000000";
-                return privateVars[baseName];
+                if (privateVarsColors.ContainsKey(baseName))
+                    return hexToBrush("#FFFF0000");
+                return privateVarsColors[baseName];
             }
             set
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
-
-                privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                privateVarsColors[baseName] = value;
                 OnPropertyChanged(baseName);
             }
         }
-        public string theme_Scroll_Background_Primary
+        public Color theme_Scroll_Background_Primary
         {
             get
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
-                if (string.IsNullOrEmpty(privateVars[baseName]))
-                    return "#00000000";
-                return privateVars[baseName];
+                if (privateVarsColors.ContainsKey(baseName))
+                    return hexToBrush("#FFFF0000");
+                return privateVarsColors[baseName];
             }
             set
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
-
-                privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                privateVarsColors[baseName] = value;
                 OnPropertyChanged(baseName);
             }
         }
-        public string theme_Scroll_Background_Secondary
+        public Color theme_Scroll_Background_Secondary
         {
             get
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
-                if (string.IsNullOrEmpty(privateVars[baseName]))
-                    return "#00000000";
-                return privateVars[baseName];
+                if (privateVarsColors.ContainsKey(baseName))
+                    return hexToBrush("#FFFF0000");
+                return privateVarsColors[baseName];
             }
             set
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
-
-                privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                privateVarsColors[baseName] = value;
                 OnPropertyChanged(baseName);
             }
         }

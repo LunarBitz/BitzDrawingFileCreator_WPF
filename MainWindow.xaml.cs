@@ -88,61 +88,61 @@ namespace BitzDrawingFileCreator_WPF
 
         private void initThemeColors()
         {
-            publicDataContext.theme_Text_Primary = "#FF" + "c000c0";
-            publicDataContext.theme_Text_Secondary = "#FF" + "5f2568";
-            publicDataContext.theme_Text_Tertiary = "#FF" + "341d38";
+            publicDataContext.theme_Text_Primary = AppData.hexToBrush("#FF" + "c000c0");
+            publicDataContext.theme_Text_Secondary = AppData.hexToBrush("#FF" + "5f2568");
+            publicDataContext.theme_Text_Tertiary = AppData.hexToBrush("#FF" + "341d38");
 
-            publicDataContext.theme_MenuLogo_Background_Primary = "#FF" + "3f164d";
-            publicDataContext.theme_MenuLogo_Background_Secondary = "#00" + "000000";
+            publicDataContext.theme_MenuLogo_Background_Primary = AppData.hexToBrush("#FF" + "3f164d");
+            publicDataContext.theme_MenuLogo_Background_Secondary = AppData.hexToBrush("#00" + "000000");
 
             publicDataContext.theme_Button_Text = publicDataContext.theme_Text_Primary;
-            publicDataContext.theme_Button_Background = "#80" + "0f0f0f";
-            publicDataContext.theme_Button_Border = "#00" + "000000";
-            publicDataContext.theme_Button_Hover = "#FF" + "404040";
-            publicDataContext.theme_Button_Clicked = "#FF" + "79517d";
-            publicDataContext.theme_Button_Selected = "#FF" + "c0c0c0";
+            publicDataContext.theme_Button_Background = AppData.hexToBrush("#80" + "0f0f0f");
+            publicDataContext.theme_Button_Border = AppData.hexToBrush("#00" + "000000");
+            publicDataContext.theme_Button_Hover = AppData.hexToBrush("#FF" + "404040");
+            publicDataContext.theme_Button_Clicked = AppData.hexToBrush("#FF" + "79517d");
+            publicDataContext.theme_Button_Selected = AppData.hexToBrush("#FF" + "c0c0c0");
 
-            publicDataContext.theme_Menu_Background_Primary = "#FF" + "0f0f0f";
-            publicDataContext.theme_Menu_Background_Secondary = "#00" + "1f1f1f";
+            publicDataContext.theme_Menu_Background_Primary = AppData.hexToBrush("#FF" + "0f0f0f");
+            publicDataContext.theme_Menu_Background_Secondary = AppData.hexToBrush("#00" + "1f1f1f");
 
             publicDataContext.theme_MenuOption_Text = publicDataContext.theme_Text_Primary;
-            publicDataContext.theme_MenuOption_Background = "#00" + "000000";
-            publicDataContext.theme_MenuOption_Border = "#00" + "000000";
-            publicDataContext.theme_MenuOption_Hover = "#FF" + "404040";
-            publicDataContext.theme_MenuOption_Clicked = "#FF" + "79517d";
-            publicDataContext.theme_MenuOption_Selected = "#FF" + "c0c0c0";
+            publicDataContext.theme_MenuOption_Background = AppData.hexToBrush("#00" + "000000");
+            publicDataContext.theme_MenuOption_Border = AppData.hexToBrush("#00" + "000000");
+            publicDataContext.theme_MenuOption_Hover = AppData.hexToBrush("#FF" + "404040");
+            publicDataContext.theme_MenuOption_Clicked = AppData.hexToBrush("#FF" + "79517d");
+            publicDataContext.theme_MenuOption_Selected = AppData.hexToBrush("#FF" + "c0c0c0");
 
-            publicDataContext.theme_SubMenu_Background = "#FF" + "232027";
+            publicDataContext.theme_SubMenu_Background = AppData.hexToBrush("#FF" + "232027");
 
             publicDataContext.theme_SubMenuOption_Text = publicDataContext.theme_Text_Secondary;
-            publicDataContext.theme_SubMenuOption_Background = "#00" + "000000";
-            publicDataContext.theme_SubMenuOption_Border = "#00" + "000000";
-            publicDataContext.theme_SubMenuOption_Hover = "#FF" + "404040";
-            publicDataContext.theme_SubMenuOption_Clicked = "#FF" + "79517d";
-            publicDataContext.theme_SubMenuOption_Selected = "#FF" + "c0c0c0";
+            publicDataContext.theme_SubMenuOption_Background = AppData.hexToBrush("#00" + "000000");
+            publicDataContext.theme_SubMenuOption_Border = AppData.hexToBrush("#00" + "000000");
+            publicDataContext.theme_SubMenuOption_Hover = AppData.hexToBrush("#FF" + "404040");
+            publicDataContext.theme_SubMenuOption_Clicked = AppData.hexToBrush("#FF" + "79517d");
+            publicDataContext.theme_SubMenuOption_Selected = AppData.hexToBrush("#FF" + "c0c0c0");
 
-            publicDataContext.theme_Group_Background = "#00" + "000000";
-            publicDataContext.theme_Group_Border = "#80" + "9e9e9e";
+            publicDataContext.theme_Group_Background = AppData.hexToBrush("#00" + "000000");
+            publicDataContext.theme_Group_Border = AppData.hexToBrush("#80" + "9e9e9e");
 
             publicDataContext.theme_TextBox_Text = publicDataContext.theme_Text_Secondary;
-            publicDataContext.theme_TextBox_Background = "#80" + "0f0f0f";
-            publicDataContext.theme_TextBox_Border = "#80" + "79517d";
-            publicDataContext.theme_TextBox_Hover = "#80" + "c0c0c0";
-            publicDataContext.theme_TextBox_Focus = "#80" + "9e9e9e";
-            publicDataContext.theme_TextBox_Inactive = "#80" + "1f1f1f";
+            publicDataContext.theme_TextBox_Background = AppData.hexToBrush("#80" + "0f0f0f");
+            publicDataContext.theme_TextBox_Border = AppData.hexToBrush("#80" + "79517d");
+            publicDataContext.theme_TextBox_Hover = AppData.hexToBrush("#80" + "c0c0c0");
+            publicDataContext.theme_TextBox_Focus = AppData.hexToBrush("#80" + "9e9e9e");
+            publicDataContext.theme_TextBox_Inactive = AppData.hexToBrush("#80" + "1f1f1f");
 
             publicDataContext.theme_ListBox_Text = publicDataContext.theme_Text_Primary;
-            publicDataContext.theme_ListBox_Background = "#FF" + "c000c0";
-            publicDataContext.theme_ListBox_Border = "#FF" + "c000c0";
+            publicDataContext.theme_ListBox_Background = AppData.hexToBrush("#FF" + "c000c0");
+            publicDataContext.theme_ListBox_Border = AppData.hexToBrush("#FF" + "c000c0");
 
             publicDataContext.theme_ComboBox_Text = publicDataContext.theme_Text_Primary;
-            publicDataContext.theme_ComboBox_Arrow = "#FF" + "c000c0"; 
-            publicDataContext.theme_ComboBox_Background = "#FF" + "c000c0";
-            publicDataContext.theme_ComboBox_Border = "#FF" + "c000c0";
+            publicDataContext.theme_ComboBox_Arrow = AppData.hexToBrush("#FF" + "c000c0");
+            publicDataContext.theme_ComboBox_Background = AppData.hexToBrush("#FF" + "c000c0");
+            publicDataContext.theme_ComboBox_Border = AppData.hexToBrush("#FF" + "c000c0");
 
             publicDataContext.theme_Scroll_Thumb = publicDataContext.theme_Text_Secondary;
-            publicDataContext.theme_Scroll_Background_Primary = "#00" + "0f0f0f";
-            publicDataContext.theme_Scroll_Background_Secondary = "#FF" + "000000";
+            publicDataContext.theme_Scroll_Background_Primary = AppData.hexToBrush("#00" + "0f0f0f");
+            publicDataContext.theme_Scroll_Background_Secondary = AppData.hexToBrush("#FF" + "000000");
 
         }
 

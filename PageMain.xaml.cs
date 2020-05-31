@@ -91,8 +91,16 @@ namespace BitzDrawingFileCreator_WPF
 
             con.theme_ComboBox_Text = con.theme_Text_Primary;
             con.theme_ComboBox_Arrow = "#FF" + rndColor();
-            con.theme_ComboBox_Background = "#FF" + rndColor();
-            con.theme_ComboBox_Border = "#FF" + rndColor();
+            con.theme_ComboBox_Arrow_Hover = "FF" + rndColor();
+            con.theme_ComboBox_Background = "#80" + rndColor();
+            con.theme_ComboBox_Hover = "#FF" + rndColor();
+            con.theme_ComboBox_Pressed = "#FF" + rndColor();
+            con.theme_ComboBox_Border = "#80" + rndColor();
+            con.theme_ComboBox_Sub_Text = con.theme_Text_Secondary;
+            con.theme_ComboBox_Sub_Background = "#FF" + rndColor();
+            con.theme_ComboBox_Sub_Hover = "#FF" + rndColor();
+            con.theme_ComboBox_Sub_Pressed = "#FF" + rndColor();
+            con.theme_ComboBox_Sub_Border = "#00" + rndColor();
 
             con.theme_Scroll_Thumb = con.theme_Text_Secondary;
             con.theme_Scroll_Background_Primary = "#00" + rndColor();

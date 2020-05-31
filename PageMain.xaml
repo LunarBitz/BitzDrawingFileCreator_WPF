@@ -251,7 +251,7 @@
             <GroupBox Header="" HorizontalAlignment="Left" Height="79" VerticalAlignment="Top" Width="164" BorderThickness="0,1" Style="{DynamicResource bitzGroupBox}" ScrollViewer.VerticalScrollBarVisibility="Disabled" Margin="0,10">
                 <StackPanel Margin="0">
                     <Label Content="Target Platform:" VerticalAlignment="Top" Height="26" Style="{DynamicResource bitzLabel}"/>
-                    <ComboBox x:Name="comboTargetPlatform" SelectedItem="{Binding targetPlatform}" Style="{DynamicResource bitzComboBox}">
+                    <ComboBox x:Name="comboTargetPlatform" SelectedItem="{Binding targetPlatform}" Style="{DynamicResource bitzComboBox}" ItemContainerStyle="{DynamicResource bitzComboBoxItemStyle}">
                         <ComboBoxItem Content="Twitter"/>
                         <ComboBoxItem Content="Telegram"/>
                         <ComboBoxItem Content="Instagram"/>

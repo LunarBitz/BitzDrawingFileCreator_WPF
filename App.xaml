@@ -413,8 +413,8 @@
         <SolidColorBrush x:Key="ComboBox.Disabled.Editable.Button.Background" Color="Transparent"/>
         <SolidColorBrush x:Key="ComboBox.Disabled.Editable.Button.Border" Color="Transparent"/>
         <SolidColorBrush x:Key="ComboBox.Static.Glyph" Color="#FF606060"/>
-        
-        
+
+
         <Style x:Key="ComboBoxToggleButton" TargetType="{x:Type ToggleButton}">
             <Setter Property="OverridesDefaultStyle" Value="true"/>
             <Setter Property="IsTabStop" Value="false"/>
@@ -423,7 +423,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type ToggleButton}">
-                        <Border x:Name="templateRoot" SnapsToDevicePixels="true" Background="{StaticResource ComboBox.Static.Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{StaticResource ComboBox.Static.Border}">
+                        <Border x:Name="templateRoot" SnapsToDevicePixels="true" Background="{Binding theme_ComboBox_Background, FallbackValue=#800f0f0f}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{Binding theme_ComboBox_Border, FallbackValue=#8079517d}">
                             <Border x:Name="splitBorder" Width="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}" SnapsToDevicePixels="true" Margin="0" HorizontalAlignment="Right" BorderThickness="1" BorderBrush="Transparent">
                                 <Path x:Name="arrow" VerticalAlignment="Center" Margin="0" HorizontalAlignment="Center" Fill="{Binding theme_ComboBox_Arrow, FallbackValue=#FFc900c9}" Data="F1 M 0,0 L 2.667,2.66665 L 5.3334,0 L 5.3334,-1.78168 L 2.6667,0.88501 L0,-1.78168 L0,0 Z"/>
                             </Border>
@@ -440,30 +440,6 @@
                 </Setter.Value>
             </Setter>
         </Style>
-
-        
-        <!-- asdfkasjfbkajsfnbsa -->
-        <Style x:Key="comboItemStyle" TargetType="{x:Type ComboBoxItem}">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type ComboBoxItem}">
-                        <Border BorderThickness="2" BorderBrush="{Binding theme_ComboBox_Sub_Border, FallbackValue=#4079517d}" Background="{Binding theme_ComboBox_Sub_Background, FallbackValue=#FF232027}"
-                                MinWidth="10" MinHeight="10" Cursor="Hand" CornerRadius="0" FlowDirection="LeftToRight">
-                            <ComboBoxItem MinWidth="2" MinHeight="2">
-                                <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
-                            </ComboBoxItem>
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="Foreground" Value="{Binding theme_ComboBox_Text, FallbackValue=#FFc000c0}"/>
-                                <Setter Property="FontWeight" Value="Bold"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
         
         <ControlTemplate x:Key="ComboBoxTemplate" TargetType="{x:Type ComboBox}">
             <Grid x:Name="templateRoot" SnapsToDevicePixels="true">
@@ -474,7 +450,7 @@
                 <Popup x:Name="PART_Popup" AllowsTransparency="true" Grid.ColumnSpan="2" IsOpen="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Margin="1" PopupAnimation="{DynamicResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
                     <Themes:SystemDropShadowChrome x:Name="shadow" Color="Transparent" MaxHeight="{TemplateBinding MaxDropDownHeight}" MinWidth="{Binding ActualWidth, ElementName=templateRoot}">
                         <!-- Combobox Items -->
-                        <Border x:Name="dropDownBorder" BorderBrush="{Binding theme_ComboBox_Sub_Border, FallbackValue=#8079517d}" BorderThickness="1" Background="{Binding theme_ComboBox_Sub_Background, FallbackValue=#FF232027}">
+                        <Border x:Name="dropDownBorder" BorderThickness="1" BorderBrush="{Binding theme_ComboBox_Sub_Border, FallbackValue=#8079517d}" Background="{Binding theme_ComboBox_Sub_Background, FallbackValue=#FF232027}">
                             <ScrollViewer x:Name="DropDownScrollViewer">
                                 <Grid x:Name="grid" RenderOptions.ClearTypeHint="Enabled">
                                     <Canvas x:Name="canvas" HorizontalAlignment="Left" Height="0" VerticalAlignment="Top" Width="0">
@@ -581,8 +557,8 @@
         </ControlTemplate>
         <Style x:Key="bitzComboBox" TargetType="{x:Type ComboBox}">
             <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
-            <Setter Property="Background" Value="{StaticResource ComboBox.Static.Background}"/>
-            <Setter Property="BorderBrush" Value="{StaticResource ComboBox.Static.Border}"/>
+            <Setter Property="Background" Value="{Binding theme_ComboBox_Background, FallbackValue=#800f0f0f}"/>
+            <Setter Property="BorderBrush" Value="{Binding theme_ComboBox_Sub_Background, FallbackValue=#FF232027}"/>
             <Setter Property="Foreground" Value="{Binding theme_ComboBox_Sub_Text, FallbackValue=#FF5f2568}"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
@@ -592,7 +568,7 @@
             <Setter Property="ScrollViewer.PanningMode" Value="Both"/>
             <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
             <Setter Property="Template" Value="{StaticResource ComboBoxTemplate}"/>
-            <!--<Setter Property="ItemContainerStyle" Value="{StaticResource comboItemStyle}"/>-->
+            
             <Style.Triggers>
                 <Trigger Property="IsEditable" Value="true">
                     <Setter Property="IsTabStop" Value="false"/>
@@ -600,6 +576,93 @@
                     <Setter Property="Template" Value="{StaticResource ComboBoxEditableTemplate}"/>
                 </Trigger>
             </Style.Triggers>
+        </Style>
+
+        <Style x:Key="bitzComboBoxItemStyle" TargetType="{x:Type ComboBoxItem}">
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="Padding" Value="4,1"/>
+            <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+            <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ComboBoxItem}">
+                        <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="TextElement.Foreground" TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                            </Trigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsSelected" Value="False"/>
+                                    <Condition Property="IsMouseOver" Value="True"/>
+                                    <Condition Property="IsKeyboardFocused" Value="False"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Background" TargetName="Bd" Value="{Binding theme_ComboBox_Sub_Hover, FallbackValue=#FF404040}"/>
+                                <Setter Property="BorderBrush" TargetName="Bd" Value="{Binding theme_ComboBox_Sub_Border, FallbackValue=#00000000}"/>
+                                <Setter Property="Foreground" Value="{Binding theme_ComboBox_Text, FallbackValue=#FFc000c0}"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                            </MultiTrigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsSelected" Value="True"/>
+                                    <Condition Property="IsMouseOver" Value="False"/>
+                                    <Condition Property="IsKeyboardFocused" Value="True"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Background" TargetName="Bd" Value="{Binding theme_ComboBox_Sub_Hover, FallbackValue=#FF404040}"/>
+                                <Setter Property="BorderBrush" TargetName="Bd" Value="{Binding theme_ComboBox_Sub_Pressed, FallbackValue=#FF79517d}"/>
+                                <Setter Property="Foreground" Value="{Binding theme_ComboBox_Text, FallbackValue=#FFc000c0}"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                            </MultiTrigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsSelected" Value="True"/>
+                                    <Condition Property="IsMouseOver" Value="True"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Background" TargetName="Bd" Value="{Binding theme_ComboBox_Sub_Hover, FallbackValue=#FF404040}"/>
+                                <Setter Property="BorderBrush" TargetName="Bd" Value="{Binding theme_ComboBox_Sub_Pressed, FallbackValue=#FF79517d}"/>
+                                <Setter Property="Foreground" Value="{Binding theme_ComboBox_Text, FallbackValue=#FFc000c0}"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                            </MultiTrigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsSelected" Value="True"/>
+                                    <Condition Property="IsMouseOver" Value="False"/>
+                                    <Condition Property="IsKeyboardFocused" Value="False"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Background" TargetName="Bd" Value="{Binding theme_ComboBox_Sub_Background, FallbackValue=#FF232027}"/>
+                                <Setter Property="BorderBrush" TargetName="Bd" Value="{Binding theme_ComboBox_Sub_Border, FallbackValue=#00000000}"/>
+                                <Setter Property="Foreground" Value="{Binding theme_ComboBox_Text, FallbackValue=#FFc000c0}"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                            </MultiTrigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsSelected" Value="False"/>
+                                    <Condition Property="IsMouseOver" Value="False"/>
+                                    <Condition Property="IsKeyboardFocused" Value="True"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="BorderBrush" TargetName="Bd" Value="{Binding theme_ComboBox_Sub_Pressed, FallbackValue=#FF79517d}"/>
+                            </MultiTrigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsSelected" Value="False"/>
+                                    <Condition Property="IsMouseOver" Value="True"/>
+                                    <Condition Property="IsKeyboardFocused" Value="True"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Background" TargetName="Bd" Value="{Binding theme_ComboBox_Sub_Hover, FallbackValue=#FF404040}"/>
+                                <Setter Property="BorderBrush" TargetName="Bd" Value="{Binding theme_ComboBox_Sub_Pressed, FallbackValue=#FF79517d}"/>
+                                <Setter Property="Foreground" Value="{Binding theme_ComboBox_Text, FallbackValue=#FFc000c0}"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                            </MultiTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
 
 

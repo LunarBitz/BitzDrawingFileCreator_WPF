@@ -140,7 +140,7 @@ namespace BitzDrawingFileCreator_WPF
             publicDataContext.theme_ComboBox_Text = publicDataContext.theme_Text_Primary;
             publicDataContext.theme_ComboBox_Arrow = "#FF" + "c000c0";
             publicDataContext.theme_ComboBox_Arrow_Hover = "FF" + "404040";
-            publicDataContext.theme_ComboBox_Background = "#FF" + "c000c0";
+            publicDataContext.theme_ComboBox_Background = "#80" + "0f0f0f";
             publicDataContext.theme_ComboBox_Hover = "#FF" + "404040";
             publicDataContext.theme_ComboBox_Pressed = "#FF" + "79517d";
             publicDataContext.theme_ComboBox_Border = "#80" + "79517d";

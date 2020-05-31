@@ -138,9 +138,17 @@ namespace BitzDrawingFileCreator_WPF
             publicDataContext.theme_ListBox_Border = "#FF" + "c000c0";
 
             publicDataContext.theme_ComboBox_Text = publicDataContext.theme_Text_Primary;
-            publicDataContext.theme_ComboBox_Arrow = "#FF" + "c000c0"; 
+            publicDataContext.theme_ComboBox_Arrow = "#FF" + "c000c0";
+            publicDataContext.theme_ComboBox_Arrow_Hover = "FF" + "404040";
             publicDataContext.theme_ComboBox_Background = "#FF" + "c000c0";
-            publicDataContext.theme_ComboBox_Border = "#FF" + "c000c0";
+            publicDataContext.theme_ComboBox_Hover = "#FF" + "404040";
+            publicDataContext.theme_ComboBox_Pressed = "#FF" + "79517d";
+            publicDataContext.theme_ComboBox_Border = "#80" + "79517d";
+            publicDataContext.theme_ComboBox_Sub_Text = publicDataContext.theme_Text_Secondary;
+            publicDataContext.theme_ComboBox_Sub_Background = "#FF" + "232027";
+            publicDataContext.theme_ComboBox_Sub_Hover = "#FF" + "404040";
+            publicDataContext.theme_ComboBox_Sub_Pressed = "#FF" + "79517d";
+            publicDataContext.theme_ComboBox_Sub_Border = "#00" + "000000";
 
             publicDataContext.theme_Scroll_Thumb = publicDataContext.theme_Text_Secondary;
             publicDataContext.theme_Scroll_Background_Primary = "#00" + "0f0f0f";
@@ -305,9 +313,9 @@ namespace BitzDrawingFileCreator_WPF
             
             
             System.Diagnostics.Debug.WriteLine(System.IO.Path.Combine(folderRoot, drawingRoot, "REFERENCES\\RENDERS"));
-            Directory.CreateDirectory(System.IO.Path.Combine(folderRoot, drawingRoot, "REFERENCES\\RENDERS"));
-            Directory.CreateDirectory(System.IO.Path.Combine(folderRoot, drawingRoot, "PROGRESS"));
-            Directory.CreateDirectory(System.IO.Path.Combine(folderRoot, drawingRoot, "EXPORT"));
+            //Directory.CreateDirectory(System.IO.Path.Combine(folderRoot, drawingRoot, "REFERENCES\\RENDERS"));
+            //Directory.CreateDirectory(System.IO.Path.Combine(folderRoot, drawingRoot, "PROGRESS"));
+            //Directory.CreateDirectory(System.IO.Path.Combine(folderRoot, drawingRoot, "EXPORT"));
         }
         
     }

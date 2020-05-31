@@ -161,6 +161,7 @@ namespace BitzDrawingFileCreator_WPF.Data
         #region Theme Colors
 
         #region Text
+
         public string theme_Text_Primary
         {
             get
@@ -180,7 +181,6 @@ namespace BitzDrawingFileCreator_WPF.Data
                 OnPropertyChanged(baseName);
             }
         }
-
         public string theme_Text_Secondary
         {
             get
@@ -200,7 +200,6 @@ namespace BitzDrawingFileCreator_WPF.Data
                 OnPropertyChanged(baseName);
             }
         }
-
         public string theme_Text_Tertiary
         {
             get
@@ -224,6 +223,7 @@ namespace BitzDrawingFileCreator_WPF.Data
         #endregion
 
         #region Menu Logo
+
         public string theme_MenuLogo_Background_Primary
         {
             get
@@ -243,7 +243,6 @@ namespace BitzDrawingFileCreator_WPF.Data
                 OnPropertyChanged(baseName);
             }
         }
-
         public string theme_MenuLogo_Background_Secondary
         {
             get
@@ -267,6 +266,7 @@ namespace BitzDrawingFileCreator_WPF.Data
         #endregion
 
         #region Button
+
         public string theme_Button_Text
         {
             get
@@ -286,7 +286,6 @@ namespace BitzDrawingFileCreator_WPF.Data
                 OnPropertyChanged(baseName);
             }
         }
-
         public string theme_Button_Background
         {
             get
@@ -306,7 +305,6 @@ namespace BitzDrawingFileCreator_WPF.Data
                 OnPropertyChanged(baseName);
             }
         }
-
         public string theme_Button_Border
         {
             get
@@ -326,7 +324,6 @@ namespace BitzDrawingFileCreator_WPF.Data
                 OnPropertyChanged(baseName);
             }
         }
-
         public string theme_Button_Hover
         {
             get
@@ -346,7 +343,6 @@ namespace BitzDrawingFileCreator_WPF.Data
                 OnPropertyChanged(baseName);
             }
         }
-
         public string theme_Button_Clicked
         {
             get
@@ -366,7 +362,6 @@ namespace BitzDrawingFileCreator_WPF.Data
                 OnPropertyChanged(baseName);
             }
         }
-
         public string theme_Button_Selected
         {
             get
@@ -390,6 +385,7 @@ namespace BitzDrawingFileCreator_WPF.Data
         #endregion
 
         #region Menu
+
         public string theme_Menu_Background_Primary
         {
             get
@@ -409,7 +405,6 @@ namespace BitzDrawingFileCreator_WPF.Data
                 OnPropertyChanged(baseName);
             }
         }
-
         public string theme_Menu_Background_Secondary
         {
             get
@@ -433,6 +428,7 @@ namespace BitzDrawingFileCreator_WPF.Data
         #endregion
         
         #region Menu Options
+
         public string theme_MenuOption_Text
         {
             get
@@ -551,6 +547,7 @@ namespace BitzDrawingFileCreator_WPF.Data
         #endregion
 
         #region SubMenu
+
         public string theme_SubMenu_Background
         {
             get
@@ -574,6 +571,7 @@ namespace BitzDrawingFileCreator_WPF.Data
         #endregion
 
         #region SubMenu Option
+
         public string theme_SubMenuOption_Text
         {
             get
@@ -852,6 +850,7 @@ namespace BitzDrawingFileCreator_WPF.Data
         #endregion
 
         #region ListBox
+
         public string theme_ListBox_Text
         {
             get
@@ -951,6 +950,25 @@ namespace BitzDrawingFileCreator_WPF.Data
                 OnPropertyChanged(baseName);
             }
         }
+        public string theme_ComboBox_Arrow_Hover
+        {
+            get
+            {
+                string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
+
+                if (string.IsNullOrEmpty(privateVars[baseName]))
+                    return "#00000000";
+                return privateVars[baseName];
+            }
+            set
+            {
+                string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
+
+                privateVars[baseName] = value;
+                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                OnPropertyChanged(baseName);
+            }
+        }
         public string theme_ComboBox_Background
         {
             get
@@ -970,7 +988,140 @@ namespace BitzDrawingFileCreator_WPF.Data
                 OnPropertyChanged(baseName);
             }
         }
+        public string theme_ComboBox_Hover
+        {
+            get
+            {
+                string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
+
+                if (string.IsNullOrEmpty(privateVars[baseName]))
+                    return "#00000000";
+                return privateVars[baseName];
+            }
+            set
+            {
+                string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
+
+                privateVars[baseName] = value;
+                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                OnPropertyChanged(baseName);
+            }
+        }
+        public string theme_ComboBox_Pressed
+        {
+            get
+            {
+                string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
+
+                if (string.IsNullOrEmpty(privateVars[baseName]))
+                    return "#00000000";
+                return privateVars[baseName];
+            }
+            set
+            {
+                string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
+
+                privateVars[baseName] = value;
+                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                OnPropertyChanged(baseName);
+            }
+        }
         public string theme_ComboBox_Border
+        {
+            get
+            {
+                string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
+
+                if (string.IsNullOrEmpty(privateVars[baseName]))
+                    return "#00000000";
+                return privateVars[baseName];
+            }
+            set
+            {
+                string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
+
+                privateVars[baseName] = value;
+                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                OnPropertyChanged(baseName);
+            }
+        }
+        public string theme_ComboBox_Sub_Text
+        {
+            get
+            {
+                string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
+
+                if (string.IsNullOrEmpty(privateVars[baseName]))
+                    return "#00000000";
+                return privateVars[baseName];
+            }
+            set
+            {
+                string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
+
+                privateVars[baseName] = value;
+                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                OnPropertyChanged(baseName);
+            }
+        }
+        public string theme_ComboBox_Sub_Background
+        {
+            get
+            {
+                string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
+
+                if (string.IsNullOrEmpty(privateVars[baseName]))
+                    return "#00000000";
+                return privateVars[baseName];
+            }
+            set
+            {
+                string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
+
+                privateVars[baseName] = value;
+                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                OnPropertyChanged(baseName);
+            }
+        }
+        public string theme_ComboBox_Sub_Hover
+        {
+            get
+            {
+                string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
+
+                if (string.IsNullOrEmpty(privateVars[baseName]))
+                    return "#00000000";
+                return privateVars[baseName];
+            }
+            set
+            {
+                string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
+
+                privateVars[baseName] = value;
+                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                OnPropertyChanged(baseName);
+            }
+        }
+        public string theme_ComboBox_Sub_Pressed
+        {
+            get
+            {
+                string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
+
+                if (string.IsNullOrEmpty(privateVars[baseName]))
+                    return "#00000000";
+                return privateVars[baseName];
+            }
+            set
+            {
+                string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
+
+                privateVars[baseName] = value;
+                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                OnPropertyChanged(baseName);
+            }
+        }
+        public string theme_ComboBox_Sub_Border
         {
             get
             {

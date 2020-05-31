@@ -1,6 +1,7 @@
 ﻿using BitzDrawingFileCreator_WPF.Data;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -27,7 +28,7 @@ namespace BitzDrawingFileCreator_WPF
         #region Variables
         public static AppData publicDataContext;
 
-        private Window activeWindow = null;
+        private Page activePage = null;
 
         /// <summary>
         /// Storyboard handler for all animations
@@ -83,7 +84,8 @@ namespace BitzDrawingFileCreator_WPF
             hideSubMenus();
 
             // Load inital page to sub view
-            frameMainView.Navigate(new PageMain());
+            activePage = new PageMain();
+            frameMainView.Navigate(activePage);
         }
 
         private void initThemeColors()
@@ -287,5 +289,26 @@ namespace BitzDrawingFileCreator_WPF
         {
             showSubMenu(submenupanel_Settings);
         }
+
+        private void btnCreateFiles_Click(object sender, RoutedEventArgs e)
+        {
+            string myDate = "[" + DateTime.Today.ToString("yyyy-MM-dd") + "]";
+            string myDrawingProduct = publicDataContext.drawingProduct.Replace("System.Windows.Controls.ComboBoxItem: ", "");
+            string myTargetPlatform = publicDataContext.targetPlatform.Replace("System.Windows.Controls.ComboBoxItem: ", "");
+            string myUserName = publicDataContext.userName.Replace("System.Windows.Controls.ComboBoxItem: ", "");
+
+            string folderRoot = @"G:\\Mega Sync Drive\\SYNCHRONOUS\\Projects";
+            string drawingRoot = System.IO.Path.Combine(myDrawingProduct, myTargetPlatform, myUserName, myDate);
+            
+
+            
+            
+            
+            System.Diagnostics.Debug.WriteLine(System.IO.Path.Combine(folderRoot, drawingRoot, "REFERENCES\\RENDERS"));
+            Directory.CreateDirectory(System.IO.Path.Combine(folderRoot, drawingRoot, "REFERENCES\\RENDERS"));
+            Directory.CreateDirectory(System.IO.Path.Combine(folderRoot, drawingRoot, "PROGRESS"));
+            Directory.CreateDirectory(System.IO.Path.Combine(folderRoot, drawingRoot, "EXPORT"));
+        }
+        
     }
 }

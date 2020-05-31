@@ -13,13 +13,83 @@
         <SolidColorBrush x:Key="TextBox.Focus.Border" Color="#FF569DE5"/>
     </Page.Resources>
 
-    <Grid Background="#00422121">
-        <GroupBox Header="" HorizontalAlignment="Left" BorderBrush="#FF009FFF" Height="79" Margin="10,10,0,0" VerticalAlignment="Top" Width="164" BorderThickness="0,1" Grid.IsSharedSizeScope="True" Style="{DynamicResource bitzGroupBox}">
-            <Grid>
-                <Label Content="Recipient's Username" Margin="0" FontFamily="Segoe UI Semibold" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Foreground="{Binding theme_Text_Primary}"/>
-                <TextBox x:Name="txtUserName" Margin="0,25,0,10" TextWrapping="Wrap" Text="{Binding userName}" Height="20" SelectionBrush="#FF404040" Style="{DynamicResource bitzTextBox}"/>
-            </Grid>
-        </GroupBox>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="294,97,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" Style="{DynamicResource bitzButton}"/>
+    <Grid>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="29,283,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" Style="{DynamicResource bitzButton}"/>
+        <StackPanel HorizontalAlignment="Left" Margin="229,10,0,0" VerticalAlignment="Top">
+            <StackPanel Orientation="Horizontal" AutomationProperties.HelpText="hh"/>
+            <DockPanel/>
+            <StackPanel Orientation="Horizontal"/>
+            <StackPanel Orientation="Horizontal"/>
+            <StackPanel Orientation="Horizontal" Margin="10,0"/>
+            <Grid Margin="10,0"/>
+            <StackPanel Orientation="Horizontal" Margin="10,0">
+                <StackPanel Width="98">
+                    <Label Content="Name" VerticalAlignment="Top" Height="26" Margin="0" Style="{DynamicResource bitzLabel}"/>
+                    <TextBox x:Name="txtCharacterName" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Bottom" Margin="0,0,5,0" Style="{DynamicResource bitzTextBox}"/>
+                    <Button x:Name="btnAddCharacter_Copy" Content="Add" Margin="0,5,5,0" Style="{DynamicResource bitzButton}"/>
+                </StackPanel>
+                <StackPanel Width="98" Margin="0">
+                    <Label Content="Name" VerticalAlignment="Top" Height="26" Margin="0" HorizontalContentAlignment="Right" Style="{DynamicResource bitzLabel}"/>
+                    <TextBox x:Name="txtCharacterSpecies" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Bottom" Margin="5,0,0,0" Style="{DynamicResource bitzTextBox}" HorizontalContentAlignment="Right"/>
+                    <Button x:Name="btnDeleteCharacter" Content="Delete" Margin="5,5,0,0" Style="{DynamicResource bitzButton}"/>
+                </StackPanel>
+            </StackPanel>
+            <ListBox x:Name="listboxCharacters" Height="196" Margin="10,5,10,10" Width="196"/>
+        </StackPanel>
+        <TextBox HorizontalAlignment="Left" Height="128" Margin="10,325,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="423"/>
+        <StackPanel Margin="0,10,10,10" HorizontalAlignment="Right">
+            <GroupBox Header="" HorizontalAlignment="Center" Height="79" VerticalAlignment="Center" Width="164" BorderThickness="0,1" Style="{DynamicResource bitzGroupBox}" ScrollViewer.VerticalScrollBarVisibility="Disabled" Margin="0,10">
+                <StackPanel Margin="0">
+                    <Label Content="Drawing Product:" VerticalAlignment="Top" Height="26" Style="{DynamicResource bitzLabel}"/>
+                    <ComboBox x:Name="comboDrawingProduct" SelectedItem="{Binding drawingProduct}">
+                        <ComboBoxItem Content="Commission"/>
+                        <ComboBoxItem Content="Fanart"/>
+                    </ComboBox>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Header="" HorizontalAlignment="Center" Height="79" VerticalAlignment="Top" Width="164" BorderThickness="0,1" Style="{DynamicResource bitzGroupBox}" ScrollViewer.VerticalScrollBarVisibility="Disabled" Margin="0,10">
+                <StackPanel Margin="0">
+                    <Label Content="Drawing Type:" VerticalAlignment="Top" Height="26" Style="{DynamicResource bitzLabel}"/>
+                    <ComboBox x:Name="comboDrawingType" SelectedItem="{Binding drawingType}">
+                        <ComboBoxItem Content="Full-Body"/>
+                    </ComboBox>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Header="" HorizontalAlignment="Center" Height="79" VerticalAlignment="Top" Width="164" BorderThickness="0,1" Style="{DynamicResource bitzGroupBox}" ScrollViewer.VerticalScrollBarVisibility="Disabled" Margin="0,10">
+                <StackPanel Margin="0">
+                    <Label Content="Drawing Render:" VerticalAlignment="Top" Height="26" Style="{DynamicResource bitzLabel}"/>
+                    <ComboBox x:Name="comboDrawingRender" SelectedItem="{Binding drawingRender}">
+                        <ComboBoxItem Content="Cel-Shaded"/>
+                        <ComboBoxItem Content="Render"/>
+                    </ComboBox>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Header="" HorizontalAlignment="Center" Height="79" VerticalAlignment="Top" Width="164" BorderThickness="0,1" Style="{DynamicResource bitzGroupBox}" ScrollViewer.VerticalScrollBarVisibility="Disabled" Margin="0,10">
+                <StackPanel Margin="0">
+                    <Label Content="Drawing Size:" VerticalAlignment="Top" Height="26" Style="{DynamicResource bitzLabel}"/>
+                    <ComboBox x:Name="comboDrawingSize" SelectedItem="{Binding drawingSize}"/>
+                </StackPanel>
+            </GroupBox>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Margin="10,10,0,10" Width="214">
+            <GroupBox Header="" HorizontalAlignment="Left" Height="79" Margin="0,10" VerticalAlignment="Top" Width="164" BorderThickness="0,1" Style="{DynamicResource bitzGroupBox}" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                <StackPanel Margin="0">
+                    <Label Content="Recipient's Name:" VerticalAlignment="Top" Height="26" Style="{DynamicResource bitzLabel}"/>
+                    <TextBox x:Name="txtUserName" TextWrapping="Wrap" Text="{Binding userName}" VerticalAlignment="Bottom" Margin="0" Style="{DynamicResource bitzTextBox}" Height="22"/>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Header="" HorizontalAlignment="Left" Height="79" VerticalAlignment="Top" Width="164" BorderThickness="0,1" Style="{DynamicResource bitzGroupBox}" ScrollViewer.VerticalScrollBarVisibility="Disabled" Margin="0,10">
+                <StackPanel Margin="0">
+                    <Label Content="Target Platform:" VerticalAlignment="Top" Height="26" Style="{DynamicResource bitzLabel}"/>
+                    <ComboBox x:Name="comboTargetPlatform" SelectedItem="{Binding targetPlatform}">
+                        <ComboBoxItem Content="Twitter"/>
+                        <ComboBoxItem Content="Telegram"/>
+                        <ComboBoxItem Content="Instagram"/>
+                        <ComboBoxItem Content="Furaffinity"/>
+                    </ComboBox>
+                </StackPanel>
+            </GroupBox>
+        </StackPanel>
+
     </Grid>
 </Page>

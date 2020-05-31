@@ -17,12 +17,18 @@
         </Style>
 
         <!-- Logo Style -->
+        <Style x:Key="bitzLabel" TargetType="{x:Type Label}">
+            <Setter Property="Background" Value="#00000000"/>
+            <Setter Property="Foreground" Value="{Binding theme_Text_Primary, FallbackValue=#FFc000c0}"/>
+        </Style>
+        
+        <!-- Logo Style -->
         <Style x:Key="bitzMenuLogo" TargetType="{x:Type StackPanel}">
             <Setter Property="Background">
                 <Setter.Value>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="{Binding theme_MenuLogo_Background_Primary}"/>
-                        <GradientStop Offset="1" Color="{Binding theme_MenuLogo_Background_Secondary}"/>
+                        <GradientStop Color="{Binding theme_MenuLogo_Background_Primary, FallbackValue=#FF3f164d}"/>
+                        <GradientStop Offset="1" Color="{Binding theme_MenuLogo_Background_Secondary, FallbackValue=#00000000}"/>
                     </LinearGradientBrush>
                 </Setter.Value>
             </Setter>
@@ -32,9 +38,9 @@
         <Style x:Key="bitzButton" TargetType="{x:Type Button}">
             <Setter Property="OverridesDefaultStyle" Value="True"/>
             <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-            <Setter Property="Background" Value="{Binding theme_Button_Background}"/>
-            <Setter Property="BorderBrush" Value="{Binding theme_Button_Border}"/>
-            <Setter Property="Foreground" Value="{Binding theme_Button_Text}"/>
+            <Setter Property="Background" Value="{Binding theme_Button_Background, FallbackValue=#800f0f0f}"/>
+            <Setter Property="BorderBrush" Value="{Binding theme_Button_Border, FallbackValue=#00000000}"/>
+            <Setter Property="Foreground" Value="{Binding theme_Button_Text, FallbackValue=#FFc000c0}"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -47,16 +53,16 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="{Binding theme_Button_Hover}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{Binding theme_Button_Border}"/>
+                                <Setter Property="Background" TargetName="border" Value="{Binding theme_Button_Hover, FallbackValue=#FF404040}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource BorderBrush}"/>
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="False">
-                                <Setter Property="Background" TargetName="border" Value="{Binding theme_Button_Background}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{Binding theme_Button_Border}"/>
+                                <Setter Property="Background" TargetName="border" Value="{Binding theme_Button_Background, FallbackValue=#800f0f0f}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource BorderBrush}"/>
                             </Trigger>
                             <Trigger Property="IsPressed" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="{Binding theme_Button_Clicked}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{Binding theme_Button_Border}"/>
+                                <Setter Property="Background" TargetName="border" Value="{Binding theme_Button_Clicked, FallbackValue=#FF79517d}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource BorderBrush}"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -69,8 +75,8 @@
             <Setter Property="Background">
                 <Setter.Value>
                     <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                        <GradientStop Color="{Binding theme_Menu_Background_Primary}" Offset="0"/>
-                        <GradientStop Color="{Binding theme_Menu_Background_Secondary}" Offset="1"/>
+                        <GradientStop Color="{Binding theme_Menu_Background_Primary, FallbackValue=#FF0f0f0f}" Offset="0"/>
+                        <GradientStop Color="{Binding theme_Menu_Background_Secondary, FallbackValue=#00000000}" Offset="1"/>
                     </LinearGradientBrush>
                 </Setter.Value>
             </Setter>
@@ -79,9 +85,9 @@
         <!-- Menu Option Style -->
         <Style x:Key="bitzMenuOption" TargetType="{x:Type Button}">
             <Setter Property="OverridesDefaultStyle" Value="True"/>
-            <Setter Property="BorderBrush" Value="{Binding theme_MenuOption_Border}" />
-            <Setter Property="Background" Value="{Binding theme_MenuOption_Background}" />
-            <Setter Property="Foreground" Value="{Binding theme_MenuOption_Text}"/>
+            <Setter Property="BorderBrush" Value="{Binding theme_MenuOption_Border, FallbackValue=#00000000}" />
+            <Setter Property="Background" Value="{Binding theme_MenuOption_Background, FallbackValue=#00000000}" />
+            <Setter Property="Foreground" Value="{Binding theme_MenuOption_Text, FallbackValue=#FFc000c0}"/>
             <Setter Property="BorderThickness" Value="1" />
             <Setter Property="FontSize" Value="20"/>
 
@@ -99,12 +105,12 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="{Binding theme_MenuOption_Hover}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{Binding theme_MenuOption_Border}"/>
+                                <Setter Property="Background" TargetName="border" Value="{Binding theme_MenuOption_Hover, FallbackValue=#FF404040}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource BorderBrush}"/>
                             </Trigger>
                             <Trigger Property="IsPressed" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="{Binding theme_MenuOption_Clicked}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{Binding theme_MenuOption_Border}"/>
+                                <Setter Property="Background" TargetName="border" Value="{Binding theme_MenuOption_Clicked, FallbackValue=#79517d}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource BorderBrush}"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -114,20 +120,20 @@
 
         <!-- Sub-Menu Style -->
         <Style x:Key="bitzSubMenu" TargetType="{x:Type StackPanel}">
-            <Setter Property="Background" Value="{Binding theme_SubMenu_Background}"/>
+            <Setter Property="Background" Value="{Binding theme_SubMenu_Background, FallbackValue=#FF232027}"/>
             <Setter Property="Margin" Value="4, 4, 4, 4"/>
         </Style>
 
         <!-- Sub-Menu Option Style -->
         <Style x:Key="bitzSubMenuOption" TargetType="{x:Type Button}">
-            <Setter Property="Foreground" Value="{Binding theme_SubMenuOption_Text}"/>
+            <Setter Property="Foreground" Value="{Binding theme_SubMenuOption_Text, FallbackValue=#FF5f2568}"/>
             <Setter Property="FontSize" Value="14" />
             <Setter Property="FontFamily" Value="Segoe UI" />
             <Setter Property="FontStyle" Value="Italic" />
             <Setter Property="Padding" Value="64, 0, 0, 0"/>
 
-            <Setter Property="Background" Value="{Binding theme_SubMenuOption_Background}"/>
-            <Setter Property="BorderBrush" Value="{Binding theme_SubMenuOption_Border}"/>
+            <Setter Property="Background" Value="{Binding theme_SubMenuOption_Background, FallbackValue=#00000000}"/>
+            <Setter Property="BorderBrush" Value="{Binding theme_SubMenuOption_Border, FallbackValue=#00000000}"/>
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="HorizontalContentAlignment" Value="Left"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -140,19 +146,19 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsDefaulted" Value="true">
-                                <Setter Property="BorderBrush" TargetName="border" Value="{Binding theme_SubMenuOption_Selected}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{Binding theme_SubMenuOption_Selected, FallbackValue=#FFc0c0c0}"/>
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="{Binding theme_SubMenuOption_Hover}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{Binding theme_SubMenuOption_Border}"/>
+                                <Setter Property="Background" TargetName="border" Value="{Binding theme_SubMenuOption_Hover, FallbackValue=#FF404040}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource BorderBrush}"/>
                             </Trigger>
                             <Trigger Property="IsPressed" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="{Binding theme_SubMenuOption_Clicked}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{Binding theme_SubMenuOption_Border}"/>
+                                <Setter Property="Background" TargetName="border" Value="{Binding theme_SubMenuOption_Clicked, FallbackValue=#FF79517d}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource BorderBrush}"/>
                             </Trigger>
                             <Trigger Property="IsEnabled" Value="false">
-                                <Setter Property="Background" TargetName="border" Value="{Binding theme_SubMenuOption_Background}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{Binding theme_SubMenuOption_Border}"/>
+                                <Setter Property="Background" TargetName="border" Value="{Binding theme_SubMenuOption_Background, FallbackValue=#00000000}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource BorderBrush}"/>
                                 <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="Transparent"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
@@ -164,8 +170,8 @@
 
         <!-- Group Box Style -->
         <Style x:Key="bitzGroupBox" TargetType="{x:Type GroupBox}">
-            <Setter Property="Background" Value="{Binding theme_Group_Background}"/>
-            <Setter Property="BorderBrush" Value="{Binding theme_Group_Border}"/>
+            <Setter Property="Background" Value="{Binding theme_Group_Background, FallbackValue=#00000000}"/>
+            <Setter Property="BorderBrush" Value="{Binding theme_Group_Border, FallbackValue=#809e9e9e}"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="Template">
                 <Setter.Value>
@@ -192,7 +198,7 @@
                                         <Binding Path="ActualHeight" RelativeSource="{RelativeSource Self}"/>
                                     </MultiBinding>
                                 </Border.OpacityMask>
-                                <Border BorderBrush="{Binding theme_Group_Border}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="3">
+                                <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="3">
                                     <Border BorderBrush="#00000000" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="2" UseLayoutRounding="False"/>
                                 </Border>
                             </Border>
@@ -208,9 +214,9 @@
 
         <!-- TextBox Style -->
         <Style x:Key="bitzTextBox" TargetType="{x:Type TextBox}">
-            <Setter Property="Background" Value="{Binding theme_TextBox_Background}"/>
-            <Setter Property="BorderBrush" Value="{Binding theme_TextBox_Border}"/>
-            <Setter Property="Foreground" Value="{Binding theme_TextBox_Text}"/>
+            <Setter Property="Background" Value="{Binding theme_TextBox_Background, FallbackValue=#800f0f0f}"/>
+            <Setter Property="BorderBrush" Value="{Binding theme_TextBox_Border, FallbackValue=#8079517d}"/>
+            <Setter Property="Foreground" Value="{Binding theme_TextBox_Text, FallbackValue=#FF5f2568}"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
             <Setter Property="HorizontalContentAlignment" Value="Left"/>
@@ -232,10 +238,10 @@
                                 <Setter Property="Opacity" TargetName="border" Value="1.0"/>
                             </Trigger>
                             <Trigger Property="IsKeyboardFocused" Value="false">
-                                <Setter Property="BorderBrush" TargetName="border" Value="{Binding theme_TextBox_Border}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{Binding theme_TextBox_Border, FallbackValue=#8079517d}"/>
                             </Trigger>
                             <Trigger Property="IsKeyboardFocused" Value="true">
-                                <Setter Property="BorderBrush" TargetName="border" Value="{Binding theme_TextBox_Focus}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{Binding theme_TextBox_Focus, FallbackValue=#809e9e9e}"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -247,7 +253,7 @@
                         <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true"/>
                         <Condition Property="IsSelectionActive" Value="false"/>
                     </MultiTrigger.Conditions>
-                    <Setter Property="SelectionBrush" Value="{Binding theme_TextBox_Inactive}"/>
+                    <Setter Property="SelectionBrush" Value="{Binding theme_TextBox_Inactive, FallbackValue=#801f1f1f}"/>
                 </MultiTrigger>
             </Style.Triggers>
         </Style>
@@ -360,6 +366,8 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        
+        
 
 
     </Application.Resources>

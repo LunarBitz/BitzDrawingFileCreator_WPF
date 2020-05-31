@@ -5,12 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BitzDrawingFileCreator_WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="1248" Width="872" MinWidth="872" MinHeight="510" SizeToContent="Width" Background="Black" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
+        Title="MainWindow" Height="1248" Width="480" MinWidth="872" MinHeight="480" SizeToContent="Width" Background="Black" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
     <Grid>
-        <StackPanel HorizontalAlignment="Left" Margin="326,132,0,0" VerticalAlignment="Top"/>
-        <DockPanel>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="138*"/>
+            <ColumnDefinition Width="295*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel HorizontalAlignment="Left" Margin="50,132,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <DockPanel Grid.ColumnSpan="2">
             <ScrollViewer VerticalScrollBarVisibility="Visible">
-                <StackPanel x:Name="MenuPanel" Background="#FF070707" Width="224" Style="{DynamicResource bitzMenu}" CanVerticallyScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True">
+                <StackPanel x:Name="MenuPanel" Background="#FF070707" Style="{DynamicResource bitzMenu}" CanVerticallyScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" Width="226">
                     <StackPanel x:Name="menuLogo" Height="72" Style="{DynamicResource bitzMenuLogo}"/>
                     <StackPanel x:Name="menuPages" Orientation="Vertical">
                         <Button x:Name="btnPages" Content="Pages" FontSize="20" Height="32" Margin="0" FontStretch="Expanded" Click="btnPages_Click" Style="{DynamicResource bitzMenuOption}"/>
@@ -41,7 +45,7 @@
                                     <TranslateTransform/>
                                 </TransformGroup>
                             </StackPanel.LayoutTransform>
-                            <Button x:Name="btnCreateFiles" Content="Create Files" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                            <Button x:Name="btnCreateFiles" Content="Create Files" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}" Click="btnCreateFiles_Click"/>
                             <Button x:Name="btnCreateTrelloCard" Content="Create Trello Card" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
                         </StackPanel>
                     </StackPanel>

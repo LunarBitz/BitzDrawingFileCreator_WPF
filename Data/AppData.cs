@@ -27,7 +27,132 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                OnPropertyChanged(baseName);
+            }
+        }
+        public string targetPlatform
+        {
+            get
+            {
+                string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
+
+                if (string.IsNullOrEmpty(privateVars[baseName]))
+                    return " ";
+                return privateVars[baseName];
+            }
+            set
+            {
+                string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
+
+                privateVars[baseName] = value;
+                OnPropertyChanged(baseName);
+            }
+        }
+        public string characterName
+        {
+            get
+            {
+                string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
+
+                if (string.IsNullOrEmpty(privateVars[baseName]))
+                    return " ";
+                return privateVars[baseName];
+            }
+            set
+            {
+                string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
+
+                privateVars[baseName] = value;
+                OnPropertyChanged(baseName);
+            }
+        }
+        public string characterSpecies
+        {
+            get
+            {
+                string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
+
+                if (string.IsNullOrEmpty(privateVars[baseName]))
+                    return " ";
+                return privateVars[baseName];
+            }
+            set
+            {
+                string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
+
+                privateVars[baseName] = value;
+                OnPropertyChanged(baseName);
+            }
+        }
+        public string drawingProduct
+        {
+            get
+            {
+                string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
+
+                if (string.IsNullOrEmpty(privateVars[baseName]))
+                    return " ";
+                return privateVars[baseName];
+            }
+            set
+            {
+                string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
+
+                privateVars[baseName] = value;
+                OnPropertyChanged(baseName);
+            }
+        }
+        public string drawingType
+        {
+            get
+            {
+                string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
+
+                if (string.IsNullOrEmpty(privateVars[baseName]))
+                    return " ";
+                return privateVars[baseName];
+            }
+            set
+            {
+                string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
+
+                privateVars[baseName] = value;
+                OnPropertyChanged(baseName);
+            }
+        }
+        public string drawingRender
+        {
+            get
+            {
+                string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
+
+                if (string.IsNullOrEmpty(privateVars[baseName]))
+                    return " ";
+                return privateVars[baseName];
+            }
+            set
+            {
+                string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
+
+                privateVars[baseName] = value;
+                OnPropertyChanged(baseName);
+            }
+        }
+        public string drawingSize
+        {
+            get
+            {
+                string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
+
+                if (string.IsNullOrEmpty(privateVars[baseName]))
+                    return " ";
+                return privateVars[baseName];
+            }
+            set
+            {
+                string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
+
+                privateVars[baseName] = value;
                 OnPropertyChanged(baseName);
             }
         }

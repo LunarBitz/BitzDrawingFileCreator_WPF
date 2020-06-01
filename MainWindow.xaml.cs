@@ -65,7 +65,7 @@ namespace BitzDrawingFileCreator_WPF
         {
             InitializeComponent();
 
-            DirectoryParser.folderFormat = "$ROOT/$Drawing_Product!s/$Target_Platform/$User_Name/$Date";
+            DirectoryParser.folderFormat = "$ROOT|$Drawing_Product~s\\$Target_Platform\\$User_Name\\$Date\\";
             DirectoryParser.fileNameFormat = "[$Date] [$User_Name] [$Target_Platform] [$Drawing_Product] [$Characters] [$Drawing_Type] [$Drawing_Render] [PROJECT] [A]";
 
             Height = 510;
@@ -288,35 +288,43 @@ namespace BitzDrawingFileCreator_WPF
 
         private void btnCreateFiles_Click(object sender, RoutedEventArgs e)
         {
-            bool _result = MessageBoxHandler.showYesNoBox("Are you sure that you want to create the directories?", "Create Directories>", "Yeah", "Nah");
+            bool _result = MessageBoxHandler.showYesNoBox("Are you sure that you want to create the directories?", "Create Directories?", "Yeah", "Nah");
             if (_result == false)
                 return;
 
             DirectoryParser _dirParse = new DirectoryParser();
 
             var _subFolders = new List<string>();
-            _subFolders.Add("REFERENCES//RENDERS");
+            _subFolders.Add("REFERENCES\\RENDERS");
             _subFolders.Add("PROGRESS");
             _subFolders.Add("EXPORT");
 
-            string folderRoot = _dirParse.parseFormatString(DirectoryParser.folderFormat);
-            //$ROOT/$Drawing_Product/$Target_Platform/$User_Name/$Date
-            //$Date $User_Name $Target_Platform $Drawing_Product $Characters $Drawing_Type $Drawing_Render
+            string folderRoot = System.IO.Path.Combine(_dirParse.parseFormatString(DirectoryParser.folderFormat));
+            string fileName = System.IO.Path.Combine(_dirParse.parseFormatString(DirectoryParser.fileNameFormat));
 
-            if (!File.Exists(folderRoot))
-            {
-                // Create a file to write to.
-                using (StreamWriter sw = File.CreateText(folderRoot))
-                {
-                    sw.WriteLine("Thank you for using my software ♥");
-                }
-            }
+
 
             foreach (string subFolder in _subFolders)
             {
                 string _newPath = System.IO.Path.Combine(folderRoot, subFolder);
                 Directory.CreateDirectory(_newPath);
                 System.Diagnostics.Debug.WriteLine(_newPath);
+            }
+
+            StreamWriter sw = File.AppendText(folderRoot + fileName + ".txt");
+            sw.Write(publicDataContext.drawingDescription);
+
+            try
+            {
+                _result = MessageBoxHandler.showYesNoBox("Would you like to open your new folders?", "Open Directories?", "Pwease! OwO", "No Thankis. UwU");
+                if (_result == true)
+                    System.Diagnostics.Process.Start("explorer.exe", folderRoot);
+
+            }
+            catch (System.ComponentModel.Win32Exception win32Exception)
+            {
+                //The system cannot find the file specified...
+                Console.WriteLine(win32Exception.Message);
             }
 
         }

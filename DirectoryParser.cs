@@ -11,14 +11,15 @@ namespace BitzDrawingFileCreator_WPF
 {
     class DirectoryParser
     {
-        public static string folderFormat = "$ROOT/$Drawing_Product~s/$Target_Platform/$User_Name/$Date";
+        public static string folderFormat = "$ROOT|$Drawing_Product~s\\$Target_Platform\\$User_Name\\$Date\\";
         public static string fileNameFormat = "[$Date] [$User_Name] [$Target_Platform] [$Drawing_Product] [$Characters] [$Drawing_Type] [$Drawing_Render] [PROJECT] [A]";
 
         #region Tag Retrievals
 
         private string _ROOT_Get()
         {
-            return @"G:\\Mega Sync Drive\\SYNCHRONOUS\\Projects";
+            //return @"G:\\Mega Sync Drive\\SYNCHRONOUS\\Projects\\Drawings\\";
+            return "C:\\Mega Sync Drive\\SYNCHRONOUS\\Projects\\Drawings\\";
         }
 
         private string _Character_Get()
@@ -107,8 +108,7 @@ namespace BitzDrawingFileCreator_WPF
 
         public string parseFormatString(string formatString)
         {
-            Regex pattern = new Regex("[^0-9a-zA-Z_$]+");
-            var matches = Regex.Matches(formatString, @"[^a-zA-Z ]");
+            var index = -1;
 
             var _cmd_pos = new List<int>();
             var _cmds = new List<string>();
@@ -121,38 +121,35 @@ namespace BitzDrawingFileCreator_WPF
             for (int i = formatString.IndexOf('$'); i > -1; i = formatString.IndexOf('$', i + 1))
                 _cmd_pos.Add(i);
 
-            var index = -1;
             
-            if (matches.Count > 1)  // at least 2
-            {
-                index = matches[1].Index;
-            }
 
             for (int i = 0; i < _cmd_pos.Count; i++)
             {
                 if (i < _cmd_pos.Count - 1)
-                    _cmds.Add(formatString.Substring(_cmd_pos[i], Math.Min(formatString.Length, _cmd_pos[1 + i]) - _cmd_pos[i]));
+                    _cmds.Add(formatString.Slice(_cmd_pos[i], _cmd_pos[1 + i]));
                 else
-                    _cmds.Add(formatString.Substring(_cmd_pos[i], Math.Min(formatString.Length, formatString.Length) - _cmd_pos[i]));
+                    _cmds.Add(formatString.Slice(_cmd_pos[i], formatString.Length));
 
-                _cmds[i] = pattern.Replace(_cmds[i], "");
-                System.Diagnostics.Debug.WriteLine("Command: " + _cmds[i]);
+                System.Diagnostics.Debug.WriteLine("Rough Command: " + _cmds[i]);
             }
 
             foreach (string cmd in _cmds)
             {
-                string _ext = cmd.Substring(cmd.LastIndexOf('!'), cmd.Length).Replace("!", "");
-                _fnc_cmd = "_" + cmd.Replace("$", "").Replace(_ext, "") + "_Get";
+                index = -1;
+                var matches = Regex.Matches(cmd.Replace("$", ""), @"[^a-zA-Z_ ]");
+                if (matches.Count > 0) { index = matches[0].Index; }
+
+                string _scrub_cmd = (index == -1) ? cmd : cmd.Replace(cmd.Slice(index + 1, cmd.Length), "");
+                _fnc_cmd = "_" + _scrub_cmd.Replace("$", "") + "_Get";
+                System.Diagnostics.Debug.WriteLine("Scrubbed: " + _scrub_cmd + "\nCommand: " + _fnc_cmd);
+
                 MethodInfo tagMethod = this.GetType().GetMethod(_fnc_cmd, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
 
                 if (tagMethod != null)
-                {
-                    _return = _return.Replace(cmd, (string)tagMethod.Invoke(this, null));
-                    _return = _return.Replace(_ext, "");
-                }
+                    _return = _return.Replace(_scrub_cmd, (string)tagMethod.Invoke(this, null));
 
             }
-
+            _return = _return.Replace("~", "");
             _return = _return.Replace("@", "/");
             _return = _return.Replace("|", "");
 

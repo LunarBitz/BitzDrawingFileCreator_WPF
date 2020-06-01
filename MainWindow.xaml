@@ -64,6 +64,41 @@
                             <Button x:Name="btnTrelloAccount" Content="Trello Account" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
                             <Button x:Name="btnTrelloFormat" Content="Trello Format" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}" Tag="submenu"/>
                             <Button x:Name="btnTheme" Content="Theme" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
                         </StackPanel>
                     </StackPanel>
                 </StackPanel>

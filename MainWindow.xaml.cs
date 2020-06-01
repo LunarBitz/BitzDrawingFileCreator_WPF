@@ -1,5 +1,6 @@
 ﻿using BitzDrawingFileCreator_WPF.Data;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -28,7 +29,7 @@ namespace BitzDrawingFileCreator_WPF
         #region Variables
         public static AppData publicDataContext;
 
-        private Page activePage = null;
+        public static Page activePage = null;
 
         /// <summary>
         /// Storyboard handler for all animations
@@ -56,11 +57,16 @@ namespace BitzDrawingFileCreator_WPF
         /// </summary>
         Dictionary<string, int> dataSubPanelsInfo;
 
+
+
         #endregion
 
         public MainWindow()
         {
             InitializeComponent();
+
+            DirectoryParser.folderFormat = "$ROOT/$Drawing_Product!s/$Target_Platform/$User_Name/$Date";
+            DirectoryParser.fileNameFormat = "[$Date] [$User_Name] [$Target_Platform] [$Drawing_Product] [$Characters] [$Drawing_Type] [$Drawing_Render] [PROJECT] [A]";
 
             Height = 510;
             Width = 872;
@@ -133,13 +139,13 @@ namespace BitzDrawingFileCreator_WPF
             publicDataContext.theme_TextBox_Focus = "#80" + "9e9e9e";
             publicDataContext.theme_TextBox_Inactive = "#80" + "1f1f1f";
 
-            publicDataContext.theme_ListBox_Text = publicDataContext.theme_Text_Primary;
-            publicDataContext.theme_ListBox_Background = "#FF" + "c000c0";
-            publicDataContext.theme_ListBox_Border = "#FF" + "c000c0";
+            publicDataContext.theme_ListBox_Text = publicDataContext.theme_Text_Secondary;
+            publicDataContext.theme_ListBox_Background = "#80" + "0f0f0f";
+            publicDataContext.theme_ListBox_Border = "#80" + "79517d";
 
             publicDataContext.theme_ComboBox_Text = publicDataContext.theme_Text_Primary;
             publicDataContext.theme_ComboBox_Arrow = "#FF" + "c000c0";
-            publicDataContext.theme_ComboBox_Arrow_Hover = "FF" + "404040";
+            publicDataContext.theme_ComboBox_Arrow_Hover = "#FF" + "404040";
             publicDataContext.theme_ComboBox_Background = "#80" + "0f0f0f";
             publicDataContext.theme_ComboBox_Hover = "#FF" + "404040";
             publicDataContext.theme_ComboBox_Pressed = "#FF" + "79517d";
@@ -209,25 +215,7 @@ namespace BitzDrawingFileCreator_WPF
             {
                 if (subMenu.Value != exclusion)
                 {
-                    if (dataSubPanelsInfo[subMenu.Key + "_Hidden"] == 0)
-                    {
-                        // Set element scale to a scale variable for animation
-                        ScaleTransform scale = new ScaleTransform(
-                            objToDouble(subMenu.Value.LayoutTransform.GetValue(ScaleTransform.ScaleXProperty)),
-                            objToDouble(subMenu.Value.LayoutTransform.GetValue(ScaleTransform.ScaleYProperty))
-                        );
-                        subMenu.Value.LayoutTransform = scale;
-
-                        // Set up animation and add completion handler
-                        menuSlide = new DoubleAnimation(0.0, new Duration(TimeSpan.FromMilliseconds(panelOpenTime)));
-                        menuSlide.Completed += new EventHandler((sender, e) => menuSlideComplete(sender, e, subMenu.Value, 1));
-
-                        // Add animation to storyboard and play it
-                        menuStories[subMenu.Key].Children.Add(menuSlide);
-                        Storyboard.SetTarget(menuSlide, subMenu.Value);
-                        Storyboard.SetTargetProperty(menuSlide, new PropertyPath("LayoutTransform.ScaleY"));
-                        menuStories[subMenu.Key].Begin(this);
-                    }
+                    hideSubMenu(subMenu.Value);
                 }
             }
         }
@@ -300,22 +288,37 @@ namespace BitzDrawingFileCreator_WPF
 
         private void btnCreateFiles_Click(object sender, RoutedEventArgs e)
         {
-            string myDate = "[" + DateTime.Today.ToString("yyyy-MM-dd") + "]";
-            string myDrawingProduct = publicDataContext.drawingProduct.Replace("System.Windows.Controls.ComboBoxItem: ", "");
-            string myTargetPlatform = publicDataContext.targetPlatform.Replace("System.Windows.Controls.ComboBoxItem: ", "");
-            string myUserName = publicDataContext.userName.Replace("System.Windows.Controls.ComboBoxItem: ", "");
+            bool _result = MessageBoxHandler.showYesNoBox("Are you sure that you want to create the directories?", "Create Directories>", "Yeah", "Nah");
+            if (_result == false)
+                return;
 
-            string folderRoot = @"G:\\Mega Sync Drive\\SYNCHRONOUS\\Projects";
-            string drawingRoot = System.IO.Path.Combine(myDrawingProduct, myTargetPlatform, myUserName, myDate);
-            
+            DirectoryParser _dirParse = new DirectoryParser();
 
-            
-            
-            
-            System.Diagnostics.Debug.WriteLine(System.IO.Path.Combine(folderRoot, drawingRoot, "REFERENCES\\RENDERS"));
-            //Directory.CreateDirectory(System.IO.Path.Combine(folderRoot, drawingRoot, "REFERENCES\\RENDERS"));
-            //Directory.CreateDirectory(System.IO.Path.Combine(folderRoot, drawingRoot, "PROGRESS"));
-            //Directory.CreateDirectory(System.IO.Path.Combine(folderRoot, drawingRoot, "EXPORT"));
+            var _subFolders = new List<string>();
+            _subFolders.Add("REFERENCES//RENDERS");
+            _subFolders.Add("PROGRESS");
+            _subFolders.Add("EXPORT");
+
+            string folderRoot = _dirParse.parseFormatString(DirectoryParser.folderFormat);
+            //$ROOT/$Drawing_Product/$Target_Platform/$User_Name/$Date
+            //$Date $User_Name $Target_Platform $Drawing_Product $Characters $Drawing_Type $Drawing_Render
+
+            if (!File.Exists(folderRoot))
+            {
+                // Create a file to write to.
+                using (StreamWriter sw = File.CreateText(folderRoot))
+                {
+                    sw.WriteLine("Thank you for using my software ♥");
+                }
+            }
+
+            foreach (string subFolder in _subFolders)
+            {
+                string _newPath = System.IO.Path.Combine(folderRoot, subFolder);
+                Directory.CreateDirectory(_newPath);
+                System.Diagnostics.Debug.WriteLine(_newPath);
+            }
+
         }
         
     }

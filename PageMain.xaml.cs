@@ -85,13 +85,13 @@ namespace BitzDrawingFileCreator_WPF
             con.theme_TextBox_Focus = "#80" + rndColor();
             con.theme_TextBox_Inactive = "#80" + rndColor();
 
-            con.theme_ListBox_Text = con.theme_Text_Primary;
+            con.theme_ListBox_Text = con.theme_Text_Secondary;
             con.theme_ListBox_Background = "#FF" + rndColor();
             con.theme_ListBox_Border = "#FF" + rndColor();
 
             con.theme_ComboBox_Text = con.theme_Text_Primary;
             con.theme_ComboBox_Arrow = "#FF" + rndColor();
-            con.theme_ComboBox_Arrow_Hover = "FF" + rndColor();
+            con.theme_ComboBox_Arrow_Hover = "#FF" + rndColor();
             con.theme_ComboBox_Background = "#80" + rndColor();
             con.theme_ComboBox_Hover = "#FF" + rndColor();
             con.theme_ComboBox_Pressed = "#FF" + rndColor();
@@ -105,6 +105,32 @@ namespace BitzDrawingFileCreator_WPF
             con.theme_Scroll_Thumb = con.theme_Text_Secondary;
             con.theme_Scroll_Background_Primary = "#00" + rndColor();
             con.theme_Scroll_Background_Secondary = "#FF" + rndColor();
+        }
+
+        private void btnAddCharacter_Copy_Click(object sender, RoutedEventArgs e)
+        {
+            string cName = (string.IsNullOrEmpty(txtCharacterName.Text)) ? "NULL" : txtCharacterName.Text;
+            string cSpecies = (string.IsNullOrEmpty(txtCharacterSpecies.Text)) ? "NULL" : txtCharacterSpecies.Text;
+
+            if (cName == "NULL" && cSpecies == "NULL")
+            {
+                MessageBoxHandler.showMessageBox("Name and Species can NOT be empty", "Invalid Character", "I'm Sowwy ;w;");
+                return;
+            }
+
+            listboxCharacters.Items.Add(cName + " - " + cSpecies);
+        }
+
+        private void btnDeleteCharacter_Click(object sender, RoutedEventArgs e)
+        {
+            if (listboxCharacters.SelectedIndex == -1)
+            {
+                System.Media.SystemSounds.Exclamation.Play();
+                MessageBoxHandler.showMessageBox("You must select a character to delete", "No Character Selected", "Alrighty! ^^♥");
+                return;
+            }
+
+            listboxCharacters.Items.RemoveAt(listboxCharacters.SelectedIndex);
         }
     }
 }

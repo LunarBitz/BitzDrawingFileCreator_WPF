@@ -18,8 +18,10 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
-                    return " ";
+                    return "";
                 return privateVars[baseName];
             }
             set
@@ -36,8 +38,10 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
-                    return " ";
+                    return "";
                 return privateVars[baseName];
             }
             set
@@ -54,8 +58,10 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
-                    return " ";
+                    return "";
                 return privateVars[baseName];
             }
             set
@@ -72,8 +78,10 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
-                    return " ";
+                    return "";
                 return privateVars[baseName];
             }
             set
@@ -90,8 +98,10 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
-                    return " ";
+                    return "";
                 return privateVars[baseName];
             }
             set
@@ -108,8 +118,10 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
-                    return " ";
+                    return "";
                 return privateVars[baseName];
             }
             set
@@ -126,8 +138,10 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
-                    return " ";
+                    return "";
                 return privateVars[baseName];
             }
             set
@@ -144,8 +158,10 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
-                    return " ";
+                    return "";
                 return privateVars[baseName];
             }
             set
@@ -168,6 +184,8 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "#00000000";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
                     return "#00000000";
                 return privateVars[baseName];
@@ -177,7 +195,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                //System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
                 OnPropertyChanged(baseName);
             }
         }
@@ -196,7 +214,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                //System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
                 OnPropertyChanged(baseName);
             }
         }
@@ -206,6 +224,8 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "#00000000";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
                     return "#00000000";
                 return privateVars[baseName];
@@ -215,7 +235,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                //System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
                 OnPropertyChanged(baseName);
             }
         }
@@ -230,6 +250,8 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "#00000000";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
                     return "#00000000";
                 return privateVars[baseName];
@@ -239,7 +261,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                //System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
                 OnPropertyChanged(baseName);
             }
         }
@@ -249,6 +271,8 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "#00000000";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
                     return "#00000000";
                 return privateVars[baseName];
@@ -258,7 +282,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                //System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
                 OnPropertyChanged(baseName);
             }
         }
@@ -273,6 +297,8 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "#00000000";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
                     return "#00000000";
                 return privateVars[baseName];
@@ -282,7 +308,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                //System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
                 OnPropertyChanged(baseName);
             }
         }
@@ -292,6 +318,8 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "#00000000";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
                     return "#00000000";
                 return privateVars[baseName];
@@ -301,7 +329,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                //System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
                 OnPropertyChanged(baseName);
             }
         }
@@ -311,6 +339,8 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "#00000000";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
                     return "#00000000";
                 return privateVars[baseName];
@@ -320,7 +350,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                //System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
                 OnPropertyChanged(baseName);
             }
         }
@@ -330,6 +360,8 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "#00000000";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
                     return "#00000000";
                 return privateVars[baseName];
@@ -339,7 +371,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                //System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
                 OnPropertyChanged(baseName);
             }
         }
@@ -349,6 +381,8 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "#00000000";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
                     return "#00000000";
                 return privateVars[baseName];
@@ -358,7 +392,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                //System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
                 OnPropertyChanged(baseName);
             }
         }
@@ -368,6 +402,8 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "#00000000";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
                     return "#00000000";
                 return privateVars[baseName];
@@ -377,7 +413,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                //System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
                 OnPropertyChanged(baseName);
             }
         }
@@ -392,6 +428,8 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "#00000000";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
                     return "#00000000";
                 return privateVars[baseName];
@@ -401,7 +439,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                //System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
                 OnPropertyChanged(baseName);
             }
         }
@@ -411,6 +449,8 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "#00000000";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
                     return "#00000000";
                 return privateVars[baseName];
@@ -420,7 +460,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                //System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
                 OnPropertyChanged(baseName);
             }
         }
@@ -435,6 +475,8 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "#00000000";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
                     return "#00000000";
                 return privateVars[baseName];
@@ -444,7 +486,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                //System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
                 OnPropertyChanged(baseName);
             }
         }
@@ -454,6 +496,8 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "#00000000";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
                     return "#00000000";
                 return privateVars[baseName];
@@ -463,7 +507,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                //System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
                 OnPropertyChanged(baseName);
             }
         }
@@ -473,6 +517,8 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "#00000000";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
                     return "#00000000";
                 return privateVars[baseName];
@@ -482,7 +528,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                //System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
                 OnPropertyChanged(baseName);
             }
         }
@@ -492,6 +538,8 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "#00000000";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
                     return "#00000000";
                 return privateVars[baseName];
@@ -501,7 +549,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                //System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
                 OnPropertyChanged(baseName);
             }
         }
@@ -511,6 +559,8 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "#00000000";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
                     return "#00000000";
                 return privateVars[baseName];
@@ -520,7 +570,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                //System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
                 OnPropertyChanged(baseName);
             }
         }
@@ -530,6 +580,8 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "#00000000";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
                     return "#00000000";
                 return privateVars[baseName];
@@ -539,7 +591,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                //System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
                 OnPropertyChanged(baseName);
             }
         }
@@ -554,6 +606,8 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "#00000000";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
                     return "#00000000";
                 return privateVars[baseName];
@@ -563,7 +617,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                //System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
                 OnPropertyChanged(baseName);
             }
         }
@@ -578,6 +632,8 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "#00000000";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
                     return "#00000000";
                 return privateVars[baseName];
@@ -587,7 +643,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                //System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
                 OnPropertyChanged(baseName);
             }
         }
@@ -597,6 +653,8 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "#00000000";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
                     return "#00000000";
                 return privateVars[baseName];
@@ -606,7 +664,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                //System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
                 OnPropertyChanged(baseName);
             }
         }
@@ -616,6 +674,8 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "#00000000";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
                     return "#00000000";
                 return privateVars[baseName];
@@ -625,7 +685,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                //System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
                 OnPropertyChanged(baseName);
             }
         }
@@ -635,6 +695,8 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "#00000000";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
                     return "#00000000";
                 return privateVars[baseName];
@@ -644,7 +706,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                //System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
                 OnPropertyChanged(baseName);
             }
         }
@@ -654,6 +716,8 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "#00000000";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
                     return "#00000000";
                 return privateVars[baseName];
@@ -663,7 +727,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                //System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
                 OnPropertyChanged(baseName);
             }
         }
@@ -673,6 +737,8 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "#00000000";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
                     return "#00000000";
                 return privateVars[baseName];
@@ -682,7 +748,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                //System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
                 OnPropertyChanged(baseName);
             }
         }
@@ -696,6 +762,8 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "#00000000";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
                     return "#00000000";
                 return privateVars[baseName];
@@ -705,7 +773,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                //System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
                 OnPropertyChanged(baseName);
             }
         }
@@ -715,6 +783,8 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "#00000000";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
                     return "#00000000";
                 return privateVars[baseName];
@@ -724,7 +794,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                //System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
                 OnPropertyChanged(baseName);
             }
         }
@@ -738,6 +808,8 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "#00000000";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
                     return "#00000000";
                 return privateVars[baseName];
@@ -747,7 +819,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                //System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
                 OnPropertyChanged(baseName);
             }
         }
@@ -757,6 +829,8 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "#00000000";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
                     return "#00000000";
                 return privateVars[baseName];
@@ -766,7 +840,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                //System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
                 OnPropertyChanged(baseName);
             }
         }
@@ -776,6 +850,8 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "#00000000";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
                     return "#00000000";
                 return privateVars[baseName];
@@ -785,7 +861,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                //System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
                 OnPropertyChanged(baseName);
             }
         }
@@ -795,6 +871,8 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "#00000000";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
                     return "#00000000";
                 return privateVars[baseName];
@@ -804,7 +882,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                //System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
                 OnPropertyChanged(baseName);
             }
         }
@@ -814,6 +892,8 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "#00000000";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
                     return "#00000000";
                 return privateVars[baseName];
@@ -823,7 +903,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                //System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
                 OnPropertyChanged(baseName);
             }
         }
@@ -833,6 +913,8 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "#00000000";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
                     return "#00000000";
                 return privateVars[baseName];
@@ -842,7 +924,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                //System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
                 OnPropertyChanged(baseName);
             }
         }
@@ -857,6 +939,8 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "#00000000";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
                     return "#00000000";
                 return privateVars[baseName];
@@ -866,7 +950,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                //System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
                 OnPropertyChanged(baseName);
             }
         }
@@ -876,6 +960,8 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "#00000000";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
                     return "#00000000";
                 return privateVars[baseName];
@@ -885,7 +971,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                //System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
                 OnPropertyChanged(baseName);
             }
         }
@@ -895,6 +981,8 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "#00000000";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
                     return "#00000000";
                 return privateVars[baseName];
@@ -904,7 +992,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                //System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
                 OnPropertyChanged(baseName);
             }
         }
@@ -918,6 +1006,8 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "#00000000";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
                     return "#00000000";
                 return privateVars[baseName];
@@ -927,7 +1017,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                //System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
                 OnPropertyChanged(baseName);
             }
         }
@@ -937,6 +1027,8 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "#00000000";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
                     return "#00000000";
                 return privateVars[baseName];
@@ -946,7 +1038,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                //System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
                 OnPropertyChanged(baseName);
             }
         }
@@ -956,6 +1048,8 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "#00000000";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
                     return "#00000000";
                 return privateVars[baseName];
@@ -965,7 +1059,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                //System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
                 OnPropertyChanged(baseName);
             }
         }
@@ -975,6 +1069,8 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "#00000000";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
                     return "#00000000";
                 return privateVars[baseName];
@@ -984,7 +1080,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                //System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
                 OnPropertyChanged(baseName);
             }
         }
@@ -994,6 +1090,8 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "#00000000";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
                     return "#00000000";
                 return privateVars[baseName];
@@ -1003,7 +1101,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                //System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
                 OnPropertyChanged(baseName);
             }
         }
@@ -1013,6 +1111,8 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "#00000000";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
                     return "#00000000";
                 return privateVars[baseName];
@@ -1022,7 +1122,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                //System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
                 OnPropertyChanged(baseName);
             }
         }
@@ -1032,6 +1132,8 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "#00000000";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
                     return "#00000000";
                 return privateVars[baseName];
@@ -1041,7 +1143,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                //System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
                 OnPropertyChanged(baseName);
             }
         }
@@ -1051,6 +1153,8 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "#00000000";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
                     return "#00000000";
                 return privateVars[baseName];
@@ -1060,7 +1164,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                //System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
                 OnPropertyChanged(baseName);
             }
         }
@@ -1070,6 +1174,8 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "#00000000";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
                     return "#00000000";
                 return privateVars[baseName];
@@ -1079,7 +1185,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                //System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
                 OnPropertyChanged(baseName);
             }
         }
@@ -1089,6 +1195,8 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "#00000000";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
                     return "#00000000";
                 return privateVars[baseName];
@@ -1098,7 +1206,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                //System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
                 OnPropertyChanged(baseName);
             }
         }
@@ -1108,6 +1216,8 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "#00000000";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
                     return "#00000000";
                 return privateVars[baseName];
@@ -1117,7 +1227,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                //System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
                 OnPropertyChanged(baseName);
             }
         }
@@ -1127,6 +1237,8 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "#00000000";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
                     return "#00000000";
                 return privateVars[baseName];
@@ -1136,7 +1248,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                //System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
                 OnPropertyChanged(baseName);
             }
         }
@@ -1150,6 +1262,8 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "#00000000";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
                     return "#00000000";
                 return privateVars[baseName];
@@ -1159,7 +1273,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                //System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
                 OnPropertyChanged(baseName);
             }
         }
@@ -1169,6 +1283,8 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "#00000000";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
                     return "#00000000";
                 return privateVars[baseName];
@@ -1178,7 +1294,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                //System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
                 OnPropertyChanged(baseName);
             }
         }
@@ -1188,6 +1304,8 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "#00000000";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
                     return "#00000000";
                 return privateVars[baseName];
@@ -1197,7 +1315,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
 
                 privateVars[baseName] = value;
-                System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
+                //System.Diagnostics.Debug.WriteLine(privateVars[baseName]);
                 OnPropertyChanged(baseName);
             }
         }

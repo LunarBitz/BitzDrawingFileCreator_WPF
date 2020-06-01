@@ -38,3 +38,7 @@ G:\Mega Sync Drive\SYNCHRONOUS\Projects\GitHub Repositories\BitzDrawingFileCreat
 G:\Mega Sync Drive\SYNCHRONOUS\Projects\GitHub Repositories\BitzDrawingFileCreator_WPF\BitzDrawingFileCreator_WPF\obj\Debug\BitzDrawingFileCreator_WPF.csproj.CoreCompileInputs.cache
 G:\Mega Sync Drive\SYNCHRONOUS\Projects\GitHub Repositories\BitzDrawingFileCreator_WPF\BitzDrawingFileCreator_WPF\obj\Debug\BitzDrawingFileCreator_WPF.exe
 G:\Mega Sync Drive\SYNCHRONOUS\Projects\GitHub Repositories\BitzDrawingFileCreator_WPF\BitzDrawingFileCreator_WPF\obj\Debug\BitzDrawingFileCreator_WPF.pdb
+G:\Mega Sync Drive\SYNCHRONOUS\Projects\GitHub Repositories\BitzDrawingFileCreator_WPF\BitzDrawingFileCreator_WPF\obj\Debug\BitzMessageBox.g.cs
+G:\Mega Sync Drive\SYNCHRONOUS\Projects\GitHub Repositories\BitzDrawingFileCreator_WPF\BitzDrawingFileCreator_WPF\obj\Debug\BitzMessageYesNoBox.g.cs
+G:\Mega Sync Drive\SYNCHRONOUS\Projects\GitHub Repositories\BitzDrawingFileCreator_WPF\BitzDrawingFileCreator_WPF\obj\Debug\BitzMessageBox.baml
+G:\Mega Sync Drive\SYNCHRONOUS\Projects\GitHub Repositories\BitzDrawingFileCreator_WPF\BitzDrawingFileCreator_WPF\obj\Debug\BitzMessageYesNoBox.baml

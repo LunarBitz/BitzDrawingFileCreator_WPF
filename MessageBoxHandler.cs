@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Media.Animation;
+using System.Windows.Media.Effects;
 
 namespace BitzDrawingFileCreator_WPF
 {
@@ -12,6 +15,7 @@ namespace BitzDrawingFileCreator_WPF
         {
             BitzMessageBox loMessageWindow = new BitzMessageBox();
             StringBuilder loStringBuilder = new StringBuilder();
+            bool loBoolean = false;
 
             loStringBuilder.Append(message);
             loStringBuilder.Append(Environment.NewLine + Environment.NewLine);
@@ -21,9 +25,14 @@ namespace BitzDrawingFileCreator_WPF
             loMessageWindow.txtbTitle.Text = title;
             loMessageWindow.txtbMessage.Text = loStringBuilder.ToString();
             loMessageWindow.btnConfirm.Content = confirmButton;
-            loMessageWindow.Owner = System.Windows.Application.Current.MainWindow;
-            
-            return (bool)loMessageWindow.ShowDialog();
+            loMessageWindow.Owner = Application.Current.MainWindow;
+            loMessageWindow.Topmost = true;
+
+            loMessageWindow.Owner.Effect = new BlurEffect();
+            loBoolean = (bool)loMessageWindow.ShowDialog();
+            loMessageWindow.Owner.Effect = null;
+
+            return loBoolean;
         }
         public static bool showYesNoBox(string message = "", string title = "", string yesButton = "Yes", string noButton = "No")
         {
@@ -40,9 +49,10 @@ namespace BitzDrawingFileCreator_WPF
             loMessageWindow.btnYes.Content = yesButton;
             loMessageWindow.btnNo.Content = noButton;
             loMessageWindow.Owner = System.Windows.Application.Current.MainWindow;
-            bool? result = loMessageWindow.ShowDialog();
-             
 
+            loMessageWindow.Owner.Effect = new BlurEffect();
+            bool? result = loMessageWindow.ShowDialog();
+            loMessageWindow.Owner.Effect = null;
 
             if (result.HasValue)
                 return loMessageWindow.diagAnswer;

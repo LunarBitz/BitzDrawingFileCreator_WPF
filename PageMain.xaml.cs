@@ -51,7 +51,7 @@ namespace BitzDrawingFileCreator_WPF
 
             con.theme_Button_Text = con.theme_Text_Primary;
             con.theme_Button_Background = "#80" + rndColor();
-            con.theme_Button_Border = "#00" + rndColor();
+            con.theme_Button_Border = "#80" + rndColor();
             con.theme_Button_Hover = "#FF" + rndColor();
             con.theme_Button_Clicked = "#FF" + rndColor();
             con.theme_Button_Selected = "#FF" + rndColor();

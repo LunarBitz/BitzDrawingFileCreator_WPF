@@ -22,6 +22,8 @@ namespace BitzDrawingFileCreator_WPF
         public BitzMessageBox()
         {
             InitializeComponent();
+
+            DataContext = MainWindow.publicDataContext;
         }
 
         #region Window Fade In/Out

@@ -105,7 +105,7 @@ namespace BitzDrawingFileCreator_WPF
 
             publicDataContext.theme_Button_Text = publicDataContext.theme_Text_Primary;
             publicDataContext.theme_Button_Background = "#80" + "0f0f0f";
-            publicDataContext.theme_Button_Border = "#00" + "000000";
+            publicDataContext.theme_Button_Border = "#80" + "1f0f1f";
             publicDataContext.theme_Button_Hover = "#FF" + "404040";
             publicDataContext.theme_Button_Clicked = "#FF" + "79517d";
             publicDataContext.theme_Button_Selected = "#FF" + "c0c0c0";
@@ -302,8 +302,6 @@ namespace BitzDrawingFileCreator_WPF
             string folderRoot = System.IO.Path.Combine(_dirParse.parseFormatString(DirectoryParser.folderFormat));
             string fileName = System.IO.Path.Combine(_dirParse.parseFormatString(DirectoryParser.fileNameFormat));
 
-
-
             foreach (string subFolder in _subFolders)
             {
                 string _newPath = System.IO.Path.Combine(folderRoot, subFolder);
@@ -311,8 +309,11 @@ namespace BitzDrawingFileCreator_WPF
                 System.Diagnostics.Debug.WriteLine(_newPath);
             }
 
-            StreamWriter sw = File.AppendText(folderRoot + fileName + ".txt");
-            sw.Write(publicDataContext.drawingDescription);
+            using (StreamWriter sw = File.AppendText(folderRoot + fileName + ".txt"))
+            {
+                System.Diagnostics.Debug.WriteLine(publicDataContext.drawingDescription);
+                sw.Write(publicDataContext.drawingDescription);
+            }
 
             try
             {

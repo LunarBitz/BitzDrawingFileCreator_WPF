@@ -1,4 +1,5 @@
 ﻿using BitzDrawingFileCreator_WPF.Data;
+using Manatee.Trello;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -28,6 +29,7 @@ namespace BitzDrawingFileCreator_WPF
 
         #region Variables
         public static AppData publicDataContext;
+        public static TrelloHandler trelloClass;
 
         public static Page activePage = null;
 
@@ -65,7 +67,7 @@ namespace BitzDrawingFileCreator_WPF
         {
             InitializeComponent();
 
-            DirectoryParser.folderFormat = "$ROOT|$Drawing_Product~s\\$Target_Platform\\$User_Name\\$Date\\";
+            DirectoryParser.folderFormat = "$ROOT|$Drawing_Product~s\\$Target_Platform\\$User_Name\\[$Date]\\";
             DirectoryParser.fileNameFormat = "[$Date] [$User_Name] [$Target_Platform] [$Drawing_Product] [$Characters] [$Drawing_Type] [$Drawing_Render] [PROJECT] [A]";
 
             Height = 510;
@@ -73,6 +75,7 @@ namespace BitzDrawingFileCreator_WPF
 
             publicDataContext = new AppData();
             DataContext = publicDataContext;
+            trelloClass = new TrelloHandler();
 
             // Initialize the necessary components
             menuSlide = new DoubleAnimation();
@@ -266,7 +269,7 @@ namespace BitzDrawingFileCreator_WPF
 
         private void openChildForm(Window childWindow)
         {
-//
+            //
         }
 
         #endregion
@@ -275,17 +278,39 @@ namespace BitzDrawingFileCreator_WPF
         {
             showSubMenu(submenupanel_Pages);
         }
+        #region Menu | Pages
+        private void btnMain_Click(object sender, RoutedEventArgs e)
+        {
+            activePage = new PageMain();
+            frameMainView.Navigate(activePage);
+        }
+
+        private void btnFileDescription_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnCharacter_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnMisc_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnClearAll_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        #endregion
 
         private void btnCreate_Click(object sender, RoutedEventArgs e)
         {
             showSubMenu(submenupanel_Create);
         }
-
-        private void btnSettings_Click(object sender, RoutedEventArgs e)
-        {
-            showSubMenu(submenupanel_Settings);
-        }
-
+        #region Menu | Create
         private void btnCreateFiles_Click(object sender, RoutedEventArgs e)
         {
             bool _result = MessageBoxHandler.showYesNoBox("Are you sure that you want to create the directories?", "Create Directories?", "Yeah", "Nah");
@@ -315,6 +340,12 @@ namespace BitzDrawingFileCreator_WPF
                 sw.Write(publicDataContext.drawingDescription);
             }
 
+            using (StreamWriter sw = File.AppendText(System.IO.Path.Combine(folderRoot, "REFERENCES\\") + fileName.Replace("PROJECT", "REFERENCE") + ".txt"))
+            {
+                System.Diagnostics.Debug.WriteLine(publicDataContext.drawingDescription);
+                sw.Write(publicDataContext.drawingDescription);
+            }
+
             try
             {
                 _result = MessageBoxHandler.showYesNoBox("Would you like to open your new folders?", "Open Directories?", "Pwease! OwO", "No Thankis. UwU");
@@ -329,6 +360,52 @@ namespace BitzDrawingFileCreator_WPF
             }
 
         }
-        
+
+        private async void btnCreateTrelloCard_Click(object sender, RoutedEventArgs e)
+        {
+            /*
+            Manatee.Trello.IBoard myBoard = null;
+
+            trelloClass.AuthTrello();
+            myBoard = trelloClass.GetTrelloBoard("");
+            System.Diagnostics.Debug.WriteLine(myBoard);
+
+            while (myBoard == null)
+            {
+                Console.WriteLine("Excel is busy");
+                await Task.Delay(25);
+            }
+            trelloClass.AddTrelloCard(myBoard);
+            */
+        }
+        #endregion
+
+        private void btnSettings_Click(object sender, RoutedEventArgs e)
+        {
+            showSubMenu(submenupanel_Settings);
+        }
+        #region Menu | Settings
+        private void btnFolderFormat_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnTrelloAccount_Click(object sender, RoutedEventArgs e)
+        {
+            activePage = new PageTrelloAccount();
+            frameMainView.Navigate(activePage);
+        }
+
+        private void btnTrelloFormat_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnTheme_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        #endregion
+
     }
 }

@@ -27,11 +27,11 @@
                                     <TranslateTransform/>
                                 </TransformGroup>
                             </StackPanel.LayoutTransform>
-                            <Button x:Name="btnMain" Content="Main" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                            <Button x:Name="btnFileDescription" Content="File Description" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                            <Button x:Name="btnCharacter" Content="Character" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}" Tag="submenu"/>
-                            <Button x:Name="btnMisc" Content="Misc" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                            <Button x:Name="btnClearAll" Content="Clear All" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                            <Button x:Name="btnMain" Content="Main" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}" Click="btnMain_Click"/>
+                            <Button x:Name="btnFileDescription" Content="File Description" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}" Click="btnFileDescription_Click"/>
+                            <Button x:Name="btnCharacter" Content="Character" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}" Tag="submenu" Click="btnCharacter_Click"/>
+                            <Button x:Name="btnMisc" Content="Misc" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}" Click="btnMisc_Click"/>
+                            <Button x:Name="btnClearAll" Content="Clear All" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}" Click="btnClearAll_Click"/>
                         </StackPanel>
                     </StackPanel>
                     <StackPanel x:Name="menuCreate" Orientation="Vertical">
@@ -46,7 +46,7 @@
                                 </TransformGroup>
                             </StackPanel.LayoutTransform>
                             <Button x:Name="btnCreateFiles" Content="Create Files" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}" Click="btnCreateFiles_Click"/>
-                            <Button x:Name="btnCreateTrelloCard" Content="Create Trello Card" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                            <Button x:Name="btnCreateTrelloCard" Content="Create Trello Card" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}" Click="btnCreateTrelloCard_Click"/>
                         </StackPanel>
                     </StackPanel>
                     <StackPanel x:Name="menuSettings" Orientation="Vertical">
@@ -60,50 +60,15 @@
                                     <TranslateTransform/>
                                 </TransformGroup>
                             </StackPanel.LayoutTransform>
-                            <Button x:Name="btnFolderFormat" Content="Folder Format" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                            <Button x:Name="btnTrelloAccount" Content="Trello Account" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                            <Button x:Name="btnTrelloFormat" Content="Trello Format" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}" Tag="submenu"/>
-                            <Button x:Name="btnTheme" Content="Theme" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
-                            <Button Content="DELETE MUAH LATER" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}"/>
+                            <Button x:Name="btnFolderFormat" Content="Folder Format" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}" Click="btnFolderFormat_Click"/>
+                            <Button x:Name="btnTrelloAccount" Content="Trello Account" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}" Click="btnTrelloAccount_Click"/>
+                            <Button x:Name="btnTrelloFormat" Content="Trello Format" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}" Tag="submenu" Click="btnTrelloFormat_Click"/>
+                            <Button x:Name="btnTheme" Content="Theme" Height="32" FontSize="16" HorizontalContentAlignment="Left" Padding="64,0,0,0" Margin="0" Style="{DynamicResource bitzSubMenuOption}" Click="btnTheme_Click"/>
                         </StackPanel>
                     </StackPanel>
                 </StackPanel>
             </ScrollViewer>
-            <Frame x:Name="frameMainView" Content="Frame" Margin="0" DockPanel.Dock="Top">
+            <Frame x:Name="frameMainView" Content="Frame" Margin="0" DockPanel.Dock="Top" NavigationUIVisibility="Hidden">
                 <Frame.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0.5">
                         <GradientStop Color="#000000"/>

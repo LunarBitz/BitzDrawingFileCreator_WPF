@@ -39,12 +39,14 @@
                     <ComboBox x:Name="comboDrawingProduct" Style="{DynamicResource bitzComboBox}" SelectedValuePath="content" Text="{Binding drawingProduct}" MaxDropDownHeight="128">
                         <ComboBoxItem Content="Commission"/>
                         <ComboBoxItem Content="Trade"/>
+                        <ComboBoxItem Content="Personal"/>
                         <ComboBoxItem Content="Gift"/>
                         <ComboBoxItem Content="Fan-Art"/>
                         <ComboBoxItem Content="DTIYS"/>
                         <ComboBoxItem Content="Vent"/>
                         <ComboBoxItem Content="Touch-Up"/>
                         <ComboBoxItem Content="Glow-Up"/>
+                        <ComboBoxItem Content="Obligation"/>
                     </ComboBox>
                 </StackPanel>
             </GroupBox>
@@ -65,6 +67,13 @@
                         <ComboBoxItem Content="Animation"/>
                         <ComboBoxItem Content="Comic"/>
                         <ComboBoxItem Content="Icon"/>
+                        <ComboBoxItem Content="Animatic"/>
+                        <ComboBoxItem Content="Animated-Icon"/>
+                        <ComboBoxItem Content="Animated-Banner"/>
+                        <ComboBoxItem Content="Banner"/>
+                        <ComboBoxItem Content="Background"/>
+                        <ComboBoxItem Content="Wallpaper"/>
+                        <ComboBoxItem Content="Emote"/>
                         <ComboBoxItem Content="Group"/>
                     </ComboBox>
                 </StackPanel>
@@ -73,16 +82,18 @@
                 <StackPanel Margin="0">
                     <Label Content="Drawing Render:" VerticalAlignment="Top" Height="26" Style="{DynamicResource bitzLabel}"/>
                     <ComboBox x:Name="comboDrawingRender" Style="{DynamicResource bitzComboBox}" SelectedValuePath="content" Text="{Binding drawingRender}" MaxDropDownHeight="128">
-                        <ComboBoxItem Content="Cut Out"/>
+                        <ComboBoxItem Content="Cut-Out"/>
                         <ComboBoxItem Content="Sketch"/>
-                        <ComboBoxItem Content="Line Art"/>
+                        <ComboBoxItem Content="Line-Art"/>
                         <ComboBoxItem Content="Flat"/>
                         <ComboBoxItem Content="Cel"/>
                         <ComboBoxItem Content="Rendered"/>
                         <ComboBoxItem Content="3D"/>
                         <ComboBoxItem Content="Pop"/>
-                        <ComboBoxItem Content="Mono-Hue"/>
-                        <ComboBoxItem Content="Mono-Value"/>
+                        <ComboBoxItem Content="Mono-Color"/>
+                        <ComboBoxItem Content="Mono-Grayscale"/>
+                        <ComboBoxItem Content="Conceptual"/>
+                        <ComboBoxItem Content="Painting"/>
                     </ComboBox>
                 </StackPanel>
             </GroupBox>
@@ -138,10 +149,10 @@
                         <ComboBoxItem Content="DeviantArt"/>
                         <ComboBoxItem Content="Discord"/>
                         <ComboBoxItem Content="Email"/>
-                        <ComboBoxItem Content="Fur Affinity"/>
+                        <ComboBoxItem Content="FurAffinity"/>
                         <ComboBoxItem Content="Furiffic"/>
-                        <ComboBoxItem Content="Furry Life"/>
-                        <ComboBoxItem Content="Furry Network"/>
+                        <ComboBoxItem Content="FurryLife"/>
+                        <ComboBoxItem Content="FurryNetwork"/>
                         <ComboBoxItem Content="InkBunny"/>
                         <ComboBoxItem Content="Instagram"/>
                         <ComboBoxItem Content="Ko-Fi"/>
@@ -153,7 +164,7 @@
                         <ComboBoxItem Content="PicartoTV"/>
                         <ComboBoxItem Content="Piczel"/>
                         <ComboBoxItem Content="Pillowfort"/>
-                        <ComboBoxItem Content="So Furry"/>
+                        <ComboBoxItem Content="SoFurry"/>
                         <ComboBoxItem Content="Telegram"/>
                         <ComboBoxItem Content="Tumblr"/>
                         <ComboBoxItem Content="Twitter"/>

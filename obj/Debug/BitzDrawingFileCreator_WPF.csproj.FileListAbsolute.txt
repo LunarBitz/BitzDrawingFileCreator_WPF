@@ -42,3 +42,13 @@ G:\Mega Sync Drive\SYNCHRONOUS\Projects\GitHub Repositories\BitzDrawingFileCreat
 G:\Mega Sync Drive\SYNCHRONOUS\Projects\GitHub Repositories\BitzDrawingFileCreator_WPF\BitzDrawingFileCreator_WPF\obj\Debug\BitzMessageYesNoBox.g.cs
 G:\Mega Sync Drive\SYNCHRONOUS\Projects\GitHub Repositories\BitzDrawingFileCreator_WPF\BitzDrawingFileCreator_WPF\obj\Debug\BitzMessageBox.baml
 G:\Mega Sync Drive\SYNCHRONOUS\Projects\GitHub Repositories\BitzDrawingFileCreator_WPF\BitzDrawingFileCreator_WPF\obj\Debug\BitzMessageYesNoBox.baml
+G:\Mega Sync Drive\SYNCHRONOUS\Projects\GitHub Repositories\BitzDrawingFileCreator_WPF\BitzDrawingFileCreator_WPF\bin\Debug\Manatee.Json.dll
+G:\Mega Sync Drive\SYNCHRONOUS\Projects\GitHub Repositories\BitzDrawingFileCreator_WPF\BitzDrawingFileCreator_WPF\bin\Debug\Manatee.Trello.dll
+G:\Mega Sync Drive\SYNCHRONOUS\Projects\GitHub Repositories\BitzDrawingFileCreator_WPF\BitzDrawingFileCreator_WPF\bin\Debug\System.ComponentModel.Annotations.dll
+G:\Mega Sync Drive\SYNCHRONOUS\Projects\GitHub Repositories\BitzDrawingFileCreator_WPF\BitzDrawingFileCreator_WPF\bin\Debug\System.ValueTuple.dll
+G:\Mega Sync Drive\SYNCHRONOUS\Projects\GitHub Repositories\BitzDrawingFileCreator_WPF\BitzDrawingFileCreator_WPF\bin\Debug\Manatee.Json.xml
+G:\Mega Sync Drive\SYNCHRONOUS\Projects\GitHub Repositories\BitzDrawingFileCreator_WPF\BitzDrawingFileCreator_WPF\bin\Debug\Manatee.Trello.xml
+G:\Mega Sync Drive\SYNCHRONOUS\Projects\GitHub Repositories\BitzDrawingFileCreator_WPF\BitzDrawingFileCreator_WPF\bin\Debug\System.ValueTuple.xml
+G:\Mega Sync Drive\SYNCHRONOUS\Projects\GitHub Repositories\BitzDrawingFileCreator_WPF\BitzDrawingFileCreator_WPF\obj\Debug\BitzDrawingFileCreator_WPF.csproj.CopyComplete
+G:\Mega Sync Drive\SYNCHRONOUS\Projects\GitHub Repositories\BitzDrawingFileCreator_WPF\BitzDrawingFileCreator_WPF\obj\Debug\PageTrelloAccount.g.cs
+G:\Mega Sync Drive\SYNCHRONOUS\Projects\GitHub Repositories\BitzDrawingFileCreator_WPF\BitzDrawingFileCreator_WPF\obj\Debug\PageTrelloAccount.baml

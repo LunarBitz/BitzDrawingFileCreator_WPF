@@ -11,15 +11,15 @@ namespace BitzDrawingFileCreator_WPF
 {
     class DirectoryParser
     {
-        public static string folderFormat = "$ROOT|$Drawing_Product~s\\$Target_Platform\\$User_Name\\$Date\\";
+        public static string folderFormat = "$ROOT|$Drawing_Product~s\\$Target_Platform\\$User_Name\\[$Date]\\";
         public static string fileNameFormat = "[$Date] [$User_Name] [$Target_Platform] [$Drawing_Product] [$Characters] [$Drawing_Type] [$Drawing_Render] [PROJECT] [A]";
 
         #region Tag Retrievals
 
         private string _ROOT_Get()
         {
-            //return @"G:\\Mega Sync Drive\\SYNCHRONOUS\\Projects\\Drawings\\";
-            return "C:\\Mega Sync Drive\\SYNCHRONOUS\\Projects\\Drawings\\";
+            return "G:\\Mega Sync Drive\\SYNCHRONOUS\\Projects\\Drawings\\";
+            //return "C:\\Mega Sync Drive\\SYNCHRONOUS\\Projects\\Drawings\\";
         }
 
         private string _Character_Get()
@@ -108,11 +108,8 @@ namespace BitzDrawingFileCreator_WPF
 
         public string parseFormatString(string formatString)
         {
-            var index = -1;
-
             var _cmd_pos = new List<int>();
             var _cmds = new List<string>();
-            string _fnc_cmd = "";
             string _return = formatString;
 
 
@@ -135,18 +132,19 @@ namespace BitzDrawingFileCreator_WPF
 
             foreach (string cmd in _cmds)
             {
-                index = -1;
+                var index = -1;
                 var matches = Regex.Matches(cmd.Replace("$", ""), @"[^a-zA-Z_ ]");
                 if (matches.Count > 0) { index = matches[0].Index; }
 
                 string _scrub_cmd = (index == -1) ? cmd : cmd.Replace(cmd.Slice(index + 1, cmd.Length), "");
-                _fnc_cmd = "_" + _scrub_cmd.Replace("$", "") + "_Get";
+                string _fnc_cmd = "_" + _scrub_cmd.Replace("$", "") + "_Get";
                 System.Diagnostics.Debug.WriteLine("Scrubbed: " + _scrub_cmd + "\nCommand: " + _fnc_cmd);
 
                 MethodInfo tagMethod = this.GetType().GetMethod(_fnc_cmd, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
 
                 if (tagMethod != null)
                     _return = _return.Replace(_scrub_cmd, (string)tagMethod.Invoke(this, null));
+                System.Diagnostics.Debug.WriteLine("Return: " + (string)tagMethod.Invoke(this, null));
 
             }
             _return = _return.Replace("~", "");

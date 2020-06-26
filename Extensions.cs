@@ -21,5 +21,12 @@ namespace BitzDrawingFileCreator_WPF
             int len = end - start;               // Calculate length
             return source.Substring(start, len); // Return Substring of length
         }
+        public static void ForEach<T>(this IEnumerable<T> enumeration, Action<T> action)
+        {
+            foreach (T item in enumeration)
+            {
+                action(item);
+            }
+        }
     }
 }

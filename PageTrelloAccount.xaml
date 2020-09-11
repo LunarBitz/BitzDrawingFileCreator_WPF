@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:BitzDrawingFileCreator_WPF"
-      mc:Ignorable="d" 
+      mc:Ignorable="d" Loaded="Page_Loaded" Unloaded="Page_Unloaded"
       d:DesignHeight="640" d:DesignWidth="480"
       Title="PageTrelloAccount" Width="640" Height="480">
 
@@ -13,13 +13,13 @@
         <GroupBox Header="" HorizontalAlignment="Left" Height="79" Margin="15,10,0,0" VerticalAlignment="Top" Width="164" BorderThickness="0,1" Style="{DynamicResource bitzGroupBox}" ScrollViewer.VerticalScrollBarVisibility="Disabled">
             <StackPanel Margin="0">
                 <Label Content="API Key:" VerticalAlignment="Top" Height="26" Style="{DynamicResource bitzLabel}"/>
-                <TextBox x:Name="txtTrelloAPIKey" TextWrapping="Wrap" Text="{Binding userName}" VerticalAlignment="Bottom" Margin="0" Style="{DynamicResource bitzTextBox}" Height="22"/>
+                <TextBox x:Name="txtTrelloAPIKey" TextWrapping="Wrap" Text="{Binding trelloApiKey}" VerticalAlignment="Bottom" Margin="0" Style="{DynamicResource bitzTextBox}" Height="22"/>
             </StackPanel>
         </GroupBox>
         <GroupBox Header="" HorizontalAlignment="Left" Height="79" Margin="184,10,0,0" VerticalAlignment="Top" Width="164" BorderThickness="0,1" Style="{DynamicResource bitzGroupBox}" ScrollViewer.VerticalScrollBarVisibility="Disabled">
             <StackPanel Margin="0">
                 <Label Content="Token:" VerticalAlignment="Top" Height="26" Style="{DynamicResource bitzLabel}"/>
-                <TextBox x:Name="txtTrelloAPIKey1" TextWrapping="Wrap" Text="{Binding userName}" VerticalAlignment="Bottom" Margin="0" Style="{DynamicResource bitzTextBox}" Height="22"/>
+                <TextBox x:Name="txtTrelloAPIKey1" TextWrapping="Wrap" Text="{Binding trelloToken}" VerticalAlignment="Bottom" Margin="0" Style="{DynamicResource bitzTextBox}" Height="22"/>
             </StackPanel>
         </GroupBox>
 

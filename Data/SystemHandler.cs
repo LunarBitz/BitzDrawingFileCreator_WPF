@@ -11,47 +11,117 @@ namespace BitzDrawingFileCreator_WPF.Data
 {
     public class SystemHandler
     {
-        public bool WriteToConfig(List<string> hierachy, string attribute, string data)
+        public static string read_Setting(string setting_Name)
+
         {
-            // Create a new file in C:\\ dir  
-            var xmlWriter = new XmlTextWriter("C:\\myXmFile.xml", null);
 
-            xmlWriter.WriteStartDocument();
+            //----------< save_Settings() >----------
 
-            foreach (var ch in hierachy)
+            string sResult = "";
+
+
+
+            //< get Setting >
+
+            if (Properties.Settings.Default.Properties[setting_Name] != null)
+
             {
-                xmlWriter.WriteStartElement(ch);
+
+                sResult = Properties.Settings.Default.Properties[setting_Name].DefaultValue.ToString();
+
             }
-            
 
-            xmlWriter.WriteStartElement("user");
-            xmlWriter.WriteAttributeString("age", "42");
-            xmlWriter.WriteString("John Doe");
-            xmlWriter.WriteEndElement();
+            //</ get Setting >
 
-            xmlWriter.WriteStartElement("user");
-            xmlWriter.WriteAttributeString("age", "39");
-            xmlWriter.WriteString("Jane Doe");
 
-            xmlWriter.WriteEndDocument();
-            xmlWriter.Close();
-            /*
-                XmlDocument xml = new XmlDocument();
-                xml.LoadXml("<Students>...."); // or xml.Load("yourfile.xml");
-                XmlElement student = xml.SelectSingleNode(
-                    String.Format("//Student[@ID='{0}']",
-                                  yourcombo.SelectedItem.Value)) as XmlElement;
-                if(student != null)
-                {
-                    XmlElement another = xml.CreateElement("another");
-                    another.InnerText = "Value";
-                    student.AppendChild(another);
 
-                    // do other stuff
-                }
-             */
+            //< correct >
 
-            return true;
+            if (sResult == "NaN") sResult = "0";
+
+            //</ correct >
+
+
+
+            //< output >
+
+            return sResult;
+
+            //</ output >
+
+
+
+            //----------</ save_Settings() >----------
+
+        }
+        public static void save_Setting(string setting_Name, string setting_Value)
+
+        {
+
+            //----------< save_Settings() >----------
+
+
+
+            string property_name = setting_Name;
+
+
+
+            //< Setting erstellen >
+
+            SettingsProperty prop = null;
+
+            if (Properties.Settings.Default.Properties[property_name] != null)
+
+            {
+
+                //< existing Setting >
+
+                prop = Properties.Settings.Default.Properties[property_name];
+
+                //</ existing Setting >
+
+            }
+
+            else
+
+            {
+
+                //< new Setting >
+
+                prop = new System.Configuration.SettingsProperty(property_name);
+
+                prop.PropertyType = typeof(string);
+
+                Properties.Settings.Default.Properties.Add(prop);
+
+                Properties.Settings.Default.Save();
+
+                //</ new Setting >
+
+            }
+
+            //</ Setting erstellen >
+
+
+
+            //< set value  >
+
+            Properties.Settings.Default.Properties[property_name].DefaultValue = setting_Value;
+
+            //</ set value >
+
+
+
+            //< Save Settings File >
+
+            Properties.Settings.Default.Save();
+
+            //</ Save Settings File >
+
+
+
+            //----------</ save_Settings() >----------
+
         }
     }
 }

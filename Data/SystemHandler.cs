@@ -95,6 +95,7 @@ namespace BitzDrawingFileCreator_WPF.Data
                 Properties.Settings.Default.Properties.Add(prop);
 
                 Properties.Settings.Default.Save();
+                Properties.Settings.Default.Upgrade(); 
 
                 //</ new Setting >
 

@@ -16,8 +16,8 @@ namespace BitzDrawingFileCreator_WPF
         {
             _auth = new TrelloAuthorization
             {
-                AppKey = "",
-                UserToken = ""
+                AppKey = MainWindow.publicDataContext.trelloApiKey,
+                UserToken = MainWindow.publicDataContext.trelloToken
             };
 
             _factory = new TrelloFactory();
@@ -42,17 +42,17 @@ namespace BitzDrawingFileCreator_WPF
             return CachedItem;
         }
 
-        public void AddTrelloCard(IBoard workingBoard)
+        public async void AddTrelloCard(IBoard workingBoard)
         {
             try
             {
-                var list = workingBoard.Lists;
-                //var card = list.Cards.Add("new card");
-                //var member = board.Members.First();
-                //card.Members.Add(member);
+                var list = workingBoard.Lists[MainWindow.publicDataContext.trelloDefaultList];
+                var card = await list.Cards.Add("NEW");
+                card.Name = "[" + MainWindow.publicDataContext.drawingProduct + "] " + MainWindow.publicDataContext.userName;
+                card.Description = MainWindow.publicDataContext.drawingDescription;
 
-                list.ForEach(i => Console.Write("{0}\t", i));
-                //System.Diagnostics.Debug.WriteLine(list);
+                //list.ForEach(i => Console.Write("{0}\t", i));
+                Console.WriteLine(list);
 
             }
             catch

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Diagnostics;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -29,7 +30,6 @@ namespace BitzDrawingFileCreator_WPF
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow.publicDataContext.userName = "CCCCC";
             randomizeTheme();
         }
 
@@ -131,6 +131,40 @@ namespace BitzDrawingFileCreator_WPF
             }
 
             listboxCharacters.Items.RemoveAt(listboxCharacters.SelectedIndex);
+        }
+
+        private void newTargetPlatformSelected(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBoxItem cbi = (comboTargetPlatform.SelectedItem as ComboBoxItem);
+
+            if (cbi == null)
+                return;
+
+            string currentSelection = cbi.Content.ToString();
+
+            Debug.WriteLine(currentSelection);
+
+            if (currentSelection == "-NEW ENTRY-")
+            {
+                string newTarget = MessageBoxHandler.showEntryBox("Special Target Platform", "Enter New Target Platform Name", "Submit");
+
+                if (string.IsNullOrEmpty(newTarget) || string.IsNullOrWhiteSpace(newTarget))
+                {
+                    System.Media.SystemSounds.Exclamation.Play();
+                    MessageBoxHandler.showMessageBox("Entries can NOT be empty!", "Blank Input", "Sowwy ;w;");
+                    MessageBoxHandler.showMessageBox("All is good", "Forgiveness", "♥");
+                    comboTargetPlatform.SelectedIndex = 0;
+                    return;
+                }
+                else 
+                {
+                    ComboBoxItem newItem = new ComboBoxItem();
+                    newItem.Content = newTarget;
+                    comboTargetPlatform.Items.Add(newItem);
+                    comboTargetPlatform.SelectedItem = newItem;
+                }
+
+            }
         }
     }
 }

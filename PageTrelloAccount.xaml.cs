@@ -30,6 +30,7 @@ namespace BitzDrawingFileCreator_WPF
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            /*
             string tak = SystemHandler.read_Setting("Trello_API_Key");
             if (tak != null || tak != "")
             {
@@ -41,15 +42,17 @@ namespace BitzDrawingFileCreator_WPF
             if (tt != null || tt != "")
             {
                 MainWindow.publicDataContext.trelloToken = tt;
-            }
+            }*/
 
         }
 
         private void Page_Unloaded(object sender, RoutedEventArgs e)
         {
+            /*
             SystemHandler.save_Setting("Trello_API_Key", MainWindow.publicDataContext.trelloApiKey);
             Console.WriteLine("ASGGSGS" + SystemHandler.read_Setting("Trello_API_Key"));
             SystemHandler.save_Setting("Trello_Token", MainWindow.publicDataContext.trelloToken);
+            */
         }
     }
 }

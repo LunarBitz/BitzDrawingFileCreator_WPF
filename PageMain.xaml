@@ -20,18 +20,18 @@
             <StackPanel Orientation="Horizontal" Margin="10,0">
                 <StackPanel Width="98">
                     <Label Content="Name" VerticalAlignment="Top" Height="26" Margin="0" Style="{DynamicResource bitzLabel}"/>
-                    <TextBox x:Name="txtCharacterName" TextWrapping="Wrap" VerticalAlignment="Bottom" Margin="0,0,5,0" Style="{DynamicResource bitzTextBox}" Height="22"/>
+                    <TextBox x:Name="txtCharacterName" TextWrapping="Wrap" Text="{Binding characterName}" VerticalAlignment="Bottom" Margin="0,0,5,0" Style="{DynamicResource bitzTextBox}" Height="22"/>
                     <Button x:Name="btnAddCharacter_Copy" Content="Add" Margin="0,5,5,0" Style="{DynamicResource bitzButton}" Click="btnAddCharacter_Copy_Click"/>
                 </StackPanel>
                 <StackPanel Width="98" Margin="0">
-                    <Label Content="Name" VerticalAlignment="Top" Height="26" Margin="0" HorizontalContentAlignment="Right" Style="{DynamicResource bitzLabel}"/>
-                    <TextBox x:Name="txtCharacterSpecies" TextWrapping="Wrap" VerticalAlignment="Bottom" Margin="5,0,0,0" Style="{DynamicResource bitzTextBox}" HorizontalContentAlignment="Right" Height="22"/>
+                    <Label Content="Species" VerticalAlignment="Top" Height="26" Margin="0" HorizontalContentAlignment="Right" Style="{DynamicResource bitzLabel}"/>
+                    <TextBox x:Name="txtCharacterSpecies" TextWrapping="Wrap" Text="{Binding characterSpecies}" VerticalAlignment="Bottom" Margin="5,0,0,0" Style="{DynamicResource bitzTextBox}" HorizontalContentAlignment="Right" Height="22"/>
                     <Button x:Name="btnDeleteCharacter" Content="Delete" Margin="5,5,0,0" Style="{DynamicResource bitzButton}" Click="btnDeleteCharacter_Click"/>
                 </StackPanel>
             </StackPanel>
             <ListBox x:Name="listboxCharacters" Height="170" Margin="10,5,10,10" Width="196" Style="{DynamicResource bitzListBox}"/>
         </StackPanel>
-        <TextBox x:Name="txtDrawingDescription" Text="{Binding drawingDescription}" HorizontalAlignment="Left" Height="128" Margin="10,325,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="413" Style="{DynamicResource bitzTextBox}"/>
+        <TextBox x:Name="txtDrawingDescription" Text="{Binding drawingDescription}" HorizontalAlignment="Left" Height="128" Margin="10,325,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="413" AcceptsReturn="True" Style="{DynamicResource bitzTextBox}"/>
         <StackPanel Margin="0,10,10,10" HorizontalAlignment="Right">
             <GroupBox Header="" HorizontalAlignment="Center" Height="79" VerticalAlignment="Center" Width="164" BorderThickness="0,1" Style="{DynamicResource bitzGroupBox}" ScrollViewer.VerticalScrollBarVisibility="Disabled" Margin="0,10">
                 <StackPanel Margin="0">
@@ -43,6 +43,7 @@
                         <ComboBoxItem Content="Gift"/>
                         <ComboBoxItem Content="Fan-Art"/>
                         <ComboBoxItem Content="DTIYS"/>
+                        <ComboBoxItem Content="YCH"/>
                         <ComboBoxItem Content="Vent"/>
                         <ComboBoxItem Content="Touch-Up"/>
                         <ComboBoxItem Content="Glow-Up"/>
@@ -89,6 +90,7 @@
                         <ComboBoxItem Content="Cel"/>
                         <ComboBoxItem Content="Rendered"/>
                         <ComboBoxItem Content="3D"/>
+                        <ComboBoxItem Content="VR-Chat"/>
                         <ComboBoxItem Content="Pop"/>
                         <ComboBoxItem Content="Mono-Color"/>
                         <ComboBoxItem Content="Mono-Grayscale"/>
@@ -140,7 +142,7 @@
             <GroupBox Header="" HorizontalAlignment="Left" Height="79" VerticalAlignment="Top" Width="164" BorderThickness="0,1" Style="{DynamicResource bitzGroupBox}" ScrollViewer.VerticalScrollBarVisibility="Disabled" Margin="0,10">
                 <StackPanel Margin="0">
                     <Label Content="Target Platform:" VerticalAlignment="Top" Height="26" Style="{DynamicResource bitzLabel}"/>
-                    <ComboBox x:Name="comboTargetPlatform" Style="{DynamicResource bitzComboBox}" SelectedValuePath="content" Text="{Binding targetPlatform}" MaxDropDownHeight="128">
+                    <ComboBox x:Name="comboTargetPlatform" Style="{DynamicResource bitzComboBox}" SelectedValuePath="content" Text="{Binding targetPlatform}" MaxDropDownHeight="128" SelectionChanged="newTargetPlatformSelected">
                         <ComboBoxItem Content="Amino"/>
                         <ComboBoxItem Content="Amino-Art"/>
                         <ComboBoxItem Content="Amino-Furry"/>
@@ -159,6 +161,7 @@
                         <ComboBoxItem Content="Mastadon"/>
                         <ComboBoxItem Content="My-Character"/>
                         <ComboBoxItem Content="My-Fursona"/>
+                        <ComboBoxItem Content="My-YCH"/>
                         <ComboBoxItem Content="NewTumbl"/>
                         <ComboBoxItem Content="Patreon"/>
                         <ComboBoxItem Content="PicartoTV"/>
@@ -170,6 +173,7 @@
                         <ComboBoxItem Content="Twitter"/>
                         <ComboBoxItem Content="Weasyl"/>
                         <ComboBoxItem Content="Youtube"/>
+                        <ComboBoxItem Content="-NEW ENTRY-"/>
                     </ComboBox>
                 </StackPanel>
             </GroupBox>

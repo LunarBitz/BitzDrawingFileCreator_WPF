@@ -58,5 +58,28 @@ namespace BitzDrawingFileCreator_WPF
                 return loMessageWindow.diagAnswer;
             return false;
         }
+        public static string showEntryBox(string message = "", string title = "", string confirmButton = "Okay")
+        {
+            BitzMessageTextEntryBox loMessageWindow = new BitzMessageTextEntryBox();
+            StringBuilder loStringBuilder = new StringBuilder();
+
+            loStringBuilder.Append(message);
+            loStringBuilder.Append(Environment.NewLine + Environment.NewLine);
+            loStringBuilder.Append(Environment.NewLine + Environment.NewLine);
+            loStringBuilder.Append(Environment.NewLine + Environment.NewLine);
+
+            loMessageWindow.txtbTitle.Text = title;
+            loMessageWindow.txtbMessage.Text = loStringBuilder.ToString();
+            loMessageWindow.btnConfirm.Content = confirmButton;
+            loMessageWindow.Owner = System.Windows.Application.Current.MainWindow;
+
+            loMessageWindow.Owner.Effect = new BlurEffect();
+            bool? result = loMessageWindow.ShowDialog();
+            loMessageWindow.Owner.Effect = null;
+
+            if (result.HasValue)
+                return loMessageWindow.diagAnswer;
+            return "";
+        }
     }
 }

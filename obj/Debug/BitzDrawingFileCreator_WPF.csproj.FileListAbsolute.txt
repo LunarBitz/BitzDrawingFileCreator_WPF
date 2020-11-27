@@ -86,3 +86,5 @@ G:\Mega Sync Drive\SYNCHRONOUS\Projects\GitHub Repos\BitzDrawingFileCreator_WPF\
 G:\Mega Sync Drive\SYNCHRONOUS\Projects\GitHub Repos\BitzDrawingFileCreator_WPF\BitzDrawingFileCreator_WPF\obj\Debug\BitzDrawingFileCreator_WPF.exe
 G:\Mega Sync Drive\SYNCHRONOUS\Projects\GitHub Repos\BitzDrawingFileCreator_WPF\BitzDrawingFileCreator_WPF\obj\Debug\BitzDrawingFileCreator_WPF.pdb
 G:\Mega Sync Drive\SYNCHRONOUS\Projects\GitHub Repos\BitzDrawingFileCreator_WPF\BitzDrawingFileCreator_WPF\obj\Debug\BitzDrawingFileCreator_WPF.csprojAssemblyReference.cache
+G:\Mega Sync Drive\SYNCHRONOUS\Projects\GitHub Repos\BitzDrawingFileCreator_WPF\BitzDrawingFileCreator_WPF\obj\Debug\BitzMessageTextEntryBox.g.cs
+G:\Mega Sync Drive\SYNCHRONOUS\Projects\GitHub Repos\BitzDrawingFileCreator_WPF\BitzDrawingFileCreator_WPF\obj\Debug\BitzMessageTextEntryBox.baml

@@ -22,6 +22,18 @@
                 <TextBox x:Name="txtTrelloAPIKey1" TextWrapping="Wrap" Text="{Binding trelloToken}" VerticalAlignment="Bottom" Margin="0" Style="{DynamicResource bitzTextBox}" Height="22"/>
             </StackPanel>
         </GroupBox>
+        <GroupBox Header="" HorizontalAlignment="Left" Height="79" Margin="353,10,0,0" VerticalAlignment="Top" Width="164" BorderThickness="0,1" Style="{DynamicResource bitzGroupBox}" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+            <StackPanel Margin="0">
+                <Label Content="Board ID:" VerticalAlignment="Top" Height="26" Style="{DynamicResource bitzLabel}"/>
+                <TextBox x:Name="txtTrelloBoardID" TextWrapping="Wrap" Text="{Binding trelloBoardID}" VerticalAlignment="Bottom" Margin="0" Style="{DynamicResource bitzTextBox}" Height="22"/>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="" HorizontalAlignment="Left" Height="79" Margin="15,94,0,0" VerticalAlignment="Top" Width="164" BorderThickness="0,1" Style="{DynamicResource bitzGroupBox}" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+            <StackPanel Margin="0">
+                <Label Content="Entry List Name:" VerticalAlignment="Top" Height="26" Style="{DynamicResource bitzLabel}"/>
+                <TextBox x:Name="txtTrelloDefaultList" TextWrapping="Wrap" Text="{Binding trelloDefaultList}" VerticalAlignment="Bottom" Margin="0" Style="{DynamicResource bitzTextBox}" Height="22"/>
+            </StackPanel>
+        </GroupBox>
 
     </Grid>
 </Page>

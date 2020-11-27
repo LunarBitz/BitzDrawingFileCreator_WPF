@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BitzDrawingFileCreator_WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="1248" Width="480" MinWidth="872" MinHeight="480" SizeToContent="Width" Background="Black" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
+        Title="MainWindow" Height="1248" Width="480" MinWidth="872" MinHeight="480" SizeToContent="Width" Background="Black" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen"
+        Closed="window_closed">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="138*"/>

@@ -72,9 +72,17 @@ namespace BitzDrawingFileCreator_WPF
 
             Height = 510;
             Width = 872;
+            var tmpData = new AppData();
 
-            publicDataContext = new AppData();
+            if (File.Exists("UserSettings.xml"))
+                publicDataContext = (AppData)SystemHandler.read_data(tmpData, "UserSettings.xml");
+            else
+                SystemHandler.save_data(new AppData(), "UserSettings.xml");
+                publicDataContext = (AppData)SystemHandler.read_data(tmpData, "UserSettings.xml");
+
             DataContext = publicDataContext;
+
+
             trelloClass = new TrelloHandler();
 
             // Initialize the necessary components
@@ -89,12 +97,26 @@ namespace BitzDrawingFileCreator_WPF
             addSubMenu(submenupanel_Settings);
 
             // Default the theme and menu
-            initThemeColors();
+            clearVolatiles();
+            //initThemeColors();
             hideSubMenus();
 
             // Load inital page to sub view
             activePage = new PageMain();
             frameMainView.Navigate(activePage);
+        }
+
+        private void clearVolatiles()
+        {
+            publicDataContext.drawingDescription = "";
+            publicDataContext.userName = "";
+            publicDataContext.targetPlatform = "";
+            publicDataContext.characterName = "";
+            publicDataContext.characterSpecies = "";
+            publicDataContext.drawingProduct = "";
+            publicDataContext.drawingType = "";
+            publicDataContext.drawingRender = "";
+            publicDataContext.drawingSize = "";
         }
 
         private void initThemeColors()
@@ -302,7 +324,11 @@ namespace BitzDrawingFileCreator_WPF
 
         private void btnClearAll_Click(object sender, RoutedEventArgs e)
         {
+            bool _result = MessageBoxHandler.showYesNoBox("Clear all drawing details?\nThis will NOT clear your app settings", "Clear Details?", "Yeah", "Nah");
+            if (_result == false)
+                return;
 
+            clearVolatiles();
         }
         #endregion
 
@@ -311,6 +337,16 @@ namespace BitzDrawingFileCreator_WPF
             showSubMenu(submenupanel_Create);
         }
         #region Menu | Create
+        private void makeFolders(string root, string[] subDirectory)
+        {
+            foreach (string sub in subDirectory)
+            {
+                string _newPath = System.IO.Path.Combine(root, sub);
+                Directory.CreateDirectory(_newPath);
+                //System.Diagnostics.Debug.WriteLine(_newPath);
+            }
+        }
+
         private void btnCreateFiles_Click(object sender, RoutedEventArgs e)
         {
             bool _result = MessageBoxHandler.showYesNoBox("Are you sure that you want to create the directories?", "Create Directories?", "Yeah", "Nah");
@@ -318,34 +354,33 @@ namespace BitzDrawingFileCreator_WPF
                 return;
 
             DirectoryParser _dirParse = new DirectoryParser();
-
-            var _subFolders = new List<string>();
-            _subFolders.Add("REFERENCES\\RENDERS");
-            _subFolders.Add("PROGRESS");
-            _subFolders.Add("EXPORT");
-
             string folderRoot = System.IO.Path.Combine(_dirParse.parseFormatString(DirectoryParser.folderFormat));
             string fileName = System.IO.Path.Combine(_dirParse.parseFormatString(DirectoryParser.fileNameFormat));
 
-            foreach (string subFolder in _subFolders)
+            string[] _subs = { "", "REFERENCES\\RENDERS", "PROGRESS", "EXPORT\\Original", "EXPORT\\1280", "EXPORT\\Square" };
+            makeFolders(folderRoot, _subs);
+
+            var _directories = Directory.GetDirectories(folderRoot);
+
+
+            foreach (string sub in _subs)
             {
-                string _newPath = System.IO.Path.Combine(folderRoot, subFolder);
-                Directory.CreateDirectory(_newPath);
-                System.Diagnostics.Debug.WriteLine(_newPath);
+                string _editedFileName = fileName;
+                var _sub_subs = sub.Split('\\');
+
+                if (sub.Length > 0)
+                    _editedFileName = fileName.Replace("PROJECT", _sub_subs[0]);
+
+                string _fullPath = System.IO.Path.Combine(folderRoot, sub) + "\\" + _editedFileName + ".txt";
+                using (StreamWriter sw = File.AppendText(_fullPath))
+                {
+                    Console.WriteLine(_fullPath);
+                    sw.Write(publicDataContext.drawingDescription);
+                }
             }
 
-            using (StreamWriter sw = File.AppendText(folderRoot + fileName + ".txt"))
-            {
-                System.Diagnostics.Debug.WriteLine(publicDataContext.drawingDescription);
-                sw.Write(publicDataContext.drawingDescription);
-            }
 
-            using (StreamWriter sw = File.AppendText(System.IO.Path.Combine(folderRoot, "REFERENCES\\") + fileName.Replace("PROJECT", "REFERENCE") + ".txt"))
-            {
-                System.Diagnostics.Debug.WriteLine(publicDataContext.drawingDescription);
-                sw.Write(publicDataContext.drawingDescription);
-            }
-
+       
             try
             {
                 _result = MessageBoxHandler.showYesNoBox("Would you like to open your new folders?", "Open Directories?", "Pwease! OwO", "No Thankis. UwU");
@@ -358,25 +393,28 @@ namespace BitzDrawingFileCreator_WPF
                 //The system cannot find the file specified...
                 Console.WriteLine(win32Exception.Message);
             }
-
+            
         }
 
         private async void btnCreateTrelloCard_Click(object sender, RoutedEventArgs e)
         {
-            /*
+            bool _result = MessageBoxHandler.showYesNoBox("Are you sure that you want to create the a Trello Card?", "Create Trello Card?", "Yeah", "Nah");
+            if (_result == false)
+                return;
+
             Manatee.Trello.IBoard myBoard = null;
 
             trelloClass.AuthTrello();
-            myBoard = trelloClass.GetTrelloBoard("");
+            myBoard = trelloClass.GetTrelloBoard(publicDataContext.trelloBoardID);
             System.Diagnostics.Debug.WriteLine(myBoard);
 
             while (myBoard == null)
             {
-                Console.WriteLine("Excel is busy");
+                Console.WriteLine("Busy Getting Board");
                 await Task.Delay(25);
             }
             trelloClass.AddTrelloCard(myBoard);
-            */
+            
         }
         #endregion
 
@@ -407,5 +445,9 @@ namespace BitzDrawingFileCreator_WPF
         }
         #endregion
 
+        private void window_closed(object sender, EventArgs e)
+        {
+            SystemHandler.save_data(DataContext, "UserSettings.xml");
+        }
     }
 }

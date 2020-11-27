@@ -8,10 +8,49 @@ namespace BitzDrawingFileCreator_WPF.Data
 {
     public class AppData : ObservableObject
     {
-        
         private Dictionary<string, string> privateVars = new Dictionary<string, string>();
 
         #region Entry Data
+        public string trelloBoardID
+        {
+            get
+            {
+                string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
+
+                if (!privateVars.ContainsKey(baseName))
+                    return "";
+                if (string.IsNullOrEmpty(privateVars[baseName]))
+                    return "";
+                return privateVars[baseName];
+            }
+            set
+            {
+                string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
+
+                privateVars[baseName] = value;
+                OnPropertyChanged(baseName);
+            }
+        }
+        public string trelloDefaultList
+        {
+            get
+            {
+                string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
+
+                if (!privateVars.ContainsKey(baseName))
+                    return "";
+                if (string.IsNullOrEmpty(privateVars[baseName]))
+                    return "";
+                return privateVars[baseName];
+            }
+            set
+            {
+                string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("set_", "");
+
+                privateVars[baseName] = value;
+                OnPropertyChanged(baseName);
+            }
+        }
         public string trelloApiKey
         {
             get
@@ -268,6 +307,8 @@ namespace BitzDrawingFileCreator_WPF.Data
             {
                 string baseName = System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("get_", "");
 
+                if (!privateVars.ContainsKey(baseName))
+                    return "#00000000";
                 if (string.IsNullOrEmpty(privateVars[baseName]))
                     return "#00000000";
                 return privateVars[baseName];

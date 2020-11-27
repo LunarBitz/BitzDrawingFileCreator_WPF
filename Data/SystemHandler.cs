@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
 using System.IO;
-using System.Xml;
+using System.Xml.Serialization;
 
 namespace BitzDrawingFileCreator_WPF.Data
 {
@@ -122,6 +122,32 @@ namespace BitzDrawingFileCreator_WPF.Data
 
 
             //----------</ save_Settings() >----------
+
+        }
+
+        public static void save_data(object obj, string filename)
+        {
+            XmlSerializer sr = new XmlSerializer(obj.GetType());
+            TextWriter writer = new StreamWriter(filename);
+            sr.Serialize(writer, obj);
+            writer.Close();
+        }
+
+        public static object read_data(object obj, string filename)
+        {
+            XmlSerializer sr = new XmlSerializer(obj.GetType());
+            object returnValue = null;
+
+            using (Stream reader = new FileStream(filename, FileMode.Open))
+            {
+                if (reader.Position > 0)
+                    reader.Position = 0;
+
+                // Call the Deserialize method to restore the object's state.
+                returnValue = sr.Deserialize(reader);
+            }
+
+            return returnValue;
 
         }
     }

@@ -25,18 +25,6 @@ namespace BitzDrawingFileCreator_WPF.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("APP")]
-        public string Trello_API_Key {
-            get {
-                return ((string)(this["Trello_API_Key"]));
-            }
-            set {
-                this["Trello_API_Key"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("TOKEN")]
         public string Trello_Token {
             get {
@@ -44,6 +32,18 @@ namespace BitzDrawingFileCreator_WPF.Properties {
             }
             set {
                 this["Trello_Token"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("APP")]
+        public string Trello_API_Key {
+            get {
+                return ((string)(this["Trello_API_Key"]));
+            }
+            set {
+                this["Trello_API_Key"] = value;
             }
         }
     }

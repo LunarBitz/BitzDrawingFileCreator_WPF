@@ -102,7 +102,7 @@ namespace BitzDrawingFileCreator_WPF
 
             // Default the theme and menu
             clearVolatiles();
-            //initThemeColors();
+            initThemeColors();
             hideSubMenus();
 
             // Load inital page to sub view

@@ -20,7 +20,7 @@
         <!-- Label Style -->
         <Style x:Key="bitzLabel" TargetType="{x:Type Label}">
             <Setter Property="Background" Value="#00000000"/>
-            <Setter Property="Foreground" Value="{Binding UserDataContext.ThemeInfo.theme_Text_Primary, FallbackValue=#FFc000c0}"/>
+            <Setter Property="Foreground" Value="{Binding ThemeInfo.theme_Text_Primary, FallbackValue=#FFc000c0}"/>
         </Style>
 
         <!-- Logo Style -->
@@ -28,8 +28,8 @@
             <Setter Property="Background">
                 <Setter.Value>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="{Binding UserDataContext.ThemeInfo.theme_MenuLogo_Background_Primary, FallbackValue=#FF3f164d}" Offset="0.0"/>
-                        <GradientStop Color="{Binding UserDataContext.ThemeInfo.theme_MenuLogo_Background_Secondary, FallbackValue=#00000000}" Offset="1.0"/>
+                        <GradientStop Color="{Binding ThemeInfo.theme_MenuLogo_Background_Primary, FallbackValue=#FF3f164d}" Offset="0.0"/>
+                        <GradientStop Color="{Binding ThemeInfo.theme_MenuLogo_Background_Secondary, FallbackValue=#00000000}" Offset="1.0"/>
                     </LinearGradientBrush>
                 </Setter.Value>
             </Setter>
@@ -39,9 +39,9 @@
         <Style x:Key="bitzButton" TargetType="{x:Type Button}">
             <Setter Property="OverridesDefaultStyle" Value="True"/>
             <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-            <Setter Property="Background" Value="{Binding UserDataContext.ThemeInfo.theme_Button_Background, FallbackValue=#800f0f0f}"/>
-            <Setter Property="BorderBrush" Value="{Binding UserDataContext.ThemeInfo.theme_Button_Border, FallbackValue=#00000000}"/>
-            <Setter Property="Foreground" Value="{Binding UserDataContext.ThemeInfo.theme_Button_Text, FallbackValue=#FFc000c0}"/>
+            <Setter Property="Background" Value="{Binding ThemeInfo.theme_Button_Background, FallbackValue=#800f0f0f}"/>
+            <Setter Property="BorderBrush" Value="{Binding ThemeInfo.theme_Button_Border, FallbackValue=#00000000}"/>
+            <Setter Property="Foreground" Value="{Binding ThemeInfo.theme_Button_Text, FallbackValue=#FFc000c0}"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -54,15 +54,15 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="{Binding UserDataContext.ThemeInfo.theme_Button_Hover, FallbackValue=#FF404040}"/>
+                                <Setter Property="Background" TargetName="border" Value="{Binding ThemeInfo.theme_Button_Hover, FallbackValue=#FF404040}"/>
                                 <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource BorderBrush}"/>
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="False">
-                                <Setter Property="Background" TargetName="border" Value="{Binding UserDataContext.ThemeInfo.theme_Button_Background, FallbackValue=#800f0f0f}"/>
+                                <Setter Property="Background" TargetName="border" Value="{Binding ThemeInfo.theme_Button_Background, FallbackValue=#800f0f0f}"/>
                                 <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource BorderBrush}"/>
                             </Trigger>
                             <Trigger Property="IsPressed" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="{Binding UserDataContext.ThemeInfo.theme_Button_Clicked, FallbackValue=#FF79517d}"/>
+                                <Setter Property="Background" TargetName="border" Value="{Binding ThemeInfo.theme_Button_Clicked, FallbackValue=#FF79517d}"/>
                                 <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource BorderBrush}"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
@@ -76,8 +76,8 @@
             <Setter Property="Background">
                 <Setter.Value>
                     <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                        <GradientStop Color="{Binding UserDataContext.ThemeInfo.theme_Menu_Background_Primary, FallbackValue=#FF0f0f0f}" Offset="0"/>
-                        <GradientStop Color="{Binding UserDataContext.ThemeInfo.theme_Menu_Background_Secondary, FallbackValue=#00000000}" Offset="1"/>
+                        <GradientStop Color="{Binding ThemeInfo.theme_Menu_Background_Primary, FallbackValue=#FF0f0f0f}" Offset="0"/>
+                        <GradientStop Color="{Binding ThemeInfo.theme_Menu_Background_Secondary, FallbackValue=#00000000}" Offset="1"/>
                     </LinearGradientBrush>
                 </Setter.Value>
             </Setter>
@@ -86,9 +86,9 @@
         <!-- Menu Option Style -->
         <Style x:Key="bitzMenuOption" TargetType="{x:Type Button}">
             <Setter Property="OverridesDefaultStyle" Value="True"/>
-            <Setter Property="BorderBrush" Value="{Binding UserDataContext.ThemeInfo.theme_MenuOption_Border, FallbackValue=#00000000}" />
-            <Setter Property="Background" Value="{Binding UserDataContext.ThemeInfo.theme_MenuOption_Background, FallbackValue=#00000000}" />
-            <Setter Property="Foreground" Value="{Binding UserDataContext.ThemeInfo.theme_MenuOption_Text, FallbackValue=#FFc000c0}"/>
+            <Setter Property="BorderBrush" Value="{Binding ThemeInfo.theme_MenuOption_Border, FallbackValue=#00000000}" />
+            <Setter Property="Background" Value="{Binding ThemeInfo.theme_MenuOption_Background, FallbackValue=#00000000}" />
+            <Setter Property="Foreground" Value="{Binding ThemeInfo.theme_MenuOption_Text, FallbackValue=#FFc000c0}"/>
             <Setter Property="BorderThickness" Value="1" />
             <Setter Property="FontSize" Value="20"/>
 
@@ -106,11 +106,11 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="{Binding UserDataContext.ThemeInfo.theme_MenuOption_Hover, FallbackValue=#FF404040}"/>
+                                <Setter Property="Background" TargetName="border" Value="{Binding ThemeInfo.theme_MenuOption_Hover, FallbackValue=#FF404040}"/>
                                 <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource BorderBrush}"/>
                             </Trigger>
                             <Trigger Property="IsPressed" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="{Binding UserDataContext.ThemeInfo.theme_MenuOption_Clicked, FallbackValue=#79517d}"/>
+                                <Setter Property="Background" TargetName="border" Value="{Binding ThemeInfo.theme_MenuOption_Clicked, FallbackValue=#79517d}"/>
                                 <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource BorderBrush}"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
@@ -121,20 +121,20 @@
 
         <!-- Sub-Menu Style -->
         <Style x:Key="bitzSubMenu" TargetType="{x:Type StackPanel}">
-            <Setter Property="Background" Value="{Binding UserDataContext.ThemeInfo.theme_SubMenu_Background, FallbackValue=#FF232027}"/>
+            <Setter Property="Background" Value="{Binding ThemeInfo.theme_SubMenu_Background, FallbackValue=#FF232027}"/>
             <Setter Property="Margin" Value="4, 4, 4, 4"/>
         </Style>
 
         <!-- Sub-Menu Option Style -->
         <Style x:Key="bitzSubMenuOption" TargetType="{x:Type Button}">
-            <Setter Property="Foreground" Value="{Binding UserDataContext.ThemeInfo.theme_SubMenuOption_Text, FallbackValue=#FF5f2568}"/>
+            <Setter Property="Foreground" Value="{Binding ThemeInfo.theme_SubMenuOption_Text, FallbackValue=#FF5f2568}"/>
             <Setter Property="FontSize" Value="14" />
             <Setter Property="FontFamily" Value="Segoe UI" />
             <Setter Property="FontStyle" Value="Italic" />
             <Setter Property="Padding" Value="64, 0, 0, 0"/>
 
-            <Setter Property="Background" Value="{Binding UserDataContext.ThemeInfo.theme_SubMenuOption_Background, FallbackValue=#00000000}"/>
-            <Setter Property="BorderBrush" Value="{Binding UserDataContext.ThemeInfo.theme_SubMenuOption_Border, FallbackValue=#00000000}"/>
+            <Setter Property="Background" Value="{Binding ThemeInfo.theme_SubMenuOption_Background, FallbackValue=#00000000}"/>
+            <Setter Property="BorderBrush" Value="{Binding ThemeInfo.theme_SubMenuOption_Border, FallbackValue=#00000000}"/>
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="HorizontalContentAlignment" Value="Left"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -147,18 +147,18 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsDefaulted" Value="true">
-                                <Setter Property="BorderBrush" TargetName="border" Value="{Binding UserDataContext.ThemeInfo.theme_SubMenuOption_Selected, FallbackValue=#FFc0c0c0}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{Binding ThemeInfo.theme_SubMenuOption_Selected, FallbackValue=#FFc0c0c0}"/>
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="{Binding UserDataContext.ThemeInfo.theme_SubMenuOption_Hover, FallbackValue=#FF404040}"/>
+                                <Setter Property="Background" TargetName="border" Value="{Binding ThemeInfo.theme_SubMenuOption_Hover, FallbackValue=#FF404040}"/>
                                 <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource BorderBrush}"/>
                             </Trigger>
                             <Trigger Property="IsPressed" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="{Binding UserDataContext.ThemeInfo.theme_SubMenuOption_Clicked, FallbackValue=#FF79517d}"/>
+                                <Setter Property="Background" TargetName="border" Value="{Binding ThemeInfo.theme_SubMenuOption_Clicked, FallbackValue=#FF79517d}"/>
                                 <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource BorderBrush}"/>
                             </Trigger>
                             <Trigger Property="IsEnabled" Value="false">
-                                <Setter Property="Background" TargetName="border" Value="{Binding UserDataContext.ThemeInfo.theme_SubMenuOption_Background, FallbackValue=#00000000}"/>
+                                <Setter Property="Background" TargetName="border" Value="{Binding ThemeInfo.theme_SubMenuOption_Background, FallbackValue=#00000000}"/>
                                 <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource BorderBrush}"/>
                                 <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="Transparent"/>
                             </Trigger>
@@ -171,8 +171,8 @@
 
         <!-- Group Box Style -->
         <Style x:Key="bitzGroupBox" TargetType="{x:Type GroupBox}">
-            <Setter Property="Background" Value="{Binding UserDataContext.ThemeInfo.theme_Group_Background, FallbackValue=#00000000}"/>
-            <Setter Property="BorderBrush" Value="{Binding UserDataContext.ThemeInfo.theme_Group_Border, FallbackValue=#809e9e9e}"/>
+            <Setter Property="Background" Value="{Binding ThemeInfo.theme_Group_Background, FallbackValue=#00000000}"/>
+            <Setter Property="BorderBrush" Value="{Binding ThemeInfo.theme_Group_Border, FallbackValue=#809e9e9e}"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="Template">
                 <Setter.Value>
@@ -215,9 +215,9 @@
 
         <!-- TextBox Style -->
         <Style x:Key="bitzTextBox" TargetType="{x:Type TextBox}">
-            <Setter Property="Background" Value="{Binding UserDataContext.ThemeInfo.theme_TextBox_Background, FallbackValue=#800f0f0f}"/>
-            <Setter Property="BorderBrush" Value="{Binding UserDataContext.ThemeInfo.theme_TextBox_Border, FallbackValue=#8079517d}"/>
-            <Setter Property="Foreground" Value="{Binding UserDataContext.ThemeInfo.theme_TextBox_Text, FallbackValue=#FF5f2568}"/>
+            <Setter Property="Background" Value="{Binding ThemeInfo.theme_TextBox_Background, FallbackValue=#800f0f0f}"/>
+            <Setter Property="BorderBrush" Value="{Binding ThemeInfo.theme_TextBox_Border, FallbackValue=#8079517d}"/>
+            <Setter Property="Foreground" Value="{Binding ThemeInfo.theme_TextBox_Text, FallbackValue=#FF5f2568}"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
             <Setter Property="HorizontalContentAlignment" Value="Left"/>
@@ -239,10 +239,10 @@
                                 <Setter Property="Opacity" TargetName="border" Value="1.0"/>
                             </Trigger>
                             <Trigger Property="IsKeyboardFocused" Value="false">
-                                <Setter Property="BorderBrush" TargetName="border" Value="{Binding UserDataContext.ThemeInfo.theme_TextBox_Border, FallbackValue=#8079517d}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{Binding ThemeInfo.theme_TextBox_Border, FallbackValue=#8079517d}"/>
                             </Trigger>
                             <Trigger Property="IsKeyboardFocused" Value="true">
-                                <Setter Property="BorderBrush" TargetName="border" Value="{Binding UserDataContext.ThemeInfo.theme_TextBox_Focus, FallbackValue=#809e9e9e}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{Binding ThemeInfo.theme_TextBox_Focus, FallbackValue=#809e9e9e}"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -254,7 +254,7 @@
                         <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true"/>
                         <Condition Property="IsSelectionActive" Value="false"/>
                     </MultiTrigger.Conditions>
-                    <Setter Property="SelectionBrush" Value="{Binding UserDataContext.ThemeInfo.theme_TextBox_Inactive, FallbackValue=#801f1f1f}"/>
+                    <Setter Property="SelectionBrush" Value="{Binding ThemeInfo.theme_TextBox_Inactive, FallbackValue=#801f1f1f}"/>
                 </MultiTrigger>
             </Style.Triggers>
         </Style>
@@ -273,8 +273,8 @@
                             <Border Padding="4">
                                 <Border.Background>
                                     <LinearGradientBrush EndPoint="0, 0.5" StartPoint="1, 0.5">
-                                        <GradientStop Color="{Binding UserDataContext.ThemeInfo.theme_Scroll_Background_Primary}" Offset="1"/>
-                                        <GradientStop Color="{Binding UserDataContext.ThemeInfo.theme_Scroll_Background_Secondary}" Offset="0"/>
+                                        <GradientStop Color="{Binding ThemeInfo.theme_Scroll_Background_Primary}" Offset="1"/>
+                                        <GradientStop Color="{Binding ThemeInfo.theme_Scroll_Background_Secondary}" Offset="0"/>
                                     </LinearGradientBrush>
                                 </Border.Background>
 
@@ -308,8 +308,8 @@
                                     <Border Padding="4">
                                         <Border.Background>
                                             <LinearGradientBrush EndPoint="0.5, 0" StartPoint="0.5, 1">
-                                                <GradientStop Color="{Binding UserDataContext.ThemeInfo.theme_Scroll_Background_Primary}" Offset="1"/>
-                                                <GradientStop Color="{Binding UserDataContext.ThemeInfo.theme_Scroll_Background_Secondary}" Offset="0"/>
+                                                <GradientStop Color="{Binding ThemeInfo.theme_Scroll_Background_Primary}" Offset="1"/>
+                                                <GradientStop Color="{Binding ThemeInfo.theme_Scroll_Background_Secondary}" Offset="0"/>
                                             </LinearGradientBrush>
                                         </Border.Background>
 
@@ -341,7 +341,7 @@
                     <ControlTemplate TargetType="{x:Type Thumb}">
                         <Border x:Name="rectangle"
                             SnapsToDevicePixels="True"
-                            Background="{Binding UserDataContext.ThemeInfo.theme_Scroll_Thumb}"
+                            Background="{Binding ThemeInfo.theme_Scroll_Thumb}"
                             CornerRadius="4"
                             Opacity="0.3"
                             Height="{TemplateBinding Height}"
@@ -371,15 +371,15 @@
 
         <!-- Combobox Style -->
         <LinearGradientBrush x:Key="ComboBox.Static.Background" EndPoint="0,1" StartPoint="0,0">
-            <GradientStop Color="{Binding UserDataContext.ThemeInfo.theme_ComboBox_Background, FallbackValue=#800f0f0f}" Offset="0.0"/>
-            <GradientStop Color="{Binding UserDataContext.ThemeInfo.theme_ComboBox_Background, FallbackValue=#800f0f0f}" Offset="1.0"/>
+            <GradientStop Color="{Binding ThemeInfo.theme_ComboBox_Background, FallbackValue=#800f0f0f}" Offset="0.0"/>
+            <GradientStop Color="{Binding ThemeInfo.theme_ComboBox_Background, FallbackValue=#800f0f0f}" Offset="1.0"/>
         </LinearGradientBrush>
-        <SolidColorBrush x:Key="ComboBox.Static.Border" Color="{Binding UserDataContext.ThemeInfo.theme_ComboBox_Border, FallbackValue=#8079517d}"/>
-        <SolidColorBrush x:Key="ComboBox.Static.Editable.Background" Color="{Binding UserDataContext.ThemeInfo.theme_ComboBox_Sub_Background, FallbackValue=#FF232027}"/>
-        <SolidColorBrush x:Key="ComboBox.Static.Editable.Border" Color="{Binding UserDataContext.ThemeInfo.theme_ComboBox_Sub_Border, FallbackValue=#8079517d}"/>
-        <SolidColorBrush x:Key="ComboBox.Static.Editable.Button.Background" Color="{Binding UserDataContext.ThemeInfo.theme_ComboBox_Sub_Background, FallbackValue=#FF232027}"/>
-        <SolidColorBrush x:Key="ComboBox.Static.Editable.Button.Border" Color="{Binding UserDataContext.ThemeInfo.theme_ComboBox_Sub_Border, FallbackValue=#8079517d}"/>
-        <SolidColorBrush x:Key="ComboBox.MouseOver.Glyph" Color="{Binding UserDataContext.ThemeInfo.theme_ComboBox_Arrow_Hover, FallbackValue=#FF404040}"/>
+        <SolidColorBrush x:Key="ComboBox.Static.Border" Color="{Binding ThemeInfo.theme_ComboBox_Border, FallbackValue=#8079517d}"/>
+        <SolidColorBrush x:Key="ComboBox.Static.Editable.Background" Color="{Binding ThemeInfo.theme_ComboBox_Sub_Background, FallbackValue=#FF232027}"/>
+        <SolidColorBrush x:Key="ComboBox.Static.Editable.Border" Color="{Binding ThemeInfo.theme_ComboBox_Sub_Border, FallbackValue=#8079517d}"/>
+        <SolidColorBrush x:Key="ComboBox.Static.Editable.Button.Background" Color="{Binding ThemeInfo.theme_ComboBox_Sub_Background, FallbackValue=#FF232027}"/>
+        <SolidColorBrush x:Key="ComboBox.Static.Editable.Button.Border" Color="{Binding ThemeInfo.theme_ComboBox_Sub_Border, FallbackValue=#8079517d}"/>
+        <SolidColorBrush x:Key="ComboBox.MouseOver.Glyph" Color="{Binding ThemeInfo.theme_ComboBox_Arrow_Hover, FallbackValue=#FF404040}"/>
         <LinearGradientBrush x:Key="ComboBox.MouseOver.Background" EndPoint="0,1" StartPoint="0,0">
             <GradientStop Color="#FFECF4FC" Offset="0.0"/>
             <GradientStop Color="#FFDCECFC" Offset="1.0"/>
@@ -423,14 +423,14 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type ToggleButton}">
-                        <Border x:Name="templateRoot" SnapsToDevicePixels="true" Background="{Binding UserDataContext.ThemeInfo.theme_ComboBox_Background, FallbackValue=#800f0f0f}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{Binding UserDataContext.ThemeInfo.theme_ComboBox_Border, FallbackValue=#8079517d}">
+                        <Border x:Name="templateRoot" SnapsToDevicePixels="true" Background="{Binding ThemeInfo.theme_ComboBox_Background, FallbackValue=#800f0f0f}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{Binding ThemeInfo.theme_ComboBox_Border, FallbackValue=#8079517d}">
                             <Border x:Name="splitBorder" Width="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}" SnapsToDevicePixels="true" Margin="0" HorizontalAlignment="Right" BorderThickness="1" BorderBrush="Transparent">
-                                <Path x:Name="arrow" VerticalAlignment="Center" Margin="0" HorizontalAlignment="Center" Fill="{Binding UserDataContext.ThemeInfo.theme_ComboBox_Arrow, FallbackValue=#FFc900c9}" Data="F1 M 0,0 L 2.667,2.66665 L 5.3334,0 L 5.3334,-1.78168 L 2.6667,0.88501 L0,-1.78168 L0,0 Z"/>
+                                <Path x:Name="arrow" VerticalAlignment="Center" Margin="0" HorizontalAlignment="Center" Fill="{Binding ThemeInfo.theme_ComboBox_Arrow, FallbackValue=#FFc900c9}" Data="F1 M 0,0 L 2.667,2.66665 L 5.3334,0 L 5.3334,-1.78168 L 2.6667,0.88501 L0,-1.78168 L0,0 Z"/>
                             </Border>
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="Fill" TargetName="arrow" Value="{Binding UserDataContext.ThemeInfo.theme_ComboBox_Arrow_Hover, FallbackValue=#FF404040}"/>
+                                <Setter Property="Fill" TargetName="arrow" Value="{Binding ThemeInfo.theme_ComboBox_Arrow_Hover, FallbackValue=#FF404040}"/>
                             </Trigger>
                             <Trigger Property="IsEnabled" Value="false">
                                 <Setter Property="Fill" TargetName="arrow" Value="{StaticResource ComboBox.Disabled.Glyph}"/>
@@ -450,7 +450,7 @@
                 <Popup x:Name="PART_Popup" AllowsTransparency="true" Grid.ColumnSpan="2" IsOpen="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Margin="1" PopupAnimation="{DynamicResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
                     <Themes:SystemDropShadowChrome x:Name="shadow" Color="Transparent" MaxHeight="{TemplateBinding MaxDropDownHeight}" MinWidth="{Binding ActualWidth, ElementName=templateRoot}">
                         <!-- Combobox Items -->
-                        <Border x:Name="dropDownBorder" BorderThickness="1" BorderBrush="{Binding UserDataContext.ThemeInfo.theme_ComboBox_Sub_Border, FallbackValue=#8079517d}" Background="{Binding UserDataContext.ThemeInfo.theme_ComboBox_Sub_Background, FallbackValue=#FF232027}">
+                        <Border x:Name="dropDownBorder" BorderThickness="1" BorderBrush="{Binding ThemeInfo.theme_ComboBox_Sub_Border, FallbackValue=#8079517d}" Background="{Binding ThemeInfo.theme_ComboBox_Sub_Background, FallbackValue=#FF232027}">
                             <ScrollViewer x:Name="DropDownScrollViewer">
                                 <Grid x:Name="grid" RenderOptions.ClearTypeHint="Enabled">
                                     <Canvas x:Name="canvas" HorizontalAlignment="Left" Height="0" VerticalAlignment="Top" Width="0">
@@ -557,9 +557,9 @@
         </ControlTemplate>
         <Style x:Key="bitzComboBox" TargetType="{x:Type ComboBox}">
             <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
-            <Setter Property="Background" Value="{Binding UserDataContext.ThemeInfo.theme_ComboBox_Background, FallbackValue=#800f0f0f}"/>
-            <Setter Property="BorderBrush" Value="{Binding UserDataContext.ThemeInfo.theme_ComboBox_Sub_Background, FallbackValue=#FF232027}"/>
-            <Setter Property="Foreground" Value="{Binding UserDataContext.ThemeInfo.theme_ComboBox_Sub_Text, FallbackValue=#FF5f2568}"/>
+            <Setter Property="Background" Value="{Binding ThemeInfo.theme_ComboBox_Background, FallbackValue=#800f0f0f}"/>
+            <Setter Property="BorderBrush" Value="{Binding ThemeInfo.theme_ComboBox_Sub_Background, FallbackValue=#FF232027}"/>
+            <Setter Property="Foreground" Value="{Binding ThemeInfo.theme_ComboBox_Sub_Text, FallbackValue=#FF5f2568}"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
             <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
@@ -604,9 +604,9 @@
                                     <Condition Property="IsMouseOver" Value="True"/>
                                     <Condition Property="IsKeyboardFocused" Value="False"/>
                                 </MultiTrigger.Conditions>
-                                <Setter Property="Background" TargetName="Bd" Value="{Binding UserDataContext.ThemeInfo.theme_ComboBox_Sub_Hover, FallbackValue=#FF404040}"/>
-                                <Setter Property="BorderBrush" TargetName="Bd" Value="{Binding UserDataContext.ThemeInfo.theme_ComboBox_Sub_Border, FallbackValue=#00000000}"/>
-                                <Setter Property="Foreground" Value="{Binding UserDataContext.ThemeInfo.theme_ComboBox_Text, FallbackValue=#FFc000c0}"/>
+                                <Setter Property="Background" TargetName="Bd" Value="{Binding ThemeInfo.theme_ComboBox_Sub_Hover, FallbackValue=#FF404040}"/>
+                                <Setter Property="BorderBrush" TargetName="Bd" Value="{Binding ThemeInfo.theme_ComboBox_Sub_Border, FallbackValue=#00000000}"/>
+                                <Setter Property="Foreground" Value="{Binding ThemeInfo.theme_ComboBox_Text, FallbackValue=#FFc000c0}"/>
                                 <Setter Property="FontWeight" Value="Bold"/>
                             </MultiTrigger>
                             <MultiTrigger>
@@ -615,9 +615,9 @@
                                     <Condition Property="IsMouseOver" Value="False"/>
                                     <Condition Property="IsKeyboardFocused" Value="True"/>
                                 </MultiTrigger.Conditions>
-                                <Setter Property="Background" TargetName="Bd" Value="{Binding UserDataContext.ThemeInfo.theme_ComboBox_Sub_Hover, FallbackValue=#FF404040}"/>
-                                <Setter Property="BorderBrush" TargetName="Bd" Value="{Binding UserDataContext.ThemeInfo.theme_ComboBox_Sub_Pressed, FallbackValue=#FF79517d}"/>
-                                <Setter Property="Foreground" Value="{Binding UserDataContext.ThemeInfo.theme_ComboBox_Text, FallbackValue=#FFc000c0}"/>
+                                <Setter Property="Background" TargetName="Bd" Value="{Binding ThemeInfo.theme_ComboBox_Sub_Hover, FallbackValue=#FF404040}"/>
+                                <Setter Property="BorderBrush" TargetName="Bd" Value="{Binding ThemeInfo.theme_ComboBox_Sub_Pressed, FallbackValue=#FF79517d}"/>
+                                <Setter Property="Foreground" Value="{Binding ThemeInfo.theme_ComboBox_Text, FallbackValue=#FFc000c0}"/>
                                 <Setter Property="FontWeight" Value="Bold"/>
                             </MultiTrigger>
                             <MultiTrigger>
@@ -625,9 +625,9 @@
                                     <Condition Property="IsSelected" Value="True"/>
                                     <Condition Property="IsMouseOver" Value="True"/>
                                 </MultiTrigger.Conditions>
-                                <Setter Property="Background" TargetName="Bd" Value="{Binding UserDataContext.ThemeInfo.theme_ComboBox_Sub_Hover, FallbackValue=#FF404040}"/>
-                                <Setter Property="BorderBrush" TargetName="Bd" Value="{Binding UserDataContext.ThemeInfo.theme_ComboBox_Sub_Pressed, FallbackValue=#FF79517d}"/>
-                                <Setter Property="Foreground" Value="{Binding UserDataContext.ThemeInfo.theme_ComboBox_Text, FallbackValue=#FFc000c0}"/>
+                                <Setter Property="Background" TargetName="Bd" Value="{Binding ThemeInfo.theme_ComboBox_Sub_Hover, FallbackValue=#FF404040}"/>
+                                <Setter Property="BorderBrush" TargetName="Bd" Value="{Binding ThemeInfo.theme_ComboBox_Sub_Pressed, FallbackValue=#FF79517d}"/>
+                                <Setter Property="Foreground" Value="{Binding ThemeInfo.theme_ComboBox_Text, FallbackValue=#FFc000c0}"/>
                                 <Setter Property="FontWeight" Value="Bold"/>
                             </MultiTrigger>
                             <MultiTrigger>
@@ -636,9 +636,9 @@
                                     <Condition Property="IsMouseOver" Value="False"/>
                                     <Condition Property="IsKeyboardFocused" Value="False"/>
                                 </MultiTrigger.Conditions>
-                                <Setter Property="Background" TargetName="Bd" Value="{Binding UserDataContext.ThemeInfo.theme_ComboBox_Sub_Background, FallbackValue=#FF232027}"/>
-                                <Setter Property="BorderBrush" TargetName="Bd" Value="{Binding UserDataContext.ThemeInfo.theme_ComboBox_Sub_Border, FallbackValue=#00000000}"/>
-                                <Setter Property="Foreground" Value="{Binding UserDataContext.ThemeInfo.theme_ComboBox_Text, FallbackValue=#FFc000c0}"/>
+                                <Setter Property="Background" TargetName="Bd" Value="{Binding ThemeInfo.theme_ComboBox_Sub_Background, FallbackValue=#FF232027}"/>
+                                <Setter Property="BorderBrush" TargetName="Bd" Value="{Binding ThemeInfo.theme_ComboBox_Sub_Border, FallbackValue=#00000000}"/>
+                                <Setter Property="Foreground" Value="{Binding ThemeInfo.theme_ComboBox_Text, FallbackValue=#FFc000c0}"/>
                                 <Setter Property="FontWeight" Value="Bold"/>
                             </MultiTrigger>
                             <MultiTrigger>
@@ -647,7 +647,7 @@
                                     <Condition Property="IsMouseOver" Value="False"/>
                                     <Condition Property="IsKeyboardFocused" Value="True"/>
                                 </MultiTrigger.Conditions>
-                                <Setter Property="BorderBrush" TargetName="Bd" Value="{Binding UserDataContext.ThemeInfo.theme_ComboBox_Sub_Pressed, FallbackValue=#FF79517d}"/>
+                                <Setter Property="BorderBrush" TargetName="Bd" Value="{Binding ThemeInfo.theme_ComboBox_Sub_Pressed, FallbackValue=#FF79517d}"/>
                             </MultiTrigger>
                             <MultiTrigger>
                                 <MultiTrigger.Conditions>
@@ -655,9 +655,9 @@
                                     <Condition Property="IsMouseOver" Value="True"/>
                                     <Condition Property="IsKeyboardFocused" Value="True"/>
                                 </MultiTrigger.Conditions>
-                                <Setter Property="Background" TargetName="Bd" Value="{Binding UserDataContext.ThemeInfo.theme_ComboBox_Sub_Hover, FallbackValue=#FF404040}"/>
-                                <Setter Property="BorderBrush" TargetName="Bd" Value="{Binding UserDataContext.ThemeInfo.theme_ComboBox_Sub_Pressed, FallbackValue=#FF79517d}"/>
-                                <Setter Property="Foreground" Value="{Binding UserDataContext.ThemeInfo.theme_ComboBox_Text, FallbackValue=#FFc000c0}"/>
+                                <Setter Property="Background" TargetName="Bd" Value="{Binding ThemeInfo.theme_ComboBox_Sub_Hover, FallbackValue=#FF404040}"/>
+                                <Setter Property="BorderBrush" TargetName="Bd" Value="{Binding ThemeInfo.theme_ComboBox_Sub_Pressed, FallbackValue=#FF79517d}"/>
+                                <Setter Property="Foreground" Value="{Binding ThemeInfo.theme_ComboBox_Text, FallbackValue=#FFc000c0}"/>
                                 <Setter Property="FontWeight" Value="Bold"/>
                             </MultiTrigger>
                         </ControlTemplate.Triggers>
@@ -671,10 +671,10 @@
         <SolidColorBrush x:Key="ListBox.Disabled.Background" Color="#FFFFFFFF"/>
         <SolidColorBrush x:Key="ListBox.Disabled.Border" Color="#FFD9D9D9"/>
         <Style x:Key="bitzListBox" TargetType="{x:Type ListBox}">
-            <Setter Property="Background" Value="{Binding UserDataContext.ThemeInfo.theme_ListBox_Background, FallbackValue=#800f0f0f}"/>
-            <Setter Property="BorderBrush" Value="{Binding UserDataContext.ThemeInfo.theme_ListBox_Border, FallbackValue=#8079517d}"/>
+            <Setter Property="Background" Value="{Binding ThemeInfo.theme_ListBox_Background, FallbackValue=#800f0f0f}"/>
+            <Setter Property="BorderBrush" Value="{Binding ThemeInfo.theme_ListBox_Border, FallbackValue=#8079517d}"/>
             <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="Foreground" Value="{Binding UserDataContext.ThemeInfo.theme_ListBox_Text, FallbackValue=#FFc000c0}"/>
+            <Setter Property="Foreground" Value="{Binding ThemeInfo.theme_ListBox_Text, FallbackValue=#FFc000c0}"/>
             <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
             <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
             <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
@@ -733,9 +733,9 @@
                                 <MultiTrigger.Conditions>
                                     <Condition Property="IsMouseOver" Value="True"/>
                                 </MultiTrigger.Conditions>
-                                <Setter Property="Background" TargetName="Bd" Value="{Binding UserDataContext.ThemeInfo.theme_ComboBox_Sub_Hover, FallbackValue=#FF404040}"/>
-                                <Setter Property="BorderBrush" TargetName="Bd" Value="{Binding UserDataContext.ThemeInfo.theme_ComboBox_Sub_Border, FallbackValue=#00000000}"/>
-                                <Setter Property="Foreground" Value="{Binding UserDataContext.ThemeInfo.theme_ComboBox_Text, FallbackValue=#FFc000c0}"/>
+                                <Setter Property="Background" TargetName="Bd" Value="{Binding ThemeInfo.theme_ComboBox_Sub_Hover, FallbackValue=#FF404040}"/>
+                                <Setter Property="BorderBrush" TargetName="Bd" Value="{Binding ThemeInfo.theme_ComboBox_Sub_Border, FallbackValue=#00000000}"/>
+                                <Setter Property="Foreground" Value="{Binding ThemeInfo.theme_ComboBox_Text, FallbackValue=#FFc000c0}"/>
                                 <Setter Property="FontWeight" Value="Bold"/>
                             </MultiTrigger>
                             <MultiTrigger>
@@ -745,7 +745,7 @@
                                 </MultiTrigger.Conditions>
                                 <Setter Property="Background" TargetName="Bd" Value="{StaticResource Item.SelectedInactive.Background}"/>
                                 <Setter Property="BorderBrush" TargetName="Bd" Value="{StaticResource Item.SelectedInactive.Border}"/>
-                                <Setter Property="Foreground" Value="{Binding UserDataContext.ThemeInfo.theme_ComboBox_Sub_Text, FallbackValue=#800f0f0f}"/>
+                                <Setter Property="Foreground" Value="{Binding ThemeInfo.theme_ComboBox_Sub_Text, FallbackValue=#800f0f0f}"/>
                                 <Setter Property="FontWeight" Value="Normal"/>
                             </MultiTrigger>
                             <MultiTrigger>
@@ -753,9 +753,9 @@
                                     <Condition Property="Selector.IsSelectionActive" Value="True"/>
                                     <Condition Property="IsSelected" Value="True"/>
                                 </MultiTrigger.Conditions>
-                                <Setter Property="Background" TargetName="Bd" Value="{Binding UserDataContext.ThemeInfo.theme_ComboBox_Sub_Hover, FallbackValue=#FF404040}"/>
-                                <Setter Property="BorderBrush" TargetName="Bd" Value="{Binding UserDataContext.ThemeInfo.theme_ComboBox_Sub_Border, FallbackValue=#00000000}"/>
-                                <Setter Property="Foreground" Value="{Binding UserDataContext.ThemeInfo.theme_ComboBox_Text, FallbackValue=#FFc000c0}"/>
+                                <Setter Property="Background" TargetName="Bd" Value="{Binding ThemeInfo.theme_ComboBox_Sub_Hover, FallbackValue=#FF404040}"/>
+                                <Setter Property="BorderBrush" TargetName="Bd" Value="{Binding ThemeInfo.theme_ComboBox_Sub_Border, FallbackValue=#00000000}"/>
+                                <Setter Property="Foreground" Value="{Binding ThemeInfo.theme_ComboBox_Text, FallbackValue=#FFc000c0}"/>
                                 <Setter Property="FontWeight" Value="Bold"/>
                             </MultiTrigger>
                             <Trigger Property="IsEnabled" Value="False">

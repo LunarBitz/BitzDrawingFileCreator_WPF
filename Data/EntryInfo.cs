@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BitzDrawingFileCreator_WPF.Data
 {
-    public class AppData : ObservableObject
+    public class EntryInfo : ObservableObject
     {
         private Dictionary<string, string> privateVars = new Dictionary<string, string>();
 

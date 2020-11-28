@@ -113,6 +113,9 @@
       <DependentUpon>BitzMessageTextEntryBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="Data\SystemHandler.cs" />
+    <Compile Include="Data\ThemeInfo.cs" />
+    <Compile Include="Data\UserDataContext.cs" />
+    <Compile Include="Data\UserInfo.cs" />
     <Compile Include="PageTrelloAccount.xaml.cs">
       <DependentUpon>PageTrelloAccount.xaml</DependentUpon>
     </Compile>
@@ -144,7 +147,7 @@
     <Compile Include="BitzMessageYesNoBox.xaml.cs">
       <DependentUpon>BitzMessageYesNoBox.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Data\AppData.cs" />
+    <Compile Include="Data\EntryInfo.cs" />
     <Compile Include="DirectoryParser.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="MainWindow.xaml.cs">

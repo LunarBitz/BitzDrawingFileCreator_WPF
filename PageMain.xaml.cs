@@ -42,69 +42,69 @@ namespace BitzDrawingFileCreator_WPF
         {
             var con = MainWindow.publicDataContext;
 
-            con.theme_Text_Primary = "#FF" + rndColor();
-            con.theme_Text_Secondary = "#FF" + rndColor();
-            con.theme_Text_Tertiary = "#FF" + rndColor();
+            con.ThemeInfo.theme_Text_Primary = "#FF" + rndColor();
+            con.ThemeInfo.theme_Text_Secondary = "#FF" + rndColor();
+            con.ThemeInfo.theme_Text_Tertiary = "#FF" + rndColor();
 
-            con.theme_MenuLogo_Background_Primary = "#FF" + rndColor();
-            con.theme_MenuLogo_Background_Secondary = "#00" + rndColor();
+            con.ThemeInfo.theme_MenuLogo_Background_Primary = "#FF" + rndColor();
+            con.ThemeInfo.theme_MenuLogo_Background_Secondary = "#00" + rndColor();
 
-            con.theme_Button_Text = con.theme_Text_Primary;
-            con.theme_Button_Background = "#80" + rndColor();
-            con.theme_Button_Border = "#80" + rndColor();
-            con.theme_Button_Hover = "#FF" + rndColor();
-            con.theme_Button_Clicked = "#FF" + rndColor();
-            con.theme_Button_Selected = "#FF" + rndColor();
+            con.ThemeInfo.theme_Button_Text = con.ThemeInfo.theme_Text_Primary;
+            con.ThemeInfo.theme_Button_Background = "#80" + rndColor();
+            con.ThemeInfo.theme_Button_Border = "#80" + rndColor();
+            con.ThemeInfo.theme_Button_Hover = "#FF" + rndColor();
+            con.ThemeInfo.theme_Button_Clicked = "#FF" + rndColor();
+            con.ThemeInfo.theme_Button_Selected = "#FF" + rndColor();
 
-            con.theme_Menu_Background_Primary = "#FF" + rndColor();
-            con.theme_Menu_Background_Secondary = "#00" + rndColor();
+            con.ThemeInfo.theme_Menu_Background_Primary = "#FF" + rndColor();
+            con.ThemeInfo.theme_Menu_Background_Secondary = "#00" + rndColor();
 
-            con.theme_MenuOption_Text = con.theme_Text_Primary;
-            con.theme_MenuOption_Background = "#00" + rndColor();
-            con.theme_MenuOption_Border = "#00" + rndColor();
-            con.theme_MenuOption_Hover = "#FF" + rndColor();
-            con.theme_MenuOption_Clicked = "#FF" + rndColor();
-            con.theme_MenuOption_Selected = "#FF" + rndColor();
+            con.ThemeInfo.theme_MenuOption_Text = con.ThemeInfo.theme_Text_Primary;
+            con.ThemeInfo.theme_MenuOption_Background = "#00" + rndColor();
+            con.ThemeInfo.theme_MenuOption_Border = "#00" + rndColor();
+            con.ThemeInfo.theme_MenuOption_Hover = "#FF" + rndColor();
+            con.ThemeInfo.theme_MenuOption_Clicked = "#FF" + rndColor();
+            con.ThemeInfo.theme_MenuOption_Selected = "#FF" + rndColor();
 
-            con.theme_SubMenu_Background = "#FF" + rndColor();
+            con.ThemeInfo.theme_SubMenu_Background = "#FF" + rndColor();
 
-            con.theme_SubMenuOption_Text = con.theme_Text_Secondary;
-            con.theme_SubMenuOption_Background = "#00" + rndColor();
-            con.theme_SubMenuOption_Border = "#00" + rndColor();
-            con.theme_SubMenuOption_Hover = "#FF" + rndColor();
-            con.theme_SubMenuOption_Clicked = "#FF" + rndColor();
-            con.theme_SubMenuOption_Selected = "#FF" + rndColor();
+            con.ThemeInfo.theme_SubMenuOption_Text = con.ThemeInfo.theme_Text_Secondary;
+            con.ThemeInfo.theme_SubMenuOption_Background = "#00" + rndColor();
+            con.ThemeInfo.theme_SubMenuOption_Border = "#00" + rndColor();
+            con.ThemeInfo.theme_SubMenuOption_Hover = "#FF" + rndColor();
+            con.ThemeInfo.theme_SubMenuOption_Clicked = "#FF" + rndColor();
+            con.ThemeInfo.theme_SubMenuOption_Selected = "#FF" + rndColor();
 
-            con.theme_Group_Background = "#00" + rndColor();
-            con.theme_Group_Border = "#80" + rndColor();
+            con.ThemeInfo.theme_Group_Background = "#00" + rndColor();
+            con.ThemeInfo.theme_Group_Border = "#80" + rndColor();
 
-            con.theme_TextBox_Text = con.theme_Text_Secondary;
-            con.theme_TextBox_Background = "#80" + rndColor();
-            con.theme_TextBox_Border = "#80" + rndColor();
-            con.theme_TextBox_Hover = "#80" + rndColor();
-            con.theme_TextBox_Focus = "#80" + rndColor();
-            con.theme_TextBox_Inactive = "#80" + rndColor();
+            con.ThemeInfo.theme_TextBox_Text = con.ThemeInfo.theme_Text_Secondary;
+            con.ThemeInfo.theme_TextBox_Background = "#80" + rndColor();
+            con.ThemeInfo.theme_TextBox_Border = "#80" + rndColor();
+            con.ThemeInfo.theme_TextBox_Hover = "#80" + rndColor();
+            con.ThemeInfo.theme_TextBox_Focus = "#80" + rndColor();
+            con.ThemeInfo.theme_TextBox_Inactive = "#80" + rndColor();
 
-            con.theme_ListBox_Text = con.theme_Text_Secondary;
-            con.theme_ListBox_Background = "#FF" + rndColor();
-            con.theme_ListBox_Border = "#FF" + rndColor();
+            con.ThemeInfo.theme_ListBox_Text = con.ThemeInfo.theme_Text_Secondary;
+            con.ThemeInfo.theme_ListBox_Background = "#FF" + rndColor();
+            con.ThemeInfo.theme_ListBox_Border = "#FF" + rndColor();
 
-            con.theme_ComboBox_Text = con.theme_Text_Primary;
-            con.theme_ComboBox_Arrow = "#FF" + rndColor();
-            con.theme_ComboBox_Arrow_Hover = "#FF" + rndColor();
-            con.theme_ComboBox_Background = "#80" + rndColor();
-            con.theme_ComboBox_Hover = "#FF" + rndColor();
-            con.theme_ComboBox_Pressed = "#FF" + rndColor();
-            con.theme_ComboBox_Border = "#80" + rndColor();
-            con.theme_ComboBox_Sub_Text = con.theme_Text_Secondary;
-            con.theme_ComboBox_Sub_Background = "#FF" + rndColor();
-            con.theme_ComboBox_Sub_Hover = "#FF" + rndColor();
-            con.theme_ComboBox_Sub_Pressed = "#FF" + rndColor();
-            con.theme_ComboBox_Sub_Border = "#00" + rndColor();
+            con.ThemeInfo.theme_ComboBox_Text = con.ThemeInfo.theme_Text_Primary;
+            con.ThemeInfo.theme_ComboBox_Arrow = "#FF" + rndColor();
+            con.ThemeInfo.theme_ComboBox_Arrow_Hover = "#FF" + rndColor();
+            con.ThemeInfo.theme_ComboBox_Background = "#80" + rndColor();
+            con.ThemeInfo.theme_ComboBox_Hover = "#FF" + rndColor();
+            con.ThemeInfo.theme_ComboBox_Pressed = "#FF" + rndColor();
+            con.ThemeInfo.theme_ComboBox_Border = "#80" + rndColor();
+            con.ThemeInfo.theme_ComboBox_Sub_Text = con.ThemeInfo.theme_Text_Secondary;
+            con.ThemeInfo.theme_ComboBox_Sub_Background = "#FF" + rndColor();
+            con.ThemeInfo.theme_ComboBox_Sub_Hover = "#FF" + rndColor();
+            con.ThemeInfo.theme_ComboBox_Sub_Pressed = "#FF" + rndColor();
+            con.ThemeInfo.theme_ComboBox_Sub_Border = "#00" + rndColor();
 
-            con.theme_Scroll_Thumb = con.theme_Text_Secondary;
-            con.theme_Scroll_Background_Primary = "#00" + rndColor();
-            con.theme_Scroll_Background_Secondary = "#FF" + rndColor();
+            con.ThemeInfo.theme_Scroll_Thumb = con.ThemeInfo.theme_Text_Secondary;
+            con.ThemeInfo.theme_Scroll_Background_Primary = "#00" + rndColor();
+            con.ThemeInfo.theme_Scroll_Background_Secondary = "#FF" + rndColor();
         }
 
         private void btnAddCharacter_Copy_Click(object sender, RoutedEventArgs e)

@@ -28,7 +28,7 @@ namespace BitzDrawingFileCreator_WPF
     {
 
         #region Variables
-        public static AppData publicDataContext;
+        public static UserDataContext publicDataContext;
         public static TrelloHandler trelloClass;
 
         public static Page activePage = null;
@@ -72,14 +72,18 @@ namespace BitzDrawingFileCreator_WPF
 
             Height = 510;
             Width = 872;
-            var tmpData = new AppData();
-
+            var tmpData = new EntryInfo();
+            /*
             if (File.Exists("UserSettings.xml"))
-                publicDataContext = (AppData)SystemHandler.read_data(tmpData, "UserSettings.xml");
+                publicDataContext = (EntryInfo)SystemHandler.read_data(tmpData, "UserSettings.xml");
             else
-                SystemHandler.save_data(new AppData(), "UserSettings.xml");
-                publicDataContext = (AppData)SystemHandler.read_data(tmpData, "UserSettings.xml");
-
+                SystemHandler.save_data(new EntryInfo(), "UserSettings.xml");
+                publicDataContext = (EntryInfo)SystemHandler.read_data(tmpData, "UserSettings.xml");
+            */
+            publicDataContext = new UserDataContext();
+            publicDataContext.EntryInfo = new EntryInfo();
+            publicDataContext.UserInfo = new UserInfo();
+            publicDataContext.ThemeInfo = new ThemeInfo();
             DataContext = publicDataContext;
 
 
@@ -108,82 +112,82 @@ namespace BitzDrawingFileCreator_WPF
 
         private void clearVolatiles()
         {
-            publicDataContext.drawingDescription = "";
-            publicDataContext.userName = "";
-            publicDataContext.targetPlatform = "";
-            publicDataContext.characterName = "";
-            publicDataContext.characterSpecies = "";
-            publicDataContext.drawingProduct = "";
-            publicDataContext.drawingType = "";
-            publicDataContext.drawingRender = "";
-            publicDataContext.drawingSize = "";
+            publicDataContext.EntryInfo.drawingDescription = "";
+            publicDataContext.EntryInfo.userName = "";
+            publicDataContext.EntryInfo.targetPlatform = "";
+            publicDataContext.EntryInfo.characterName = "";
+            publicDataContext.EntryInfo.characterSpecies = "";
+            publicDataContext.EntryInfo.drawingProduct = "";
+            publicDataContext.EntryInfo.drawingType = "";
+            publicDataContext.EntryInfo.drawingRender = "";
+            publicDataContext.EntryInfo.drawingSize = "";
         }
 
         private void initThemeColors()
         {
-            publicDataContext.theme_Text_Primary = "#FF" + "c000c0";
-            publicDataContext.theme_Text_Secondary = "#FF" + "5f2568";
-            publicDataContext.theme_Text_Tertiary = "#FF" + "341d38";
+            publicDataContext.ThemeInfo.theme_Text_Primary = "#FF" + "c000c0";
+            publicDataContext.ThemeInfo.theme_Text_Secondary = "#FF" + "5f2568";
+            publicDataContext.ThemeInfo.theme_Text_Tertiary = "#FF" + "341d38";
 
-            publicDataContext.theme_MenuLogo_Background_Primary = "#FF" + "3f164d";
-            publicDataContext.theme_MenuLogo_Background_Secondary = "#00" + "000000";
+            publicDataContext.ThemeInfo.theme_MenuLogo_Background_Primary = "#FF" + "3f164d";
+            publicDataContext.ThemeInfo.theme_MenuLogo_Background_Secondary = "#00" + "000000";
 
-            publicDataContext.theme_Button_Text = publicDataContext.theme_Text_Primary;
-            publicDataContext.theme_Button_Background = "#80" + "0f0f0f";
-            publicDataContext.theme_Button_Border = "#80" + "1f0f1f";
-            publicDataContext.theme_Button_Hover = "#FF" + "404040";
-            publicDataContext.theme_Button_Clicked = "#FF" + "79517d";
-            publicDataContext.theme_Button_Selected = "#FF" + "c0c0c0";
+            publicDataContext.ThemeInfo.theme_Button_Text = publicDataContext.ThemeInfo.theme_Text_Primary;
+            publicDataContext.ThemeInfo.theme_Button_Background = "#80" + "0f0f0f";
+            publicDataContext.ThemeInfo.theme_Button_Border = "#80" + "1f0f1f";
+            publicDataContext.ThemeInfo.theme_Button_Hover = "#FF" + "404040";
+            publicDataContext.ThemeInfo.theme_Button_Clicked = "#FF" + "79517d";
+            publicDataContext.ThemeInfo.theme_Button_Selected = "#FF" + "c0c0c0";
 
-            publicDataContext.theme_Menu_Background_Primary = "#FF" + "0f0f0f";
-            publicDataContext.theme_Menu_Background_Secondary = "#00" + "1f1f1f";
+            publicDataContext.ThemeInfo.theme_Menu_Background_Primary = "#FF" + "0f0f0f";
+            publicDataContext.ThemeInfo.theme_Menu_Background_Secondary = "#00" + "1f1f1f";
 
-            publicDataContext.theme_MenuOption_Text = publicDataContext.theme_Text_Primary;
-            publicDataContext.theme_MenuOption_Background = "#00" + "000000";
-            publicDataContext.theme_MenuOption_Border = "#00" + "000000";
-            publicDataContext.theme_MenuOption_Hover = "#FF" + "404040";
-            publicDataContext.theme_MenuOption_Clicked = "#FF" + "79517d";
-            publicDataContext.theme_MenuOption_Selected = "#FF" + "c0c0c0";
+            publicDataContext.ThemeInfo.theme_MenuOption_Text = publicDataContext.ThemeInfo.theme_Text_Primary;
+            publicDataContext.ThemeInfo.theme_MenuOption_Background = "#00" + "000000";
+            publicDataContext.ThemeInfo.theme_MenuOption_Border = "#00" + "000000";
+            publicDataContext.ThemeInfo.theme_MenuOption_Hover = "#FF" + "404040";
+            publicDataContext.ThemeInfo.theme_MenuOption_Clicked = "#FF" + "79517d";
+            publicDataContext.ThemeInfo.theme_MenuOption_Selected = "#FF" + "c0c0c0";
 
-            publicDataContext.theme_SubMenu_Background = "#FF" + "232027";
+            publicDataContext.ThemeInfo.theme_SubMenu_Background = "#FF" + "232027";
 
-            publicDataContext.theme_SubMenuOption_Text = publicDataContext.theme_Text_Secondary;
-            publicDataContext.theme_SubMenuOption_Background = "#00" + "000000";
-            publicDataContext.theme_SubMenuOption_Border = "#00" + "000000";
-            publicDataContext.theme_SubMenuOption_Hover = "#FF" + "404040";
-            publicDataContext.theme_SubMenuOption_Clicked = "#FF" + "79517d";
-            publicDataContext.theme_SubMenuOption_Selected = "#FF" + "c0c0c0";
+            publicDataContext.ThemeInfo.theme_SubMenuOption_Text = publicDataContext.ThemeInfo.theme_Text_Secondary;
+            publicDataContext.ThemeInfo.theme_SubMenuOption_Background = "#00" + "000000";
+            publicDataContext.ThemeInfo.theme_SubMenuOption_Border = "#00" + "000000";
+            publicDataContext.ThemeInfo.theme_SubMenuOption_Hover = "#FF" + "404040";
+            publicDataContext.ThemeInfo.theme_SubMenuOption_Clicked = "#FF" + "79517d";
+            publicDataContext.ThemeInfo.theme_SubMenuOption_Selected = "#FF" + "c0c0c0";
 
-            publicDataContext.theme_Group_Background = "#00" + "000000";
-            publicDataContext.theme_Group_Border = "#80" + "9e9e9e";
+            publicDataContext.ThemeInfo.theme_Group_Background = "#00" + "000000";
+            publicDataContext.ThemeInfo.theme_Group_Border = "#80" + "9e9e9e";
 
-            publicDataContext.theme_TextBox_Text = publicDataContext.theme_Text_Secondary;
-            publicDataContext.theme_TextBox_Background = "#80" + "0f0f0f";
-            publicDataContext.theme_TextBox_Border = "#80" + "79517d";
-            publicDataContext.theme_TextBox_Hover = "#80" + "c0c0c0";
-            publicDataContext.theme_TextBox_Focus = "#80" + "9e9e9e";
-            publicDataContext.theme_TextBox_Inactive = "#80" + "1f1f1f";
+            publicDataContext.ThemeInfo.theme_TextBox_Text = publicDataContext.ThemeInfo.theme_Text_Secondary;
+            publicDataContext.ThemeInfo.theme_TextBox_Background = "#80" + "0f0f0f";
+            publicDataContext.ThemeInfo.theme_TextBox_Border = "#80" + "79517d";
+            publicDataContext.ThemeInfo.theme_TextBox_Hover = "#80" + "c0c0c0";
+            publicDataContext.ThemeInfo.theme_TextBox_Focus = "#80" + "9e9e9e";
+            publicDataContext.ThemeInfo.theme_TextBox_Inactive = "#80" + "1f1f1f";
 
-            publicDataContext.theme_ListBox_Text = publicDataContext.theme_Text_Secondary;
-            publicDataContext.theme_ListBox_Background = "#80" + "0f0f0f";
-            publicDataContext.theme_ListBox_Border = "#80" + "79517d";
+            publicDataContext.ThemeInfo.theme_ListBox_Text = publicDataContext.ThemeInfo.theme_Text_Secondary;
+            publicDataContext.ThemeInfo.theme_ListBox_Background = "#80" + "0f0f0f";
+            publicDataContext.ThemeInfo.theme_ListBox_Border = "#80" + "79517d";
 
-            publicDataContext.theme_ComboBox_Text = publicDataContext.theme_Text_Primary;
-            publicDataContext.theme_ComboBox_Arrow = "#FF" + "c000c0";
-            publicDataContext.theme_ComboBox_Arrow_Hover = "#FF" + "404040";
-            publicDataContext.theme_ComboBox_Background = "#80" + "0f0f0f";
-            publicDataContext.theme_ComboBox_Hover = "#FF" + "404040";
-            publicDataContext.theme_ComboBox_Pressed = "#FF" + "79517d";
-            publicDataContext.theme_ComboBox_Border = "#80" + "79517d";
-            publicDataContext.theme_ComboBox_Sub_Text = publicDataContext.theme_Text_Secondary;
-            publicDataContext.theme_ComboBox_Sub_Background = "#FF" + "232027";
-            publicDataContext.theme_ComboBox_Sub_Hover = "#FF" + "404040";
-            publicDataContext.theme_ComboBox_Sub_Pressed = "#FF" + "79517d";
-            publicDataContext.theme_ComboBox_Sub_Border = "#00" + "000000";
+            publicDataContext.ThemeInfo.theme_ComboBox_Text = publicDataContext.ThemeInfo.theme_Text_Primary;
+            publicDataContext.ThemeInfo.theme_ComboBox_Arrow = "#FF" + "c000c0";
+            publicDataContext.ThemeInfo.theme_ComboBox_Arrow_Hover = "#FF" + "404040";
+            publicDataContext.ThemeInfo.theme_ComboBox_Background = "#80" + "0f0f0f";
+            publicDataContext.ThemeInfo.theme_ComboBox_Hover = "#FF" + "404040";
+            publicDataContext.ThemeInfo.theme_ComboBox_Pressed = "#FF" + "79517d";
+            publicDataContext.ThemeInfo.theme_ComboBox_Border = "#80" + "79517d";
+            publicDataContext.ThemeInfo.theme_ComboBox_Sub_Text = publicDataContext.ThemeInfo.theme_Text_Secondary;
+            publicDataContext.ThemeInfo.theme_ComboBox_Sub_Background = "#FF" + "232027";
+            publicDataContext.ThemeInfo.theme_ComboBox_Sub_Hover = "#FF" + "404040";
+            publicDataContext.ThemeInfo.theme_ComboBox_Sub_Pressed = "#FF" + "79517d";
+            publicDataContext.ThemeInfo.theme_ComboBox_Sub_Border = "#00" + "000000";
 
-            publicDataContext.theme_Scroll_Thumb = publicDataContext.theme_Text_Secondary;
-            publicDataContext.theme_Scroll_Background_Primary = "#00" + "0f0f0f";
-            publicDataContext.theme_Scroll_Background_Secondary = "#FF" + "000000";
+            publicDataContext.ThemeInfo.theme_Scroll_Thumb = publicDataContext.ThemeInfo.theme_Text_Secondary;
+            publicDataContext.ThemeInfo.theme_Scroll_Background_Primary = "#00" + "0f0f0f";
+            publicDataContext.ThemeInfo.theme_Scroll_Background_Secondary = "#FF" + "000000";
 
         }
 
@@ -375,7 +379,7 @@ namespace BitzDrawingFileCreator_WPF
                 using (StreamWriter sw = File.AppendText(_fullPath))
                 {
                     Console.WriteLine(_fullPath);
-                    sw.Write(publicDataContext.drawingDescription);
+                    sw.Write(publicDataContext.EntryInfo.drawingDescription);
                 }
             }
 
@@ -405,7 +409,7 @@ namespace BitzDrawingFileCreator_WPF
             Manatee.Trello.IBoard myBoard = null;
 
             trelloClass.AuthTrello();
-            myBoard = trelloClass.GetTrelloBoard(publicDataContext.trelloBoardID);
+            myBoard = trelloClass.GetTrelloBoard(publicDataContext.UserInfo.trelloBoardID);
             System.Diagnostics.Debug.WriteLine(myBoard);
 
             while (myBoard == null)
@@ -447,7 +451,7 @@ namespace BitzDrawingFileCreator_WPF
 
         private void window_closed(object sender, EventArgs e)
         {
-            SystemHandler.save_data(DataContext, "UserSettings.xml");
+            //SystemHandler.save_data(DataContext, "UserSettings.xml");
         }
     }
 }

@@ -20,23 +20,23 @@
             <StackPanel Orientation="Horizontal" Margin="10,0">
                 <StackPanel Width="98">
                     <Label Content="Name" VerticalAlignment="Top" Height="26" Margin="0" Style="{DynamicResource bitzLabel}"/>
-                    <TextBox x:Name="txtCharacterName" TextWrapping="Wrap" Text="{Binding characterName}" VerticalAlignment="Bottom" Margin="0,0,5,0" Style="{DynamicResource bitzTextBox}" Height="22"/>
+                    <TextBox x:Name="txtCharacterName" TextWrapping="Wrap" Text="{Binding UserDataContext.EntryInfo.characterName}" VerticalAlignment="Bottom" Margin="0,0,5,0" Style="{DynamicResource bitzTextBox}" Height="22"/>
                     <Button x:Name="btnAddCharacter_Copy" Content="Add" Margin="0,5,5,0" Style="{DynamicResource bitzButton}" Click="btnAddCharacter_Copy_Click"/>
                 </StackPanel>
                 <StackPanel Width="98" Margin="0">
                     <Label Content="Species" VerticalAlignment="Top" Height="26" Margin="0" HorizontalContentAlignment="Right" Style="{DynamicResource bitzLabel}"/>
-                    <TextBox x:Name="txtCharacterSpecies" TextWrapping="Wrap" Text="{Binding characterSpecies}" VerticalAlignment="Bottom" Margin="5,0,0,0" Style="{DynamicResource bitzTextBox}" HorizontalContentAlignment="Right" Height="22"/>
+                    <TextBox x:Name="txtCharacterSpecies" TextWrapping="Wrap" Text="{Binding UserDataContext.EntryInfo.characterSpecies}" VerticalAlignment="Bottom" Margin="5,0,0,0" Style="{DynamicResource bitzTextBox}" HorizontalContentAlignment="Right" Height="22"/>
                     <Button x:Name="btnDeleteCharacter" Content="Delete" Margin="5,5,0,0" Style="{DynamicResource bitzButton}" Click="btnDeleteCharacter_Click"/>
                 </StackPanel>
             </StackPanel>
             <ListBox x:Name="listboxCharacters" Height="170" Margin="10,5,10,10" Width="196" Style="{DynamicResource bitzListBox}"/>
         </StackPanel>
-        <TextBox x:Name="txtDrawingDescription" Text="{Binding drawingDescription}" HorizontalAlignment="Left" Height="128" Margin="10,325,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="413" AcceptsReturn="True" Style="{DynamicResource bitzTextBox}"/>
+        <TextBox x:Name="txtDrawingDescription" Text="{Binding UserDataContext.EntryInfo.drawingDescription}" HorizontalAlignment="Left" Height="128" Margin="10,325,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="413" AcceptsReturn="True" Style="{DynamicResource bitzTextBox}"/>
         <StackPanel Margin="0,10,10,10" HorizontalAlignment="Right">
             <GroupBox Header="" HorizontalAlignment="Center" Height="79" VerticalAlignment="Center" Width="164" BorderThickness="0,1" Style="{DynamicResource bitzGroupBox}" ScrollViewer.VerticalScrollBarVisibility="Disabled" Margin="0,10">
                 <StackPanel Margin="0">
                     <Label Content="Drawing Product:" VerticalAlignment="Top" Height="26" Style="{DynamicResource bitzLabel}"/>
-                    <ComboBox x:Name="comboDrawingProduct" Style="{DynamicResource bitzComboBox}" SelectedValuePath="content" Text="{Binding drawingProduct}" MaxDropDownHeight="128">
+                    <ComboBox x:Name="comboDrawingProduct" Style="{DynamicResource bitzComboBox}" SelectedValuePath="content" Text="{Binding UserDataContext.EntryInfo.drawingProduct}" MaxDropDownHeight="128">
                         <ComboBoxItem Content="Commission"/>
                         <ComboBoxItem Content="Trade"/>
                         <ComboBoxItem Content="Personal"/>
@@ -54,7 +54,7 @@
             <GroupBox Header="" HorizontalAlignment="Center" Height="79" VerticalAlignment="Top" Width="164" BorderThickness="0,1" Style="{DynamicResource bitzGroupBox}" ScrollViewer.VerticalScrollBarVisibility="Disabled" Margin="0,10">
                 <StackPanel Margin="0">
                     <Label Content="Drawing Type:" VerticalAlignment="Top" Height="26" Style="{DynamicResource bitzLabel}"/>
-                    <ComboBox x:Name="comboDrawingType" Style="{DynamicResource bitzComboBox}" SelectedValuePath="content" Text="{Binding drawingType}" MaxDropDownHeight="128">
+                    <ComboBox x:Name="comboDrawingType" Style="{DynamicResource bitzComboBox}" SelectedValuePath="content" Text="{Binding UserDataContext.EntryInfo.drawingType}" MaxDropDownHeight="128">
                         <ComboBoxItem Content="Head-Shot"/>
                         <ComboBoxItem Content="Bust"/>
                         <ComboBoxItem Content="Paw-Focus"/>
@@ -82,7 +82,7 @@
             <GroupBox Header="" HorizontalAlignment="Center" Height="79" VerticalAlignment="Top" Width="164" BorderThickness="0,1" Style="{DynamicResource bitzGroupBox}" ScrollViewer.VerticalScrollBarVisibility="Disabled" Margin="0,10">
                 <StackPanel Margin="0">
                     <Label Content="Drawing Render:" VerticalAlignment="Top" Height="26" Style="{DynamicResource bitzLabel}"/>
-                    <ComboBox x:Name="comboDrawingRender" Style="{DynamicResource bitzComboBox}" SelectedValuePath="content" Text="{Binding drawingRender}" MaxDropDownHeight="128">
+                    <ComboBox x:Name="comboDrawingRender" Style="{DynamicResource bitzComboBox}" SelectedValuePath="content" Text="{Binding UserDataContext.EntryInfo.drawingRender}" MaxDropDownHeight="128">
                         <ComboBoxItem Content="Cut-Out"/>
                         <ComboBoxItem Content="Sketch"/>
                         <ComboBoxItem Content="Line-Art"/>
@@ -102,7 +102,7 @@
             <GroupBox Header="" HorizontalAlignment="Center" Height="79" VerticalAlignment="Top" Width="164" BorderThickness="0,1" Style="{DynamicResource bitzGroupBox}" ScrollViewer.VerticalScrollBarVisibility="Disabled" Margin="0,10">
                 <StackPanel Margin="0">
                     <Label Content="Drawing Size:" VerticalAlignment="Top" Height="26" Style="{DynamicResource bitzLabel}"/>
-                    <ComboBox x:Name="comboDrawingSize" Style="{DynamicResource bitzComboBox}" SelectedValuePath="content" Text="{Binding drawingSize}" MaxDropDownHeight="64">
+                    <ComboBox x:Name="comboDrawingSize" Style="{DynamicResource bitzComboBox}" SelectedValuePath="content" Text="{Binding UserDataContext.EntryInfo.drawingSize}" MaxDropDownHeight="64">
                         <ComboBoxItem Content="A0"/>
                         <ComboBoxItem Content="A1"/>
                         <ComboBoxItem Content="A2"/>
@@ -136,13 +136,13 @@
             <GroupBox Header="" HorizontalAlignment="Left" Height="79" Margin="0,10" VerticalAlignment="Top" Width="164" BorderThickness="0,1" Style="{DynamicResource bitzGroupBox}" ScrollViewer.VerticalScrollBarVisibility="Disabled">
                 <StackPanel Margin="0">
                     <Label Content="Recipient's Name:" VerticalAlignment="Top" Height="26" Style="{DynamicResource bitzLabel}"/>
-                    <TextBox x:Name="txtUserName" TextWrapping="Wrap" Text="{Binding userName}" VerticalAlignment="Bottom" Margin="0" Style="{DynamicResource bitzTextBox}" Height="22"/>
+                    <TextBox x:Name="txtUserName" TextWrapping="Wrap" Text="{Binding UserDataContext.EntryInfo.userName}" VerticalAlignment="Bottom" Margin="0" Style="{DynamicResource bitzTextBox}" Height="22"/>
                 </StackPanel>
             </GroupBox>
             <GroupBox Header="" HorizontalAlignment="Left" Height="79" VerticalAlignment="Top" Width="164" BorderThickness="0,1" Style="{DynamicResource bitzGroupBox}" ScrollViewer.VerticalScrollBarVisibility="Disabled" Margin="0,10">
                 <StackPanel Margin="0">
                     <Label Content="Target Platform:" VerticalAlignment="Top" Height="26" Style="{DynamicResource bitzLabel}"/>
-                    <ComboBox x:Name="comboTargetPlatform" Style="{DynamicResource bitzComboBox}" SelectedValuePath="content" Text="{Binding targetPlatform}" MaxDropDownHeight="128" SelectionChanged="newTargetPlatformSelected">
+                    <ComboBox x:Name="comboTargetPlatform" Style="{DynamicResource bitzComboBox}" SelectedValuePath="content" Text="{Binding UserDataContext.EntryInfo.targetPlatform}" MaxDropDownHeight="128" SelectionChanged="newTargetPlatformSelected">
                         <ComboBoxItem Content="Amino"/>
                         <ComboBoxItem Content="Amino-Art"/>
                         <ComboBoxItem Content="Amino-Furry"/>

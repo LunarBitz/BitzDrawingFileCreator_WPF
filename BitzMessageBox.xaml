@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:BitzDrawingFileCreator_WPF"
         mc:Ignorable="d"
         Title="BitzMessageBox" Height="auto" Width="256" Closing="Window_Closing" x:Name="winHelp"
-        Background="{Binding theme_Menu_Background_Primary}"
+        Background="{Binding UserDataContext.ThemeInfo.theme_Menu_Background_Primary}"
         WindowStartupLocation="CenterOwner"
         ResizeMode="NoResize"
         FontFamily="Arial"
@@ -49,18 +49,18 @@
     </Window.Triggers>
 
     <DockPanel Name="dpTitleBar" VerticalAlignment="Top">
-        <TextBlock Name="txtbTitle" Text="Title" DockPanel.Dock="Top" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="{Binding theme_SubMenu_Background}" Foreground="{Binding theme_Text_Primary}" FontFamily="Arial" FontWeight="DemiBold" Height="24" Padding="5"/>
-        <StackPanel Name="stkpnlMessageBody" DockPanel.Dock="Bottom" Background="{Binding theme_Menu_Background_Primary}" Height="Auto">
-            <Grid Background="{Binding theme_Menu_Background_Primary}" Width="Auto" Height="Auto">
+        <TextBlock Name="txtbTitle" Text="Title" DockPanel.Dock="Top" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="{Binding UserDataContext.ThemeInfo.theme_SubMenu_Background}" Foreground="{Binding UserDataContext.ThemeInfo.theme_Text_Primary}" FontFamily="Arial" FontWeight="DemiBold" Height="24" Padding="5"/>
+        <StackPanel Name="stkpnlMessageBody" DockPanel.Dock="Bottom" Background="{Binding UserDataContext.ThemeInfo.theme_Menu_Background_Primary}" Height="Auto">
+            <Grid Background="{Binding UserDataContext.ThemeInfo.theme_Menu_Background_Primary}" Width="Auto" Height="Auto">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Name="txtbMessage" Text="Messgae" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Stretch" Background="{Binding theme_Menu_Background_Primary}" Foreground="{Binding theme_Text_Secondary}" FontFamily="Arial" FontWeight="Normal" Height="Auto" Width="254" Padding="5" Margin="0,10,0,20" TextWrapping="Wrap"/>
+                <TextBlock Name="txtbMessage" Text="Messgae" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Stretch" Background="{Binding UserDataContext.ThemeInfo.theme_Menu_Background_Primary}" Foreground="{Binding UserDataContext.ThemeInfo.theme_Text_Secondary}" FontFamily="Arial" FontWeight="Normal" Height="Auto" Width="254" Padding="5" Margin="0,10,0,20" TextWrapping="Wrap"/>
 
             </Grid>
-            <Grid Background="{Binding theme_Menu_Background_Primary}" VerticalAlignment="Bottom" Margin="5" Width="Auto" Height="Auto" HorizontalAlignment="Center">
+            <Grid Background="{Binding UserDataContext.ThemeInfo.theme_Menu_Background_Primary}" VerticalAlignment="Bottom" Margin="5" Width="Auto" Height="Auto" HorizontalAlignment="Center">
 
                 <Button Name="btnConfirm" Content="Okay" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontFamily="Arial" FontWeight="Normal" Height="24" MinWidth ="48" Width="Auto" Padding="10,0" Click="btnConfirm_Click" Style="{DynamicResource bitzButton}"/>
             </Grid>

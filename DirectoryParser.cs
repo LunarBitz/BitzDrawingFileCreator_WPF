@@ -74,27 +74,27 @@ namespace BitzDrawingFileCreator_WPF
 
         private string _Drawing_Product_Get()
         {
-            return MainWindow.publicDataContext.drawingProduct;
+            return MainWindow.publicDataContext.EntryInfo.drawingProduct;
         }
 
         private string _Drawing_Render_Get()
         {
-            return MainWindow.publicDataContext.drawingRender;
+            return MainWindow.publicDataContext.EntryInfo.drawingRender;
         }
 
         private string _Drawing_Type_Get()
         {
-            return MainWindow.publicDataContext.drawingType;
+            return MainWindow.publicDataContext.EntryInfo.drawingType;
         }
 
         private string _Target_Platform_Get()
         {
-            return MainWindow.publicDataContext.targetPlatform;
+            return MainWindow.publicDataContext.EntryInfo.targetPlatform;
         }
 
         private string _User_Name_Get()
         {
-            return MainWindow.publicDataContext.userName;
+            return MainWindow.publicDataContext.EntryInfo.userName;
         }
 
         public string _Date_Get()

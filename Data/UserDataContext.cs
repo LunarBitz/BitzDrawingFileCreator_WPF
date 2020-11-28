@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace BitzDrawingFileCreator_WPF.Data
 {
-    class UserDataContext
+    public class UserDataContext
     {
+        public UserInfo UserInfo { get; set; }
+        public ThemeInfo ThemeInfo { get; set; }
+        public EntryInfo EntryInfo { get; set; }
     }
 }

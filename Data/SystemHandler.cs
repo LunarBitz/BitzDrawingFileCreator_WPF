@@ -132,7 +132,6 @@ namespace BitzDrawingFileCreator_WPF.Data
             sr.Serialize(writer, obj);
             writer.Close();
         }
-
         public static object read_data(object obj, string filename)
         {
             XmlSerializer sr = new XmlSerializer(obj.GetType());
@@ -149,6 +148,30 @@ namespace BitzDrawingFileCreator_WPF.Data
 
             return returnValue;
 
+        }
+
+        public static object TryGetSave(object obj, string filename, string fallbackCommand = "", object owner = null)
+        {
+            object returnValue = null;
+            if (File.Exists(filename))
+            {
+                returnValue = read_data(obj, filename);
+            }
+            else
+            {
+                if (owner != null)
+                {
+                    System.Reflection.MethodInfo tagMethod = owner.GetType().GetMethod(fallbackCommand, System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+
+                    if (tagMethod != null)
+                        tagMethod.Invoke(owner, null);
+                }
+
+                save_data(obj, filename);
+                returnValue = read_data(obj, filename);
+            }
+
+            return returnValue;
         }
     }
 }

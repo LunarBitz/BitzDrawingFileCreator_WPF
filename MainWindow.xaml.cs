@@ -28,6 +28,7 @@ namespace BitzDrawingFileCreator_WPF
     {
 
         #region Variables
+        private bool initiateTheme = false;
         public static UserDataContext publicDataContext;
         public static TrelloHandler trelloClass;
 
@@ -67,25 +68,18 @@ namespace BitzDrawingFileCreator_WPF
         {
             InitializeComponent();
 
-            DirectoryParser.folderFormat = "$ROOT|$Drawing_Product~s\\$Target_Platform\\$User_Name\\[$Date]\\";
-            DirectoryParser.fileNameFormat = "[$Date] [$User_Name] [$Target_Platform] [$Drawing_Product] [$Characters] [$Drawing_Type] [$Drawing_Render] [PROJECT] [A]";
-
+            // Initialize the necessary variables
             Height = 510;
             Width = 872;
-            var tmpData = new EntryInfo();
-            /*
-            if (File.Exists("UserSettings.xml"))
-                publicDataContext = (EntryInfo)SystemHandler.read_data(tmpData, "UserSettings.xml");
-            else
-                SystemHandler.save_data(new EntryInfo(), "UserSettings.xml");
-                publicDataContext = (EntryInfo)SystemHandler.read_data(tmpData, "UserSettings.xml");
-            */
+
             publicDataContext = new UserDataContext();
-            publicDataContext.EntryInfo = new EntryInfo();
-            publicDataContext.UserInfo = new UserInfo();
-            publicDataContext.ThemeInfo = new ThemeInfo();
+            publicDataContext.EntryInfo = (EntryInfo)SystemHandler.TryGetSave(new EntryInfo(), "BackupEntries.xml");
+            publicDataContext.UserInfo = (UserInfo)SystemHandler.TryGetSave(new UserInfo(), "UserSettings.xml");
+            publicDataContext.ThemeInfo = (ThemeInfo)SystemHandler.TryGetSave(new ThemeInfo(), "ThemeSettings.xml", "raiseNoThemeFlag", this);
             DataContext = publicDataContext;
 
+            if (initiateTheme)
+                initThemeColors();
 
             trelloClass = new TrelloHandler();
 
@@ -101,13 +95,19 @@ namespace BitzDrawingFileCreator_WPF
             addSubMenu(submenupanel_Settings);
 
             // Default the theme and menu
-            clearVolatiles();
-            initThemeColors();
+            //clearVolatiles();
+            
             hideSubMenus();
 
-            // Load inital page to sub view
+            // Load initial page to sub view
             activePage = new PageMain();
             frameMainView.Navigate(activePage);
+        }
+
+        #region Helper Functions
+        private void raiseNoThemeFlag()
+        {
+            initiateTheme = true;
         }
 
         private void clearVolatiles()
@@ -201,6 +201,8 @@ namespace BitzDrawingFileCreator_WPF
                 return 0d;
         }
 
+        #endregion
+
         #region UI Methods
 
         private void addSubMenu(StackPanel subMenu)
@@ -291,11 +293,6 @@ namespace BitzDrawingFileCreator_WPF
 
             menuStories[baseName] = new Storyboard();
             dataSubPanelsInfo[baseName + "_Hidden"] = setHidden;
-        }
-
-        private void openChildForm(Window childWindow)
-        {
-            //
         }
 
         #endregion
@@ -451,7 +448,9 @@ namespace BitzDrawingFileCreator_WPF
 
         private void window_closed(object sender, EventArgs e)
         {
-            //SystemHandler.save_data(DataContext, "UserSettings.xml");
+            //SystemHandler.save_data(publicDataContext.EntryInfo, "BackupEntries.xml");
+            SystemHandler.save_data(publicDataContext.UserInfo, "UserSettings.xml");
+            SystemHandler.save_data(publicDataContext.ThemeInfo, "ThemeSettings.xml");
         }
     }
 }

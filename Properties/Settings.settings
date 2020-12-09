@@ -1,7 +1,12 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="BitzDrawingFileCreator_WPF.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Trello_Token" Type="System.String" Scope="User">
+      <Value Profile="(Default)">TOKEN</Value>
+    </Setting>
+    <Setting Name="Trello_API_Key" Type="System.String" Scope="User">
+      <Value Profile="(Default)">APP</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>

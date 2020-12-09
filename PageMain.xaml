@@ -1,0 +1,183 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BitzDrawingFileCreator_WPF"
+      xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2" x:Class="BitzDrawingFileCreator_WPF.PageMain"
+      mc:Ignorable="d" 
+      d:DesignHeight="640" d:DesignWidth="480"
+      Title="PageMain" Width="640" Height="480">
+
+    <Grid>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="29,283,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" Style="{DynamicResource bitzButton}"/>
+        <StackPanel HorizontalAlignment="Left" Margin="217,37,0,0" VerticalAlignment="Top">
+            <StackPanel Orientation="Horizontal" AutomationProperties.HelpText="hh"/>
+            <StackPanel Orientation="Horizontal"/>
+            <StackPanel Orientation="Horizontal"/>
+            <StackPanel Orientation="Horizontal" Margin="10,0"/>
+            <Grid Margin="10,0"/>
+            <StackPanel Orientation="Horizontal" Margin="10,0">
+                <StackPanel Width="98">
+                    <Label Content="Name" VerticalAlignment="Top" Height="26" Margin="0" Style="{DynamicResource bitzLabel}"/>
+                    <TextBox x:Name="txtCharacterName" TextWrapping="Wrap" Text="{Binding EntryInfo.characterName}" VerticalAlignment="Bottom" Margin="0,0,5,0" Style="{DynamicResource bitzTextBox}" Height="22"/>
+                    <Button x:Name="btnAddCharacter_Copy" Content="Add" Margin="0,5,5,0" Style="{DynamicResource bitzButton}" Click="btnAddCharacter_Copy_Click"/>
+                </StackPanel>
+                <StackPanel Width="98" Margin="0">
+                    <Label Content="Species" VerticalAlignment="Top" Height="26" Margin="0" HorizontalContentAlignment="Right" Style="{DynamicResource bitzLabel}"/>
+                    <TextBox x:Name="txtCharacterSpecies" TextWrapping="Wrap" Text="{Binding EntryInfo.characterSpecies}" VerticalAlignment="Bottom" Margin="5,0,0,0" Style="{DynamicResource bitzTextBox}" HorizontalContentAlignment="Right" Height="22"/>
+                    <Button x:Name="btnDeleteCharacter" Content="Delete" Margin="5,5,0,0" Style="{DynamicResource bitzButton}" Click="btnDeleteCharacter_Click"/>
+                </StackPanel>
+            </StackPanel>
+            <ListBox x:Name="listboxCharacters" Height="170" Margin="10,5,10,10" Width="196" Style="{DynamicResource bitzListBox}"/>
+        </StackPanel>
+        <TextBox x:Name="txtDrawingDescription" Text="{Binding EntryInfo.drawingDescription}" HorizontalAlignment="Left" Height="128" Margin="10,325,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="413" AcceptsReturn="True" Style="{DynamicResource bitzTextBox}"/>
+        <StackPanel Margin="0,10,10,10" HorizontalAlignment="Right">
+            <GroupBox Header="" HorizontalAlignment="Center" Height="79" VerticalAlignment="Center" Width="164" BorderThickness="0,1" Style="{DynamicResource bitzGroupBox}" ScrollViewer.VerticalScrollBarVisibility="Disabled" Margin="0,10">
+                <StackPanel Margin="0">
+                    <Label Content="Drawing Product:" VerticalAlignment="Top" Height="26" Style="{DynamicResource bitzLabel}"/>
+                    <ComboBox x:Name="comboDrawingProduct" Style="{DynamicResource bitzComboBox}" SelectedValuePath="content" Text="{Binding EntryInfo.drawingProduct}" MaxDropDownHeight="128">
+                        <ComboBoxItem Content="Commission"/>
+                        <ComboBoxItem Content="Trade"/>
+                        <ComboBoxItem Content="Personal"/>
+                        <ComboBoxItem Content="Gift"/>
+                        <ComboBoxItem Content="Fan-Art"/>
+                        <ComboBoxItem Content="DTIYS"/>
+                        <ComboBoxItem Content="YCH"/>
+                        <ComboBoxItem Content="Vent"/>
+                        <ComboBoxItem Content="Touch-Up"/>
+                        <ComboBoxItem Content="Glow-Up"/>
+                        <ComboBoxItem Content="Obligation"/>
+                    </ComboBox>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Header="" HorizontalAlignment="Center" Height="79" VerticalAlignment="Top" Width="164" BorderThickness="0,1" Style="{DynamicResource bitzGroupBox}" ScrollViewer.VerticalScrollBarVisibility="Disabled" Margin="0,10">
+                <StackPanel Margin="0">
+                    <Label Content="Drawing Type:" VerticalAlignment="Top" Height="26" Style="{DynamicResource bitzLabel}"/>
+                    <ComboBox x:Name="comboDrawingType" Style="{DynamicResource bitzComboBox}" SelectedValuePath="content" Text="{Binding EntryInfo.drawingType}" MaxDropDownHeight="128">
+                        <ComboBoxItem Content="Head-Shot"/>
+                        <ComboBoxItem Content="Bust"/>
+                        <ComboBoxItem Content="Paw-Focus"/>
+                        <ComboBoxItem Content="Body-Focus"/>
+                        <ComboBoxItem Content="Tail-Focus"/>
+                        <ComboBoxItem Content="Ear-Focus"/>
+                        <ComboBoxItem Content="Half-Body-(Top)"/>
+                        <ComboBoxItem Content="Half-Body-(Bottom}"/>
+                        <ComboBoxItem Content="Full-Body"/>
+                        <ComboBoxItem Content="Ref-Sheet"/>
+                        <ComboBoxItem Content="Animation"/>
+                        <ComboBoxItem Content="Comic"/>
+                        <ComboBoxItem Content="Icon"/>
+                        <ComboBoxItem Content="Animatic"/>
+                        <ComboBoxItem Content="Animated-Icon"/>
+                        <ComboBoxItem Content="Animated-Banner"/>
+                        <ComboBoxItem Content="Banner"/>
+                        <ComboBoxItem Content="Background"/>
+                        <ComboBoxItem Content="Wallpaper"/>
+                        <ComboBoxItem Content="Emote"/>
+                        <ComboBoxItem Content="Group"/>
+                    </ComboBox>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Header="" HorizontalAlignment="Center" Height="79" VerticalAlignment="Top" Width="164" BorderThickness="0,1" Style="{DynamicResource bitzGroupBox}" ScrollViewer.VerticalScrollBarVisibility="Disabled" Margin="0,10">
+                <StackPanel Margin="0">
+                    <Label Content="Drawing Render:" VerticalAlignment="Top" Height="26" Style="{DynamicResource bitzLabel}"/>
+                    <ComboBox x:Name="comboDrawingRender" Style="{DynamicResource bitzComboBox}" SelectedValuePath="content" Text="{Binding EntryInfo.drawingRender}" MaxDropDownHeight="128">
+                        <ComboBoxItem Content="Cut-Out"/>
+                        <ComboBoxItem Content="Sketch"/>
+                        <ComboBoxItem Content="Line-Art"/>
+                        <ComboBoxItem Content="Flat"/>
+                        <ComboBoxItem Content="Cel"/>
+                        <ComboBoxItem Content="Rendered"/>
+                        <ComboBoxItem Content="3D"/>
+                        <ComboBoxItem Content="VR-Chat"/>
+                        <ComboBoxItem Content="Pop"/>
+                        <ComboBoxItem Content="Mono-Color"/>
+                        <ComboBoxItem Content="Mono-Grayscale"/>
+                        <ComboBoxItem Content="Conceptual"/>
+                        <ComboBoxItem Content="Painting"/>
+                    </ComboBox>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Header="" HorizontalAlignment="Center" Height="79" VerticalAlignment="Top" Width="164" BorderThickness="0,1" Style="{DynamicResource bitzGroupBox}" ScrollViewer.VerticalScrollBarVisibility="Disabled" Margin="0,10">
+                <StackPanel Margin="0">
+                    <Label Content="Drawing Size:" VerticalAlignment="Top" Height="26" Style="{DynamicResource bitzLabel}"/>
+                    <ComboBox x:Name="comboDrawingSize" Style="{DynamicResource bitzComboBox}" SelectedValuePath="content" Text="{Binding EntryInfo.drawingSize}" MaxDropDownHeight="64">
+                        <ComboBoxItem Content="A0"/>
+                        <ComboBoxItem Content="A1"/>
+                        <ComboBoxItem Content="A2"/>
+                        <ComboBoxItem Content="A3"/>
+                        <ComboBoxItem Content="A4"/>
+                        <ComboBoxItem Content="A5"/>
+                        <ComboBoxItem Content="A6"/>
+                        <ComboBoxItem Content="A7"/>
+                        <ComboBoxItem Content="A8"/>
+                        <ComboBoxItem Content="B0"/>
+                        <ComboBoxItem Content="B1"/>
+                        <ComboBoxItem Content="B2"/>
+                        <ComboBoxItem Content="B3"/>
+                        <ComboBoxItem Content="B4"/>
+                        <ComboBoxItem Content="B5"/>
+                        <ComboBoxItem Content="B6"/>
+                        <ComboBoxItem Content="B7"/>
+                        <ComboBoxItem Content="B8"/>
+                        <ComboBoxItem Content="B9"/>
+                        <ComboBoxItem Content="B10"/>
+                        <ComboBoxItem Content="C2"/>
+                        <ComboBoxItem Content="C3"/>
+                        <ComboBoxItem Content="C4"/>
+                        <ComboBoxItem Content="C5"/>
+                        <ComboBoxItem Content="C6"/>
+                    </ComboBox>
+                </StackPanel>
+            </GroupBox>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Margin="10,10,0,10">
+            <GroupBox Header="" HorizontalAlignment="Left" Height="79" Margin="0,10" VerticalAlignment="Top" Width="164" BorderThickness="0,1" Style="{DynamicResource bitzGroupBox}" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                <StackPanel Margin="0">
+                    <Label Content="Recipient's Name:" VerticalAlignment="Top" Height="26" Style="{DynamicResource bitzLabel}"/>
+                    <TextBox x:Name="txtUserName" TextWrapping="Wrap" Text="{Binding EntryInfo.userName}" VerticalAlignment="Bottom" Margin="0" Style="{DynamicResource bitzTextBox}" Height="22"/>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Header="" HorizontalAlignment="Left" Height="79" VerticalAlignment="Top" Width="164" BorderThickness="0,1" Style="{DynamicResource bitzGroupBox}" ScrollViewer.VerticalScrollBarVisibility="Disabled" Margin="0,10">
+                <StackPanel Margin="0">
+                    <Label Content="Target Platform:" VerticalAlignment="Top" Height="26" Style="{DynamicResource bitzLabel}"/>
+                    <ComboBox x:Name="comboTargetPlatform" Style="{DynamicResource bitzComboBox}" SelectedValuePath="content" Text="{Binding EntryInfo.targetPlatform}" MaxDropDownHeight="128" SelectionChanged="newTargetPlatformSelected">
+                        <ComboBoxItem Content="Amino"/>
+                        <ComboBoxItem Content="Amino-Art"/>
+                        <ComboBoxItem Content="Amino-Furry"/>
+                        <ComboBoxItem Content="Amino-NITW"/>
+                        <ComboBoxItem Content="Aryion"/>
+                        <ComboBoxItem Content="DeviantArt"/>
+                        <ComboBoxItem Content="Discord"/>
+                        <ComboBoxItem Content="Email"/>
+                        <ComboBoxItem Content="FurAffinity"/>
+                        <ComboBoxItem Content="Furiffic"/>
+                        <ComboBoxItem Content="FurryLife"/>
+                        <ComboBoxItem Content="FurryNetwork"/>
+                        <ComboBoxItem Content="InkBunny"/>
+                        <ComboBoxItem Content="Instagram"/>
+                        <ComboBoxItem Content="Ko-Fi"/>
+                        <ComboBoxItem Content="Mastadon"/>
+                        <ComboBoxItem Content="My-Character"/>
+                        <ComboBoxItem Content="My-Fursona"/>
+                        <ComboBoxItem Content="My-YCH"/>
+                        <ComboBoxItem Content="NewTumbl"/>
+                        <ComboBoxItem Content="Patreon"/>
+                        <ComboBoxItem Content="PicartoTV"/>
+                        <ComboBoxItem Content="Piczel"/>
+                        <ComboBoxItem Content="Pillowfort"/>
+                        <ComboBoxItem Content="SoFurry"/>
+                        <ComboBoxItem Content="Telegram"/>
+                        <ComboBoxItem Content="Tumblr"/>
+                        <ComboBoxItem Content="Twitter"/>
+                        <ComboBoxItem Content="Weasyl"/>
+                        <ComboBoxItem Content="Youtube"/>
+                        <ComboBoxItem Content="-NEW ENTRY-"/>
+                    </ComboBox>
+                </StackPanel>
+            </GroupBox>
+        </StackPanel>
+
+    </Grid>
+</Page>
